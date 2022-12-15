@@ -39,5 +39,14 @@ markdown_extensions:
  
 nav:
   - Home: index.md
+  - Teoria:
+    - Introduzione: teoria/00_intro.md
+  - Rete:
+    - Introduzione: rete/00_intro.md
+  - Trasporto:
+    - Introduzione: trasporto/00_intro.md
+  - Superiore:
+    - Introduzione: superiore/00_intro.md
+  - About: about.md
 
 

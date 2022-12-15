@@ -1,17 +1,58 @@
-# Welcome to MkDocs
+---
+hide:
+  - navigation
+  - toc
+---
+<style>
+.w3-row:after,.w3-row:before{content:"";display:table;clear:both}
+.w3-half{float:left;width:100%;}
+@media (min-width:601px){.w3-half{width:49.99999%}}
+</style>
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+<body>
+<!-- style="background: #4051b5; background:linear-gradient(#4051b5 0%, #4051b5 20%, #C4D5F9 100%);"> -->
 
-## Commands
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<section class="">
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+<div>
+<h1 style="font-weight:bold">Corso di Reti</h1>
+<p>Le dispense per le lezioni di informatica del prof...</p>
+<br>
+<a href="/rete/00_intro" class="md-button md-button--primary">Rete!</a>
+<a href="/trasporto/00_intro" class="md-button">Trasporto!</a>
+</div>
 
-## Project layout
+</section>
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<section class="">
+
+<div class="w3-row">
+
+<div class="w3-half" style="padding:0 20px 0 0">
+<h3>Introduzione</h3>
+<p>Il modello OSI e la suite Internet. Le organizzazione internazionali che gestiscono Internet. Cenni alla storia delle reti.</p>
+</div>
+
+<div class="w3-half" style="padding:0 0 0 20px">
+<h3>Livello di rete</h3>
+<p>Protocolli, strumenti e concetti del livello di rete della Suite Internet. Esperienze di laboratorio.</p>
+</div>
+
+<div class="w3-half" style="padding:0 20px 0 0">
+<h3>Livello di trasporto</h3>
+<p>Protocolli, strumenti e concetti del livello di trasporto della Suite Internet. Esperienze di laboratorio.</p>
+</div>
+
+<div class="w3-half" style="padding:0 0 0 20px">
+<h3>Livello superiore</h3>
+<p>Protocolli, strumenti e concetti del livello superiore della Suite Internet. Esperienze di laboratorio.</p>
+</div>
+
+</div>
+
+</section>
+
+</body>
+
