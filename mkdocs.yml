@@ -8,6 +8,7 @@ theme:
   name: material
   palette:
     primary: teal
+    accent: green
   font:
     text: Roboto
     code: Roboto Mono
