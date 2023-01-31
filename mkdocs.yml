@@ -48,8 +48,10 @@ nav:
   - Home: index.md
   - Teoria:
     - Introduzione: teoria/00_intro.md
+    - Il Modello OSI: teoria/01_OSI.md
   - Rete:
     - Introduzione: rete/00_intro.md
+    - IPv4: rete/01_IPv4.md
   - Trasporto:
     - Introduzione: trasporto/00_intro.md
   - Superiore:
