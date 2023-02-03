@@ -1,3 +1,0 @@
-# Introduzione
-
-blah blah...

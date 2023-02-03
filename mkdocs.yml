@@ -47,8 +47,9 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Teoria:
-    - Introduzione: teoria/00_intro.md
     - Il Modello OSI: teoria/01_OSI.md
+    - Implementazioni Reali: teoria/02_suites.md
+    - Gestione e Sviluppo di Internet: teoria/03_assoc.md
   - Rete:
     - Introduzione: rete/00_intro.md
     - IPv4: rete/01_IPv4.md
