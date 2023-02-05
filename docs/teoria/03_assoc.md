@@ -38,7 +38,7 @@ obsoleto dai successivi 777, 791 ( **IPv4** ), aggiornato da 792, 1349, 2474 e n
 2460 ( **IPv6** ) e così via... Non pensavate a tanto fermento dietro ad un solo protocollo eh?
 
 Tutti gli RFC sono pubblicati in ASCII (No Word, No Pdf, No immagini, solo testo semplice!!!) sul sito
-IETF. Diamo un occhio al “famoso” [RFC 791](https://tools.ietf.org/html/rfc).
+IETF. Diamo un occhio al *famoso* [RFC 791](https://www.rfc-editor.org/rfc/rfc791).
 
 La seconda associazione che entra in gioco si chiama **IEEE** , una associazione americana senza scopo
 di lucro che raduna scienziati professionisti riconosciuti a livello internazionale e che si prefigge
