@@ -64,35 +64,8 @@ con lo sviluppo teorico del modello OSI, ma questo non ha minato la possibilità
 facce opposte della stessa medaglia.
 
 
-**(tabella) Confronto fra modello OSI e stack TCP/IP**
+![Confronto fra OSI e TCP/IP](images/OSI_vs_TCPIP.png)
 
-```
-Livello OSI Livello TCP/IP Protocolli TCP/IP
-```
-```
-Applicazione
-```
-```
-Presentazione Superiore HTTP, SMTP, DHCP, DNS, etc...
-```
-```
-Sessione
-```
-```
-Trasporto Trasporto TCP, UDP
-```
-```
-Rete Rete
-```
-```
-IP
-ICMP, ARP
-RIP, OSPF
-BGP
-Data Link
-Inferiore Ethernet, PPP, ...
-Fisico
-```
 
 ## Lo svilppo dei protocolli dello Stack TCP/IP
 

@@ -1,11 +1,5 @@
 # Il Modello OSI
 
-mancano le immagini
-
-manca la tabella
-
-manca... il quiz alla fine!!!
-
 
 Il **modello OSI** , acronimo di **Open Systems Interconnection** , è un modello per le architetture di rete,
 organizzato in 7 livelli e stabilito nel 1978 dalla **ISO** , organizzazione internazionale per gli standard.
@@ -37,10 +31,12 @@ l'implementazione e come linea guida per le interconnessioni.
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-## Il modello OSI
+## Struttura e livelli OSI
 
 Il modello OSI è strutturato in sette livelli, ciascuno dei quali implementa uno specifico compito del
 modello, identificato tramite uno specifico protocollo di comunicazione.
+
+<img style="float: right" alt="Incapsulamento" src="/teoria/images/OSI_incapsulamento.png">
 
 Dati due nodi A e B, sui quali immagineremo esserci due software pronti a comunicare tra loro, il
 modello OSI stabilisce una procedura di elaborazione dei dati in transito fra i due nodi.
@@ -51,7 +47,7 @@ sistema e semplicità di implementazione e re-implementazione.
 
 Elaborati i dati, essi vengono dunque passati al livello successivo, che li tratterà a sua volta,
 aggiungendovi eventualmente opportune informazioni relative al compito del livello in
-questione e “colloquiando” con il livello corrispondente.
+questione e *colloquiando* con il livello corrispondente.
 
 Questa tecnica di gestione dei dati viene definita **incapsulamento** ed è una caratteristica alla base 
 della formulazione del modello OSI stesso.
@@ -60,35 +56,39 @@ Vediamo una descrizione puntuale dei livelli del modello OSI. La descrizione par
 poiché si immagina una comunicazione che parte da una applicazione attiva nell’host A che ha volontà
 di comunicare con un’altra nell’host B.
 
----
+<br>
+<br>
 
-**Livello 7: Applicazione**
+**<div style="background:#FFFF88">Livello 7: Applicazione</div>**
 
 Il livello di applicazione é il livello più alto del modello OSI. Nella teoria del modello dunque, è quello
 progettato per fornire un **_insieme di interfacce comuni alle applicazioni_** , che permetta alle stesse di
 comprendere come utilizzare i servizi della rete quali ad esempio il collegamento, il trasferimento file,
 la gestione dello scambio di messaggi, l’elaborazione delle richieste.
 
---- 
+<br>
+<br>
 
-**Livello 6: Presentazione**
+**<div style="background:#FFFF88">Livello 6: Presentazione</div>**
 
 Il livello di presentazione si occupa del **_formato dei dati_** per la comunicazione lungo la rete. In
 particolare si occupa di uniformare le trasmissioni, codificando i dati da inviare in codice ASCII. Il
 livello di presentazione, oltre a fornire un sistema di codifica unico (condiviso) per tutte le trasmissioni,
 effettua, se possibile, anche una **_compressione_** per ridurre il volume dei dati da trasmettere.
 
----
+<br>
+<br>
 
-**Livello 5: Sessione**
+**<div style="background:#FFFF88">Livello 5: Sessione</div>**
 
 Il livello di sessione permette che due parti gestiscano una **_conversazione_** in corso, che viene appunto
 definita **_sessione_**. Il corretto funzionamento di questo livello implica che le parti possano scambiarsi
 dati fra di loro per tutta la durata della sessione.
 
----
+<br>
+<br>
 
-**Livello 4: Trasporto**
+**<div style="background:#FFFF88">Livello 4: Trasporto</div>**
 
 L’obiettivo è quello di permettere un trasferimento di dati trasparente e, se necessario, affidabile
 (implementando anche un controllo degli errori e delle perdite) tra due nodi.
@@ -100,9 +100,10 @@ Si occupa inoltre di effettuare la frammentazione dei dati provenienti dal livel
 detti **_segmenti_** e trasmetterli in modo efficiente usando il livello rete ed isolando da questo i livelli
 superiori.
 
----
+<br>
+<br>
 
-**Livello 3: Rete**
+**<div style="background:#FFFF88">Livello 3: Rete</div>**
 
 Questo livello è uno dei più importanti nella comunicazione poiché si occupa di stabilire il percorso per
 andare dal mittente al destinatario: questo processo viene definito **_routing_**.
@@ -116,9 +117,10 @@ contemporaneamente.
 
 La sua unità dati fondamentale è il **_pacchetto_**.
 
----
+<br>
+<br>
 
-**Livello 2: Collegamento Dati**
+**<div style="background:#FFFF88">Livello 2: Collegamento Dati</div>**
 
 Questo livello si occupa di **_trasformare i dati da inviare_** da informazioni digitali a segnali adatti al
 livello fisico presente (cavo, wifi, etc.). Tipicamente questi pacchetti vengono definiti **_frame_** , provvisti
@@ -128,9 +130,10 @@ Questo livello si occupa anche di **_controllare il flusso di dati_**: se il mit
 destinatario, regola la frequenza di invio dei pacchetti per permettere al destinatario di non
 sovraccaricarsi di dati e perdere parte del carico.
 
----
+<br>
+<br>
 
-**Livello 1: fisico**
+**<div style="background:#FFFF88">Livello 1: fisico</div>**
 
 Il livello fisico si occupa di controllare l’hardware, i cablaggi e tutte le strutture materiali che
 implementano la rete e i dispositivi che permettono la connessione.
@@ -142,4 +145,6 @@ In questo livello si decidono, tra le altre cose:
 - L'eventuale trasmissione simultanea in due direzioni
 - La forma e la meccanica dei connettori usati per collegare l'hardware al mezzo trasmissivo
 
+<br>
+<br>
 
