@@ -79,8 +79,10 @@ nav:
   - Rete:
     - Introduzione: rete/00_intro.md
     - IPv4: rete/01_IPv4.md
+    - Protocolli di rete: rete/10_network.md
   - Trasporto:
     - Introduzione: trasporto/00_intro.md
+    - Livello di Trasporto: trasporto/10_trasporto.md
   - Superiore:
     - Introduzione: superiore/00_intro.md
   - About: about.md
