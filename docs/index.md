@@ -29,30 +29,30 @@ hide:
 
 <div class="w3-row">
 
-<div class="w3-half" style="padding:0 20px 0 0">
-<a href="teoria/01_OSI/" class="md-button md-button--primary" style="width:230px">Teoria delle reti</a>
-<p>Il modello OSI e la suite Internet. Le organizzazione internazionali che gestiscono Internet. Cenni alla storia delle reti.</p>
+<div class="w3-half" style="padding:0 10px">
+<a href="teoria/01_OSI/" class="md-button md-button--primary" style="width:250px">Teoria delle reti</a>
+<p>Il modello OSI e la suite Internet. Le organizzazioni che gestiscono Internet. Cenni alla storia delle reti.</p>
 <br>
 <br>
 </div>
 
-<div class="w3-half" style="padding:0 0 0 20px">
-<a href="rete/00_intro/" class="md-button" style="width:230px">Livello di rete</a>
+<div class="w3-half" style="padding:0 10px">
+<a href="InternetSuite/00_intro/" class="md-button" style="width:250px">La Suite Internet</a>
 <p>Protocolli, strumenti e concetti del livello di rete della Suite Internet. Esperienze di laboratorio.</p>
 <br>
 <br>
 </div>
 
-<div class="w3-half" style="padding:0 20px 0 0">
-<a href="trasporto/00_intro/" class="md-button" style="width:230px">Livello di trasporto</a>
+<div class="w3-half" style="padding:0 10px">
+<a href="protocolli/00_intro/" class="md-button" style="width:250px">Protocolli Internet</a>
 <p>Protocolli, strumenti e concetti del livello di trasporto della Suite Internet. Esperienze di laboratorio.</p>
 <br>
 <br>
 </div>
 
-<div class="w3-half" style="padding:0 0 0 20px">
-<a href="superiore/00_intro/" class="md-button" style="width:230px">Livello Superiore</a>
-<p>Protocolli, strumenti e concetti del livello superiore della Suite Internet. Esperienze di laboratorio.</p>
+<div class="w3-half" style="padding:0 10px">
+<a href="laboratorio/00_intro/" class="md-button" style="width:250px">Laboratorio</a>
+<p>Materiale, software, tools, esperienze di laboratorio di reti. Da fare a scuola o a casa.</p>
 <br>
 <br>
 </div>

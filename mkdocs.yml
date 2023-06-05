@@ -76,15 +76,15 @@ nav:
     - Il Modello OSI: teoria/01_OSI.md
     - Implementazioni Reali: teoria/02_suites.md
     - Gestione e Sviluppo di Internet: teoria/03_assoc.md
-  - Rete:
-    - Introduzione: rete/00_intro.md
-    - IPv4: rete/01_IPv4.md
-    - Protocolli di rete: rete/10_network.md
-  - Trasporto:
-    - Introduzione: trasporto/00_intro.md
-    - Livello di Trasporto: trasporto/10_trasporto.md
-  - Superiore:
-    - Introduzione: superiore/00_intro.md
-  - About: about.md
-
+  - La Suite Internet:
+    - Introduzione: InternetSuite/00_intro.md
+    - Livello Superiore: InternetSuite/10_superiore.md
+    - Livello di Trasporto: InternetSuite/20_trasporto.md
+    - Livello di Rete: InternetSuite/30_network.md
+    - Livello Inferiore: InternetSuite/40_inferiore.md
+  - Protocolli Internet:
+    - Introduzione: protocolli/00_intro.md
+    - IPv4: protocolli/01_IPv4.md
+  - Laboratorio:
+    - Introduzione: laboratorio/00_intro.md
 
