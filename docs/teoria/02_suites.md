@@ -1,7 +1,8 @@
 # Implementazioni reali
 
 
-blah blah
+Vedremo in questo capitolo le informazioni di base sulle implementazioni di reti aderenti al modello OSI e la (breve) storia che ha 
+portato una a primeggiare sulle altre.
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -13,7 +14,7 @@ capire bene cosa si intende con queste nuove terminologie:
 
 !!! note Protocollo di rete
 
-    Un **_protocollo_** _è un insieme di regole utilizzate per favorire la comunicazione tra due o più entità. 
+    Un **_protocollo_** è un insieme di regole utilizzate per favorire la comunicazione tra due o più entità. 
     Ovviamente nel caso specifico di un **_protocollo di rete_**, queste regole andranno a definire le modalità di
     interazioni fra due o più dispositivi.
 
@@ -23,24 +24,24 @@ Presentiamo qui le più famose suite di protocolli di rete che possono essere de
 implementazioni pratiche del modello OSI.
 
 
-## blah blah
+## Suite di rete
 
-- TCP/IP Originariamente caratteristica dei sistemi UNIX
+- `TCP/IP`; originariamente caratteristica dei sistemi UNIX
 
     - In grado di gestire il routing: adatta anche per reti geografiche.
     - Robusta (nei livelli inferiori) e flessibile (nei livelli superiori)
 
-- IPX/SPX Tipica dei sistemi XEROX e Novell NetWare
+- `IPX/SPX`; tipica dei sistemi XEROX e Novell NetWare
 
     - Ottimizzata per reti locali/domestiche
     - Distingue a livello di rete client e server
 
-- NetBEUI Tipica dei sistemi Microsoft (prima dell'adozione di TCP/IP con Win98SE)
+- `NetBEUI`; tipica dei sistemi Microsoft (prima dell'adozione di TCP/IP con Win98SE)
 
     - Utilizza i nomi NETBIOS (molto limitati)
     - Non adatta al routing (inutilizzabile su reti geografiche)
 
-- AppleTalk Tipica dei sistemi Apple (pre Mac OS X)
+- `AppleTalk`; tipica dei sistemi Apple (pre Mac OS X)
 
     - Progettata per reti locali e servizi specifici (trasferimento file, supporto multiclient avanzato)
     - Utilizza un servizio di naming basato su broadcast

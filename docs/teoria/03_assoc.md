@@ -1,6 +1,6 @@
 # Gestione e Sviluppo di Internet
 
-blah blah
+Due parole sulle associazioni che gestiscono la rete Internet così come la conosciamo.
 
 
 ## Lo svilppo dei protocolli dello Stack TCP/IP
