@@ -59,7 +59,7 @@ di comunicare con un’altra nell’host B.
 <br>
 <br>
 
-**<div style="background:#FFFF88">Livello 7: Applicazione</div>**
+**<div style="background:#FFFF88; font-size:1.1rem;">Livello 7: Applicazione</div>**
 
 Il livello di applicazione é il livello più alto del modello OSI. Nella teoria del modello dunque, è quello
 progettato per fornire un **_insieme di interfacce comuni alle applicazioni_** , che permetta alle stesse di
@@ -69,7 +69,7 @@ la gestione dello scambio di messaggi, l’elaborazione delle richieste.
 <br>
 <br>
 
-**<div style="background:#FFFF88">Livello 6: Presentazione</div>**
+**<div style="background:#FFFF88; font-size:1.1rem;">Livello 6: Presentazione</div>**
 
 Il livello di presentazione si occupa del **_formato dei dati_** per la comunicazione lungo la rete. In
 particolare si occupa di uniformare le trasmissioni, codificando i dati da inviare in codice ASCII. Il
@@ -79,7 +79,7 @@ effettua, se possibile, anche una **_compressione_** per ridurre il volume dei d
 <br>
 <br>
 
-**<div style="background:#FFFF88">Livello 5: Sessione</div>**
+**<div style="background:#FFFF88; font-size:1.1rem;">Livello 5: Sessione</div>**
 
 Il livello di sessione permette che due parti gestiscano una **_conversazione_** in corso, che viene appunto
 definita **_sessione_**. Il corretto funzionamento di questo livello implica che le parti possano scambiarsi
@@ -88,7 +88,7 @@ dati fra di loro per tutta la durata della sessione.
 <br>
 <br>
 
-**<div style="background:#FFFF88">Livello 4: Trasporto</div>**
+**<div style="background:#FFFF88; font-size:1.1rem;">Livello 4: Trasporto</div>**
 
 L’obiettivo è quello di permettere un trasferimento di dati trasparente e, se necessario, affidabile
 (implementando anche un controllo degli errori e delle perdite) tra due nodi.
@@ -103,7 +103,7 @@ superiori.
 <br>
 <br>
 
-**<div style="background:#FFFF88">Livello 3: Rete</div>**
+**<div style="background:#FFFF88; font-size:1.1rem;">Livello 3: Rete</div>**
 
 Questo livello è uno dei più importanti nella comunicazione poiché si occupa di stabilire il percorso per
 andare dal mittente al destinatario: questo processo viene definito **_routing_**.
@@ -120,7 +120,7 @@ La sua unità dati fondamentale è il **_pacchetto_**.
 <br>
 <br>
 
-**<div style="background:#FFFF88">Livello 2: Collegamento Dati</div>**
+**<div style="background:#FFFF88; font-size:1.1rem;">Livello 2: Collegamento Dati</div>**
 
 Questo livello si occupa di **_trasformare i dati da inviare_** da informazioni digitali a segnali adatti al
 livello fisico presente (cavo, wifi, etc.). Tipicamente questi pacchetti vengono definiti **_frame_** , provvisti
@@ -133,7 +133,7 @@ sovraccaricarsi di dati e perdere parte del carico.
 <br>
 <br>
 
-**<div style="background:#FFFF88">Livello 1: fisico</div>**
+**<div style="background:#FFFF88; font-size:1.1rem;">Livello 1: fisico</div>**
 
 Il livello fisico si occupa di controllare l’hardware, i cablaggi e tutte le strutture materiali che
 implementano la rete e i dispositivi che permettono la connessione.

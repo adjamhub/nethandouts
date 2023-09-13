@@ -9,74 +9,60 @@ disegno sottostante: prende i dati dal livello applicazione, li divide
 in pacchetti, vi aggiunge un'intestazione e li passa al sottostante
 livello di rete.
 
-![](segmentation.png)
 
-Il livello di trasporto, analogamente a quello di rete,
-offre servizi connessi o non connessi e affidabili o non affidabili e
-gestisce i dati separandoli in unità chiamate ***TPDU*** (Transport Data
-Protocol Unit).
+<img style="width: 100%" alt="Segmentazione" src="../images/segmentation.png">
 
-A livello di trasporto, i termini connessione e affidabilità
-significano:
-
-1.  ***connessione:***
-
-    Un servizio si dice connesso (a livello di trasporto) quando si
-    preoccupa di stabilire una comunicazione con il destinatario
-    preventiva all'invio reale dei dati.
-
-2.  ***Affidabilità:***
-
-    Un servizio si dice affidabile (a livello di trasporto) quando si
-    preoccupa di rinviare al destinatario ogni pacchetto che non gli è
-    arrivato (o che gli è arrivato corrotto).
-
-Nel caso di servizio non connesso e non affidabile, il livello si
-preoccupa solo di togliere l'intestazione dalle TDPU in arrivo,
-ricostruire il dato originale e consegnarlo al livello superiore che lo
-richiedeva, come scritto nelle intestazioni. Non c'è controllo sulla
-perdita o mancanza di dati.
-
-Nel caso di servizi di trasporto connessi e affidabili, il livello
-garantisce che i pacchetti arrivino tutti a destinazione, numera i
-pacchetti alla partenza e li riordina all'arrivo; in caso di pacchetti
-corrotti o mancanti si preoccupa di richiedere al mittente un nuovo
-invio di dati.
 
 La Suite Internet offre a livello di trasporto due protocolli:
 
--   **TCP** (Transmission Control Protocol) connesso e affidabile
--   **UDP** (User Datagram Protocol) non connesso e non affidabile
+- **TCP** (Transmission Control Protocol) connesso e affidabile
+- **UDP** (User Datagram Protocol) non connesso e non affidabile
 
-Ognuno di questi fornisce il proprio servizio in maniera analoga per
-quanto riguarda l'interfaccia verso i livelli superiori, utilizzando le
-primitive sopra descritte.
+<br>
 
-Ma perché due protocolli?
+A livello di trasporto, i termini connessione e affidabilità significano:
 
-TCP è connesso e affidabile. Controlla la presenza del destinatario
-prima di inviare i dati veri e propri e si assicura che tutti i dati
-arrivino a destinazione. In caso di pacchetti corrotti o mancanti
-provvede a inviarli di nuovo. Quando tutti i pacchetti sono arrivati li
-riordina e li riunisce.
+1.  ***connessione:***
 
-Alcune applicazioni, come ad esempio quelle per inviare mail o files,
-hanno bisogno di essere sicure che i loro dati arrivino tutti a
-destinazione e possono accettare piccoli rallentamenti nel trasporto.
+    Un servizio si dice connesso (a livello di trasporto) quando si preoccupa di stabilire una comunicazione 
+    con il destinatario preventiva all'invio reale dei dati.
 
-Queste applicazioni scelgono TCP.
+2.  ***Affidabilità:***
 
-UDP è non connesso e non affidabile. Non controlla se il server di
-destinazione è presente, non si interessa se i dati arrivano o meno a
-destinazione e non li riordina all'arrivo, ma li passa man mano al
-livello superiore.
+    Un servizio si dice affidabile (a livello di trasporto) quando si preoccupa di rinviare al destinatario 
+    ogni pacchetto che non gli è arrivato (o che gli è arrivato corrotto).
 
-Alcune applicazioni, ad esempio quelle di video e audio streaming,
-gestiscono i dati in maniera che anche con piccoli "buchi" o "errori"
-essi siano fruibili; preferiscono "scartare" alcune parti del dato pur
-di proseguire nella trasmissione e non necessitano di un riordinamento.
 
-*Queste applicazioni scelgono UDP*.
+Un servizio di trasporto connesso e affidabile si preoccupa di stabilire una comunicazione preventiva con il destinatario.
+Se questi è disponibile, invia i pacchetti numerandoli alla partenza e riordinandoli all'arrivo; in caso di pacchetti
+corrotti o mancanti si preoccupa di richiedere al mittente un nuovo invio di dati, assicurando un arrivo completo degli stessi,
+oppure una dichiarata impossibilità a ricevere i dati.
+
+Un servizio di trasporto non connesso e non affidabile inizia subito l'invio dei pacchetti nell'ordine in cui essi sono arrivati dal livello precedente.
+All'arrivo scarta semplicemente i pacchetti corrotti, senza richiedere alcun reinvio, toglie l'intestazione del livello di trasporto 
+e passa il dato al livello superiore.
+
+
+!!! note "Perché due protocolli?"
+
+    **TCP è connesso e affidabile.**
+
+    Alcune applicazioni, come ad esempio quelle per inviare mail o files,
+    hanno bisogno di essere sicure che i loro dati arrivino tutti a
+    destinazione e possono accettare piccoli rallentamenti nel trasporto.
+
+    Queste applicazioni scelgono TCP.
+
+    <br>
+    
+    **UDP è non connesso e non affidabile.**
+
+    Alcune applicazioni, ad esempio quelle di video e audio streaming,
+    gestiscono i dati in maniera che anche con piccoli "buchi" o "errori"
+    essi siano fruibili; preferiscono "scartare" alcune parti del dato pur
+    di proseguire nella trasmissione e non necessitano di un riordinamento.
+
+    Queste applicazioni scelgono UDP.
 
 
 
@@ -123,7 +109,7 @@ Flussi di dati distinti diretti verso la stessa macchina sono
 caratterizzati da porte diverse.
 
 > Una connessione tra due dispositivi, a livello di trasporto, viene univocamente identificata dalle coppie:
->  
+> 
 > 1.  "indirizzo IP : porta" del mittente
 > 2.  "indirizzo IP : porta" del destinatario
 
@@ -185,73 +171,60 @@ servizi registrati e delle relative porte utilizzate. A questo scopo,
 nel suddetto documento, lo spazio delle 65536 porte UDP e TCP è stato
 suddiviso in tre parti:
 
-1.  Porte Note (da 0 a 1023)
 
-    L'accesso a queste porte è riservato a servizi con privilegi
-    amministrativi. Sono porte assegnate univocamente ai servizi
-    standard dei protocolli superiori, quindi ogni protocollo del
-    livello superiore che si rispetti ha in questo gruppo la porta del
-    suo server.
+1. **Porte Note (da 0 a 1023)**
 
-2.  Porte Registrate (da 1024 a 49151)
+    L'accesso a queste porte è riservato a servizi con privilegi amministrativi.<br>
+    Tipicamente ogni protocollo del livello superiore ha la sua porta più conosciuta (quella del server) in questo gruppo.
+    
+    
+2. **Porte Registrate (da 1024 a 49151)**
 
-    []{#anchor}L'accesso a queste porte è libero per l'utilizzo da parte
-    di chiunque. Questo gruppo è dedicato all'utilizzo dei servizi che
-    non richiedono privilegi amministrativi. Tutti i protocolli del
-    livello superiore (gli stessi che hanno anche una porta nota) hanno
-    almeno una porta registrata in questo gruppo, così che sia possibile
-    eseguire il relativo servizio ANCHE SENZA privilegi amministrativi
-    (per motivi di test, di sviluppo o altro).
-
-    Vi sono inoltre registrati tutti quei servizi che non necessitano di
-    privilegi amministrativi, come i servizi p2p o i servizi di
+    L'accesso a queste porte è libero per l'utilizzo da parte di chiunque. <br>
+    Di solito, ogni protocollo del livello superiore ha una porta per il server in questo gruppo, in modo che chiunque possa eseguire
+    un server *senza* privilegi amministrativi, ad esempio per motivi di test, di sviluppo, etc.
+    
+    Vi sono inoltre registrati tutti quei servizi che non necessitano di privilegi amministrativi, come i servizi p2p o i servizi di
     condivisione utente per file e stampanti.
 
-    Ultima tipologia di porte registrate in questa area sono quei client
-    di cui, per necessità del protocollo, è necessario conoscere a
+    Ultima tipologia di porte registrate in questa area sono quei client di cui, per necessità del protocollo, è necessario conoscere a
     priori la porta utilizzata.
 
-3.  Porte Dinamiche (da 49152 a 65535)
 
-    L'accesso a queste porte è libero per l'utilizzo da parte di
-    chiunque e nessuna di esse può essere registrata per uno scopo
-    particolare. In questo gruppo tipicamente i client scelgono la loro
-    porta da utilizzare per il socket necessario alla connessione.
+3. **Porte Dinamiche (da 49152 a 65535)**
 
-    Nell'improbabile caso della saturazione di questo gruppo sono
-    comunque utilizzabili anche le porte del secondo gruppo rimaster
-    libere.
+    L'accesso a queste porte è libero per l'utilizzo da parte di chiunque e nessuna di esse può essere registrata per uno scopo
+    particolare. <br>
+    In questo gruppo tipicamente i client scelgono la loro porta da utilizzare per il socket necessario alla connessione.
+    Nell'improbabile caso della saturazione di questo gruppo sono comunque utilizzabili anche le porte del secondo gruppo rimaste libere.
 
-L'elenco completo delle porte assegnate può essere reperito nel
-documento pubblicato da IANA al seguente indirizzo web
+L'elenco completo delle porte assegnate può essere reperito nel documento pubblicato da IANA al seguente indirizzo web
 (<http://www.iana.org/assignments/port-numbers>).
 
-Nella tabella seguente elenco le porte utilizzate dai protocolli più
-comuni.
+Nella tabella seguente elenco le porte utilizzate dai protocolli più comuni.
 
 Ovviamente dovrete impararle tutte!
 
 (in realtà, le studieremo 2 o 3 alla volta parlando del relativo
 protocollo)
 
-  ---------------------------- ------
-  DHCP server (BOOTP)          67
-  DHCP client (BOOTP)          68
-                               
-  DNS                          53
-  DNS over TLS                 853
-                               
-  HTTP                         80
-  HTTP (porta registrata)      8080
-  HTTP over TLS (HTTPS)        443
-                               
-  SMTP                         25
-  SMTP over TLS (SUBMISSION)   587
-  POP                          110
-  POP over TLS                 995
-  IMAP                         143
-  IMAP over TLS                993
-  ---------------------------- ------
+| Protocollo                 | Porta |
+|----------------------------|-------|
+| DHCP server (BOOTP)        |    67 |
+| DHCP client (BOOTP)        |    68 |
+| DNS                        |    53 |
+| DNS over TLS               |   853 |
+| HTTP                       |    80 |
+| HTTP (porta registrata)    |  8080 |
+| HTTP over TLS (HTTPS)      |   443 |
+| SMTP                       |    25 |
+| SMTP over TLS (SUBMISSION) |   587 |
+| POP                        |   110 |
+| POP over TLS               |   995 |
+| IMAP                       |   143 |
+| IMAP over TLS              |   993 |
+
+
 
 ## Qualità del Servizio
 
@@ -275,7 +248,7 @@ ritardo di mezzo secondo, allora sì che la gente se ne accorge: una tale
 trasmissione dovrà richiedere il più alto livello di qualità del
 servizio!
 
-![Cisco Community: Gestione QoS](QoS.png)
+![Cisco Community: Gestione QoS](images/QoS.png)
 
 
 ## Il protocollo TCP
@@ -297,43 +270,17 @@ TCP riceve un flusso di dati da una applicazione e lo divide in TPDU
 grandi solitamente 1500 byte, ma comunque non più di 64 Kb e li passa
 poi al livello di rete, di cui utilizza sempre il protocollo IP.
 
-L'intestazione del pacchetto TCP è di 20 byte, organizzati nel modo
-seguente:
+L'intestazione del pacchetto TCP è di 20 byte, organizzati nel modo seguente:
 
-+------------------+------------------+---------------+-------------+
-| Porta mittente   | Porta            |               |             |
-|                  | destinatario     |               |             |
-| (2 byte)         |                  |               |             |
-|                  | (2 byte)         |               |             |
-+------------------+------------------+---------------+-------------+
-| Sequence Number  |                  |               |             |
-| (***SYN***)      |                  |               |             |
-|                  |                  |               |             |
-| (4 byte)         |                  |               |             |
-+------------------+------------------+---------------+-------------+
-| Acknowledgment   |                  |               |             |
-| Number           |                  |               |             |
-| (***ACK***)      |                  |               |             |
-|                  |                  |               |             |
-| (4 byte)         |                  |               |             |
-+------------------+------------------+---------------+-------------+
-| Lunghezza header | (vuoto)          | flag di stato | Window size |
-|                  |                  |               |             |
-| (4bit)           | (4 bit)          | (8 bit)       | (2 byte)    |
-+------------------+------------------+---------------+-------------+
-| CRC              | Urgent Pointer   |               |             |
-|                  |                  |               |             |
-| (2 byte)         | (2 byte)         |               |             |
-+------------------+------------------+---------------+-------------+
+
+![TCP Header](../images/TCP_Header.png)
+
 
 Dove specifichiamo i campi più importanti:
 
--   la porta mittente e destinatario sono le porte logiche TCP del
-    mittente e del destinatario
--   Gli 8 flag (bit) di stato servono per indicare informazioni come i
-    pacchetti ***SYN, ACK, FIN***.
--   Il CRC (cyclic redundancy check) serve a verificare se il pacchetto
-    è corrotto oppure no.
+-   la porta mittente e destinatario sono le porte logiche TCP del mittente e del destinatario
+-   Gli 8 flag (bit) di stato servono per indicare informazioni come i pacchetti ***SYN, ACK, FIN***.
+-   Il CRC (cyclic redundancy check) serve a verificare se il pacchetto è corrotto oppure no.
 
 
 
@@ -345,10 +292,10 @@ presenza e la raggiungibilità del destinatario prima di iniziare
 l'invio vero e proprio dei dati.
 
 
-![3 way handshake](3_way_handshake.jpg)
+<img style="float: right" alt="3 way handshake" src="../images/3_way_handshake.webp">
 
 
-Passo 1
+**Passo 1**
 
 Il client invia una richiesta di connessione in un pacchetto denominato
 SYN, contenente un identificativo A.
@@ -362,7 +309,7 @@ Il SYN è il pacchetto di sincronizzazione, contenente un identificativo
 B; l'ACK è la conferma (acknoledgement) del SYN sopraggiunto, contenente
 l'identificativo A + 1.
 
-Passo 3
+**Passo 3**
 
 Se il client riceve il pacchetto SYN+ACK dal server, per lui la
 connessione è aperta. Invia inoltre un pacchetto ACK di conferma
@@ -371,18 +318,17 @@ contenente l'identificativo B + 1.
 Se il server riceve questa ulteriore informazione apre anch'esso la
 connessione con il client.
 
+<br>
+
 La chiusura di una connessione avviene in genere anch'essa con il
 metodo "***three way handshake***". Per concordare una chiusura:
 
-una stazione manda un segnale di chiusura e fa partire un timer (passo
-1);
+una stazione manda un segnale di chiusura e fa partire un timer (passo 1);
 
-la seconda quando riceve il segnale invia una conferma e chiude la
-connessione (passo 2).
+la seconda quando riceve il segnale invia una conferma e chiude la connessione (passo 2).
 
-Se la conferma arriva a destinazione, la prima stazione chiude la
-connessione, altrimenti lo fa comunque allo scadere del tempo
-cronometrato dal timer.
+Se la conferma arriva a destinazione, la prima stazione chiude la connessione, 
+altrimenti lo fa comunque allo scadere del tempo cronometrato dal timer.
 
 Questa differenza di comportamento fra apertura e chiusura si esplicita
 nell'uso dei pacchetti: SYN e ACK per l'apertura, FYN e ACK per la
@@ -403,7 +349,8 @@ connessione inviando ad intervalli regolari dei pacchetti vuoti
 (*dummy*), che appunto hanno l'unico scopo di mantenere viva la
 connessione.
 
-# Il protocollo UDP
+
+## Il protocollo UDP
 
 Il protocollo UDP è uno dei primi protocolli della suite Internet
 progettati. Il documento [**RFC 768**](https://tools.ietf.org/html/rfc768) che lo definisce è stato reso
@@ -422,11 +369,8 @@ alle trasmissioni in broadcast e multicast.
 
 L'intestazione dei datagrammi UDP ha il seguente formato:
 
-+----------------+--------------------+--------------------+----------+
-| Porta mittente | Porta destinatario | Lunghezza segmento | CRC      |
-|                |                    |                    |          |
-| (2 byte)       | (2 byte)           | (2 byte)           | (2 byte) |
-+----------------+--------------------+--------------------+----------+
+![UDP Header](../images/UDP_Header.png)
+
 
 UDP fornisce soltanto i servizi essenziali del livello di trasporto:
 

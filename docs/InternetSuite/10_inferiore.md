@@ -91,7 +91,7 @@ locali: la topologia a bus, ad anello, a stella.
 
 **Topologia a bus**
 
-![](topology_bus.jpg)
+![](images/topology_bus.jpg)
 
 Questa topologia è di gran lunga la più semplice e la
 più utilizzata in passato. Tutti i dispositivi facenti parte della rete
@@ -111,7 +111,7 @@ rete diviene completamente inutilizzabile.
 
 **Topologia ad anello**
 
-![](topology_ring.jpg)
+![](images/topology_ring.jpg)
 
 Quando ogni dispositivo è connesso direttamente al
 successivo in linea fino a chiudere un circolo, si parla di topologia ad
@@ -140,7 +140,7 @@ ne hanno limitato incredibilmente lo sviluppo su larga scala.
 
 **Topologia a stella**
 
-![](topology_star.jpg)
+![](images/topology_star.jpg)
 
 La seguente topologia viene considerata la più robusta,
 fra quelle esistenti e questo motivo ha fatto anche la sua fortuna,
@@ -160,7 +160,7 @@ utilizzate per collegare computer, o più in generale dispositivi, a
 grande distanza: ad esempio Internet è una WAN a estensione mondiale ad
 accesso più o meno libero.
 
-![](topology_caz.jpg)
+![](images/topology_caz.jpg)
 
 Poiché computer e reti possono essere
 dislocati più o meno in qualsiasi posizione, la topologia

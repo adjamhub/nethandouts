@@ -78,10 +78,10 @@ nav:
     - Gestione e Sviluppo di Internet: teoria/03_assoc.md
   - La Suite Internet:
     - Introduzione: InternetSuite/00_intro.md
-    - Livello Superiore: InternetSuite/10_superiore.md
-    - Livello di Trasporto: InternetSuite/20_trasporto.md
+    - Livello Inferiore: InternetSuite/10_inferiore.md
     - Livello di Rete: InternetSuite/30_network.md
-    - Livello Inferiore: InternetSuite/40_inferiore.md
+    - Livello di Trasporto: InternetSuite/40_trasporto.md
+    - Livello Superiore: InternetSuite/70_superiore.md
   - Protocolli Internet:
     - Introduzione: protocolli/00_intro.md
     - IPv4: protocolli/01_IPv4.md

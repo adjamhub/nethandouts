@@ -318,7 +318,7 @@ entità amministrative locali come **Sistemi Autonomi** (AS), ovvero
 gruppi di router e reti sotto il controllo di una singola e ben definita
 autorità amministrativa.
 
-![Sistema Autonomo](routing_esterno.png)
+![Sistema Autonomo](images/routing_esterno.png)
 
 Ogni Sistema Autonomo sulla rete Internet è identificato da un numero a 16 bit (**ASN, AS number**).
 
@@ -424,7 +424,7 @@ resto è considerato esterno al Sistema Autonomo. Allora la tabella di
 routing del router indicato come R1 sarà così:
 
 
-![](AS.jpg)
+![](images/AS.jpg)
 
 
   ---------- ----------- -----------
