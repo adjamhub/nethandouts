@@ -36,7 +36,7 @@ l'implementazione e come linea guida per le interconnessioni.
 Il modello OSI è strutturato in sette livelli, ciascuno dei quali implementa uno specifico compito del
 modello, identificato tramite uno specifico protocollo di comunicazione.
 
-<img style="float: right" alt="Incapsulamento" src="/teoria/images/OSI_incapsulamento.png">
+<img style="float: right" alt="Incapsulamento" src="../images/OSI_incapsulamento.png">
 
 Dati due nodi A e B, sui quali immagineremo esserci due software pronti a comunicare tra loro, il
 modello OSI stabilisce una procedura di elaborazione dei dati in transito fra i due nodi.
