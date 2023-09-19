@@ -55,15 +55,18 @@ regola per gestire tutto lo stack di rete era solo una: **TCP/IP**.
 
 ## Internet Protocol Suite (TCP/IP)
 
-La suite di protocolli TCP/IP è un insieme di protocolli di rete che implementa la pila di protocolli su
-cui funziona Internet. Sebbene il suo nome più corretto sarebbe **_Internet Protocol Suite_** , il nome
-TCP/IP ha preso ormai piede dovuto alla grande importanza dei suoi due protocolli più rappresentativi:
-TCP e IP.
+La `Internet Protocol Suite` è un insieme di protocolli di rete che implementa la pila di protocolli su cui funziona Internet. 
 
-Storicamente la sua implementazione è venuta come risposta ad un problema pratico, in forte contrasto
-con lo sviluppo teorico del modello OSI, ma questo non ha minato la possibilità di confrontarli come
-facce opposte della stessa medaglia.
+Se la cercate in rete o nella letteratura attuale, la troverete nominata in vari modi: **_Internet Protocol Suite_**, o più semplicemente **_Suite Internet__**, 
+o addirittura con il nomignolo **_TCP/IP_**, che deriva dalla grande importanza storica 
+dei suoi due protocolli più rappresentativi: TCP e IP.
 
+La necessità di implementare realmente i livelli descritti ha portato ad una semplificazione di alcune parti del modello OSI, come si desume dalla figura seguente:
 
 ![Confronto fra OSI e TCP/IP](images/OSI_vs_TCPIP.png)
 
+Come vedremo, le implementazioni dei livelli superiori sono affidate al *software* (e quindi vanno insieme!). Livello di trasporto e di rete hanno i compiti più gravosi
+e quindi rimangono da soli: i compiti del livello di trasporto sono affidati al *Sistema Operativo*, quelli del livello di rete al cosiddetto *firmware* (driver, router, etc),
+infine quelli del livello inferiore all'*hardware*!!!
+
+Semplice e schematico :smile:
