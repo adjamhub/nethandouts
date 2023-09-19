@@ -38,14 +38,14 @@ hide:
 
 <div class="w3-half" style="padding:0 10px">
 <a href="InternetSuite/00_intro/" class="md-button" style="width:250px">La Suite Internet</a>
-<p>Protocolli, strumenti e concetti del livello di rete della Suite Internet. Esperienze di laboratorio.</p>
+<p>Schematizzazione dei compiti dei livelli della Suite Internet. Applicazioni ed Esperienze di laboratorio.</p>
 <br>
 <br>
 </div>
 
 <div class="w3-half" style="padding:0 10px">
 <a href="protocolli/00_intro/" class="md-button" style="width:250px">Protocolli Internet</a>
-<p>Protocolli, strumenti e concetti del livello di trasporto della Suite Internet. Esperienze di laboratorio.</p>
+<p>Protocolli, strumenti e implementazioni dei livelli della Suite Internet. Applicazioni Reali.</p>
 <br>
 <br>
 </div>

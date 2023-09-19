@@ -273,7 +273,7 @@ poi al livello di rete, di cui utilizza sempre il protocollo IP.
 L'intestazione del pacchetto TCP è di 20 byte, organizzati nel modo seguente:
 
 
-![TCP Header](../images/TCP_Header.png)
+![TCP Header](images/TCP_Header.png)
 
 
 Dove specifichiamo i campi più importanti:
@@ -369,7 +369,7 @@ alle trasmissioni in broadcast e multicast.
 
 L'intestazione dei datagrammi UDP ha il seguente formato:
 
-![UDP Header](../images/UDP_Header.png)
+![UDP Header](images/UDP_Header.png)
 
 
 UDP fornisce soltanto i servizi essenziali del livello di trasporto:
