@@ -1,97 +1,92 @@
 # Livello Inferiore
 
-DA SISTEMARE
-
-Il livello inferiore rappresenta il primo livello dello stack TCP/IP,
-che lo rende in grado di accedere a qualunque tipo di rete, dispositivo,
-mezzo trasmissivo. Il suo scopo primario è appunto quello di
-implementare la trasmissione in tutti i sistemi fisici di comunicazione
-conosciuti, rendendo trasparente al livello superiore (che per lui
-sarebbe il livello di rete) il passaggio dei pacchetti.
-
-Poiché i protocolli del livello inferiore sono strettamente connessi con
-la realizzazione dei dispositivi che li andranno a implementare a
-livello hardware, gran parte delle specifiche qui sono state
-implementate da aziende, ingegneri e associazioni di questi, tra cui la
-famosa IEEE.
-
-IEEE ([http://www.ieee.org](http://www.ieee.org/)), acronimo di
-***Institute of Electrical and Electronic Engineers***, è una
-associazione internazionale di scienziati, ingegneri e professionisti,
-con l'obiettivo della promozione scientifica e tecnologica. Dal 1963 ad
-oggi, IEEE ha definito oltre 1000 standard industriali e pubblicato,
-sotto la sua egida, oltre il 30% della bibliografia e documentazione
-ingegneristica globale.
-
-Le specifiche che riguardano il livello inferiore sono state pubblicate
-nel 1980 dalla commissione denominata ***IEEE 802***, da cui prendono il
-nome. I lavori della suddetta commissione erano preposti a sviluppare
-standard per le reti "locali" e "metropolitane". La commissione ha
-stabilito numerose specifiche, che si stanno evolvendo nel tempo, di cui
-ricordiamo le principali:
-
-Aggiungine qualcuna
-
-  -------- --------------------------------------------------
-  802.3    Ethernet: connettori e cavi di rete
-  802.11   Wireless LAN
-  802.15   Personal Area Network (Bluetooth, IrDA, etc...)
-  802.16   WiMAX
-  -------- --------------------------------------------------
-
-ORGANIZZAZIONE IN DUE LIVELLI: 1 e 2 COME CON WIRESHARK SPIEGA E DIVIDI
-
-IN UNA PAGINA!!!
 
 Il livello inferiore della suite TCP/IP si occupa essenzialmente delle
 seguenti operazioni:
 
-  ---------------------------------------------------------------------- --
-  trasformazione dei dati digitali da inviare in frame fisici separati   
-  controllo degli errori di trasmissione                                 
-  controllo di flusso dei dati                                           
-  ---------------------------------------------------------------------- --
+- trasformazione dei dati digitali da inviare in frame fisici separati
+- controllo degli errori di trasmissione
+- controllo di flusso dei dati
 
+
+Come abbiamo già visto, molte delle specifiche in utilizzo nel livello sono appannaggio di IEEE ([http://www.ieee.org](http://www.ieee.org/)).
+
+In particolare, le specifiche che riguardano il livello inferiore sono state pubblicate
+nel 1980 dalla commissione denominata ***IEEE 802***, da cui prendono il
+nome. 
+
+La specifica IEEE 802 non è una specifica chiusa, ma piuttosto in continua evoluzione, sia per i lavori dei sottogruppi,
+sia per l'eventuale aggiunta di nuove parti alla stessa.
+
+Vediamo le specifiche principali:
+
+| Specifica | Descrizione                                      |
+|-----------|--------------------------------------------------|
+| 802.3     | Ethernet: connettori e cavi di rete              |
+| 802.5     | Token Ring: specifica per le reti ad anello      |
+| 802.11    | Wireless LAN                                     | 
+| 802.15    | Personal Area Network (Bluetooth, IrDA, etc...)  |
+| 802.16    | WiMAX                                            |
+
+!!! tip "Fibra Ottica"
+
+    Se cercate la fibra ottica senza trovarla, sappiate che è inserita nella specifica **IEEE 802.3**, a seguito
+    di uno dei tanti ampliamenti della stessa!
+    
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 ## Tipologie di rete
 
-SCRIVERE
+In base alla grandezza (geografica) e al raggio d’azione è possibile distinguere diverse dimensioni di rete. 
+Tra le più importanti tipologie di rete troviamo:
 
-Devi parlare di tipologie (server based e p2p) e di LAN. MAN, WAN.
+- Personal Area Network (PAN)
+- Local Area Network (LAN)
+- Metropolitan Area Network (MAN)
+- Wide Area Network (WAN)
 
-SOTTO è TUTTO OK!!!
 
-### Struttura fisica delle reti
+Poiché i nomi delle diverse tipologie sono abbastanza autoesplicativi, lascio come compito quello di provare ad elencare i possibili dispositivi
+presenti in ognuna delle tipologie elencate e lo scopo che questa si prefigge.
 
-Studiando una rete qualsiasi (dalla rete Internet alla rete domestica,
-passando per la rete scolastica o quella di qualsiasi azienda)
-incapperemo regolarmente in una serie di dispositivi, organizzati
-spazialmente e gerarchicamente in una topologia particolare, collegati
+Ogni elemento di una rete viene definito un `Host`; quegli elementi della rete che si occupano dello smistamento dei dati prendono anche il nome di `Nodi` della rete.
+
+Oltre alla classificazione per dimensione, le tipologie di rete sono classificabili anche in base all'architettura di funzionamento.
+
+Per descrivere queste tipologie dobbiamo introdurre due nuovi termini:
+
+- `Server`: componente software presente in un host in grado di rendere disponibile una risorsa.
+
+- `Client`: componente software presente in un host in grado di accedere alla risorse rese disponibili dai server.
+
+Da qui abbiamo due diverse tipologie di rete:
+
+- Rete `Client-Server`: tipologia di rete in cui è presente uno o più server in grado di rendere disponibili le risorse a cui tutti gli altri host (i client) accedono.
+
+- Rete `p2p (Peer-to-Peer)`: tipologia di rete composta da `pari` ossia da dispositivi in cui sono presenti contemporaneamente componenti server e client.
+
+
+Sembra ovvio notare come le reti Client-Server siano di più semplice organizzazione e tali per cui si possa concentrare gli sforzi e le risorse sui pochi server presenti.
+Questo accentramento in uno o pochi host della rete delle risorse rappresenta però anche il punto di debolezza di tali reti. Le reti p2p sono invece naturalmente 
+decentralizzate e scalabili, ma offrono poca sicurezza dovuta anche alla esigua capacità di controllo della stessa.
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+## Topologie di rete 
+
+
+Studiando una rete qualsiasi (dalla rete Internet alla rete domestica, passando per la rete scolastica o quella di qualsiasi azienda)
+incapperemo regolarmente in una serie di dispositivi, organizzati spazialmente e gerarchicamente in una topologia particolare, collegati
 da una serie di cablaggi.
 
 Cerchiamo di identificare i "blocchi organizzativi" che potremo trovare
-osservando una qualsiasi rete di computer. Iniziamo distinguendole per
-tipologia.
-
-### Topologie per le reti locali
-
-Sappiamo già che una rete locale (LAN) può essere definita come un
-sistema di collegamento di dispositivi limitata geograficamente e senza
-attraversamento di suolo pubblico.
-
-La scelta della topologia di una rete ha un impatto incredibilmente
-significativo sulla sua costituzione, arrivando ad influenzarne le
-prestazioni, i costi, la scalabilità e il tipo di supporto da
-acquistare.
-
-Tutti le topologie per le reti locali utilizzate fino ad oggi si basano
-su tre strutture di base, che potremmo definire i "mattorni" delle reti
-locali: la topologia a bus, ad anello, a stella.
+osservando una qualsiasi rete di computer. 
 
 ---
 
 **Topologia a bus**
 
-![](images/topology_bus.jpg)
+![Topologia a bus](images/topology_bus.jpg){style="float:left; margin-right:30px"}
 
 Questa topologia è di gran lunga la più semplice e la
 più utilizzata in passato. Tutti i dispositivi facenti parte della rete
@@ -111,18 +106,17 @@ rete diviene completamente inutilizzabile.
 
 **Topologia ad anello**
 
-![](images/topology_ring.jpg)
+![Topologia ad anello](images/topology_ring.jpg){style="float:left; margin-right:30px"}
 
-Quando ogni dispositivo è connesso direttamente al
-successivo in linea fino a chiudere un circolo, si parla di topologia ad
-anello. In questa topologia, a differenza delle altre, ogni dispositivo
-ha dunque due cavi collegati. Siamo inoltre in presenza di una topologia
+Quando ogni dispositivo è connesso direttamente al successivo in linea fino a chiudere un circolo, si parla di topologia ad
+anello. In questa topologia, a differenza delle altre, ogni dispositivo ha dunque due cavi collegati. 
+Siamo inoltre in presenza di una topologia
 attiva, poiché ognuno dei dispositivi è responsabile, quando riceve un
 segnale, di elaborarlo oppure rigenerarlo e farlo passare verso il
 dispositivo successivo.
 
 In questa topologia si utilizza un protocollo particolare definito
-"token passing" per la sincronizzazione nell'utilizzo del canale.
+**"token passing"** per la sincronizzazione nell'utilizzo del canale.
 Analogamente al gioco del testimone, un piccolo pacchetto, chiamato
 token (gettone) passa lungo l'anello a turno su ogni dispositivo. Se
 uno di questi deve trasmettere attacca al token una sequenza contenente
@@ -140,7 +134,7 @@ ne hanno limitato incredibilmente lo sviluppo su larga scala.
 
 **Topologia a stella**
 
-![](images/topology_star.jpg)
+![Topologia a anello](images/topology_star.jpg){style="float:left; margin-right:30px"}
 
 La seguente topologia viene considerata la più robusta,
 fra quelle esistenti e questo motivo ha fatto anche la sua fortuna,
@@ -153,33 +147,19 @@ dispositivi di rete, non inficia in alcun modo il funzionamento della
 rete; solo una rottura nell'HUB farebbe cadere il collegamento.
 
 
-### Topologie per le reti geografiche
+---
 
-Le reti geografiche rappresentano genericamente tutte le tecnologie
-utilizzate per collegare computer, o più in generale dispositivi, a
-grande distanza: ad esempio Internet è una WAN a estensione mondiale ad
-accesso più o meno libero.
+**Topologia a semireticolo**
 
-![](images/topology_caz.jpg)
 
-Poiché computer e reti possono essere
-dislocati più o meno in qualsiasi posizione, la topologia
-delle WAN (Wide Area Network) non è ben definita come nel caso delle
-topologie locali: si definisce quindi una generica ***topologia a
-****semi ****reticolo***, intendendo così che ognuno dei dispositivi
-della rete è collegato direttamente con almeno un'altra stazione della
-rete.
+![Topologia a semireticolo](images/topology_caz.jpg){style="float:left; margin-right:30px"}
 
-I collegamenti fra le reti locali e quelle estese sono garantiti dai
-router, dispositivi di instradamento del traffico.
+Questa particolare topologia presenta la caratteristica che ogni dispositivo è connesso *almeno*
+ad un altro della stessa rete.
 
-Molte delle WAN esistenti inoltre, viste le distanze da coprire, non
-hanno un canale hardware riservato e si appoggiano alle tecnologie
-esistenti sul territorio.
+Interessante notare come, mentre le altre topologie possanno essere presenti sia sulle reti locali (LAN), che sulle reti geografiche (MAN, WAN)
+questa topologia è tipica solo delle reti geografiche.
 
-Tra le miriadi di soluzioni inventate e proposte, la più comune e
-affidabile, anche perché disponibile quasi ovunque, è la connessione
-telefonica.
 
 ## Dispositivi di rete
 
@@ -199,6 +179,7 @@ di rete in cui tipicamente lavorano:
     quella di smistare il segnale in arrivo da un cavo in tutte le altre
     porte con una tecnica diffusiva. Per questa ragione viene
     tipicamente definito un "ripetitore multiporta".
+    
 -   **REPEATER**: nel campo delle telecomunicazioni un ripetitore può
     essere indistintamente un dispositivo analogico in grado di
     amplificare in uscita un segnale d'ingresso o un dispositivo
@@ -217,6 +198,7 @@ di rete in cui tipicamente lavorano:
     collisione** (l'insieme dei dispositivi che risentono di una
     collisione) senza modificare quello di broadcast (l'insieme dei
     dispositivi che ricevono i pacchetti di broadcast).
+    
 -   **BRIDGE**: questo dispositivo di rete serve a collegare tra loro
     due segmenti diversi dal punto di vista fisico, ma che rappresentano
     lo stesso segmento dal punto di vista logico. La sua caratteristica
@@ -234,4 +216,23 @@ di rete in cui tipicamente lavorano:
     dell'aggiornamento e della manutenzione della tabella di routing,
     del controllo delle liste di accessi (ACL) basate su IP e delle
     cosiddette LAN Virtuali (VLAN).
+
+
+## In laboratorio
+
+
+**Esperienza 1: topologie e tipologie di rete**
+
+Con un software per il disegno, ricrea la topologia dell'ambiente indicato, indicando per ogni dispositivo presente il ruolo 
+(ad esempio: PC, portatile, tablet, smartphone oppure uno dei dispositivi di rete qui sopra riportati).
+
+Individua la tipologia di rete, cercando di elencare i servizi eventualmente presenti (ad esempio: servizio di stampa, condivisione file, etc..)
+Evidenzia in qualche modo il diverso tipo di collegamenti fisici presenti.
+
+Ambienti da studiare:
+
+1. Il laboratorio di Informatica
+2. la propria abitazione
+3. Il liceo "Da Vinci" nella sua interezza
+
 
