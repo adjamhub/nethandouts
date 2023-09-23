@@ -85,6 +85,7 @@ nav:
   - Protocolli Internet:
     - Introduzione: protocolli/00_intro.md
     - IPv4: protocolli/01_IPv4.md
+    - Subnetting: protocolli/02_subnetting.md
   - Laboratorio:
     - Introduzione: laboratorio/00_intro.md
 
