@@ -9,7 +9,7 @@ seguenti operazioni:
 - controllo di flusso dei dati
 
 
-Come abbiamo già visto, molte delle specifiche in utilizzo nel livello sono appannaggio di IEEE ([http://www.ieee.org](http://www.ieee.org/)).
+Come abbiamo già visto, molte delle specifiche in utilizzo nel livello sono appannaggio di `IEEE` ([http://www.ieee.org](http://www.ieee.org/)).
 
 In particolare, le specifiche che riguardano il livello inferiore sono state pubblicate
 nel 1980 dalla commissione denominata ***IEEE 802***, da cui prendono il
