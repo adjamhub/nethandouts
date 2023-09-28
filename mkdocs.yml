@@ -88,4 +88,6 @@ nav:
     - Subnetting: protocolli/02_subnetting.md
   - Laboratorio:
     - Introduzione: laboratorio/00_intro.md
+    - "Rete: ipconfig": laboratorio/net_10_ipconfig.md
+    - "Rete: ifconfig,ip": laboratorio/net_11_ifconfig_ip.md
 
