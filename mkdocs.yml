@@ -90,4 +90,7 @@ nav:
     - Introduzione: laboratorio/00_intro.md
     - "Rete: ipconfig": laboratorio/net_10_ipconfig.md
     - "Rete: ifconfig,ip": laboratorio/net_11_ifconfig_ip.md
+    - "Rete: ping": laboratorio/net_20_ping.md
+    - "Rete: arp": laboratorio/net_30_arp.md
+    - "Rete: traceroute": laboratorio/net_40_traceroute.md
 
