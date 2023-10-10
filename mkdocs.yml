@@ -93,4 +93,9 @@ nav:
     - "Rete: ping": laboratorio/net_20_ping.md
     - "Rete: arp": laboratorio/net_30_arp.md
     - "Rete: traceroute": laboratorio/net_40_traceroute.md
+    - "Trasporto: netstat": laboratorio/trasporto_10_netstat.md
+    - "Trasporto: wireshark": laboratorio/trasporto_20_wireshark.md
+    - "Trasporto: nmap": laboratorio/trasporto_30_nmap.md
+    - "Trasporto: port forwarding": laboratorio/trasporto_40_port_forwarding.md
+    
 
