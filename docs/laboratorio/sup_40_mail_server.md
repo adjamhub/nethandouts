@@ -1,20 +1,16 @@
----
-title: Mail Server
----
+# Mail Server
 
-::: note
-::: title
-Note
-:::
 
-Prerequisti: **Raspberry, terminale linux**
+!!! note "Argomenti teorici e requisiti tecnici"
+    
+    Prerequisti: **Raspberry, terminale linux**
+    
+    Argomenti trattati: **SMTP, POP, IMAP, URL, DNS**
 
-Argomenti trattati: **SMTP, POP, IMAP, URL, DNS**
-:::
 
-L\'idea è quella di implementare un Mail Server completo su Raspberry,
+L'idea è quella di implementare un Mail Server completo su Raspberry,
 con un MTA per il protocollo SMTP, un server POP e un server IMAP per la
-ricezione, l\'invio e lo smistamento della posta elettronica.
+ricezione, l'invio e lo smistamento della posta elettronica.
 
 Prima di andare avanti, ricordiamoci di aggiornare il sistema, ripulire
 e riavviare.
@@ -26,47 +22,39 @@ $ sudo apt autoremove
 $ sudo reboot
 ```
 
-# Configurare l\'hostname
+
+## Configurare l'hostname
 
 La prima cosa da fare per raggiungere il nostro obiettivo è di sistemare
-**l\'FQDN (Fully Qualified Domain Name)** del nostro computer. Nel mio
+**l'FQDN (Fully Qualified Domain Name)** del nostro computer. Nel mio
 esempio esso sarà:
 
--   HOSTNAME: **raspberrypi**
--   DOMAIN NAME: **scuola.lan**
+- HOSTNAME: **raspberrypi**
+- DOMAIN NAME: **scuola.lan**
 
-l\'FQDN che identifica il sistema sarà dunque **raspberrypi.scuola.lan**
-con il servizio di posta installato in esso a servire il dominio
-**\@scuola.lan**.
 
-::: note
-::: title
-Note
-:::
+l'FQDN che identifica il sistema sarà dunque **raspberrypi.scuola.lan**
+con il servizio di posta installato in esso a servire il dominio **@scuola.lan**.
 
-Se durante l\'esperienza di gestione della posta si vuole configurare
-anche il DNS, ricordatevi che dovete creare una zona autoritativa per il
-primo livello **.lan** e configurare in essa almeno i seguenti record:
 
-Record A: scuola.lan.
+!!! note "Mail e DNS"
+    
+    Se durante l'esperienza di gestione della posta si vuole configurare
+    anche il DNS, ricordatevi che dovete creare una zona autoritativa per il
+    primo livello **.lan** e configurare in essa almeno i seguenti record:
 
-:   Punta l\'IP del Raspberry.
+    `Record A: scuola.lan`: Punta l'IP del Raspberry.
+    
+    `Record A: raspberrypi.scuola.lan`: Punta l'IP del Raspberry.
 
-Record A: raspberrypi.scuola.lan.
+    `Record MX: scuola.lan`: Punta il record A raspberrypi.scuola.lan
 
-:   Punta l\'IP del Raspberry.
+    Volendo è possibile aggiungere anche i terzi livelli `mail`, `pop`, `imap` (su record A) tutti che puntano l'IP del Raspberry.
 
-Record MX: scuola.lan.
-
-:   Punta il record A raspberrypi.scuola.lan
-
-Volendo è possibile aggiungere anche i terzi livelli *mail*, *pop*,
-*imap* (su record A) tutti che puntano l\'IP del Raspberry.
-:::
 
 Per impostare FQDN come desiderato, eseguiamo i seguenti compiti:
 
-1.  Modifica così il file `host.conf`
+**Task 1: Modifica del file `host.conf`**
 
 ``` bash
 $ sudo nano /etc/host.conf
@@ -75,13 +63,13 @@ order hosts,bind
 multi on
 ```
 
-1.  Modifica hostname completo (FQDN)
+**Task 2: Modifica hostname completo (FQDN)**
 
 ``` bash
 $ sudo hostnamectl set-hostname raspberrypi.scuola.lan
 ```
 
-1.  Modifica file `hosts`
+**Tassk 3: Modifica file `hosts`**
 
 ``` bash
 $ sudo nano /etc/hosts
@@ -103,15 +91,16 @@ scuola.lan
 raspberrypi.scuola.lan
 ```
 
-# Installare Postfix
 
-L\'installazione è (come al solito) una riga di codice:
+## Installare Postfix
+
+L'installazione è (come al solito) una riga di codice:
 
 ``` bash
 $ sudo apt install postfix
 ```
 
-Al termine dell\'installazione c\'è una fase iniziale di configurazione
+Al termine dell'installazione c'è una fase iniziale di configurazione
 in cui verranno poste due domande:
 
 1.  il target del sistema di posta: selezionare **INTERNET**
@@ -156,46 +145,41 @@ inet_protocols = ipv4
 home_mailbox = Maildir/
 ```
 
-Sistemate i valori delle variabili `myhostname`, `mydomain` e
-`mynetworks` in base alle vostre necessità.
+Sistemate i valori delle variabili `myhostname`, `mydomain` e `mynetworks` in base alle vostre necessità.
 
-::: warning
-::: title
-Warning
-:::
+!!! warning "MAILDIR vs BOX"
+    
+    Nell'ultima riga del file abbiamo impostato il sistema Maildir di
+    gestione della casella di posta invece del metodo di default chiamato
+    mbox.
 
-**MAILDIR vs BOX**
+    In questo modo il sistema sistemerà la posta degli utenti nella cartella
+    *Maildir* di ogni home, con evidenti vantaggi per l'amministratore
+    (basta creare un utente per assicurargli anche una casella di posta) e
+    per la sicurezza (nessun file esterno alla propria home a cui dover
+    accedere).
 
-Nell\'ultima riga del file abbiamo impostato il sistema Maildir di
-gestione della casella di posta invece del metodo di default chiamato
-mbox.
 
-In questo modo il sistema sistemerà la posta degli utenti nella cartella
-*Maildir* di ogni home, con evidenti vantaggi per l\'amministratore
-(basta creare un utente per assicurargli anche una casella di posta) e
-per la sicurezza (nessun file esterno alla propria home a cui dover
-accedere).
-:::
-
-Fatto questo siamo pronti per il primo step, l\'avvio dell\'MTA Postfix:
+Fatto questo siamo pronti per il primo step, l'avvio dell'MTA Postfix:
 
 ``` bash
 $ sudo systemctl start postfix
 $ sudo systemctl status postfix
 ```
 
-# Aggiungere utenti
 
-Ogni utente che aggiungeremo al sistema operativo che ospita l\'MTA avrà
-una casella di posta della forma [user@scuola.lan]{.title-ref}.
+## Aggiungere utenti
+
+Ogni utente che aggiungeremo al sistema operativo che ospita l'MTA avrà
+una casella di posta della forma `user@scuola.lan`.
 
 Nei nostri test a scuola io aggiungo di solito una ventina di utenti con
-nome utente e password uguali a [studXX]{.title-ref} con XX che va da 01
-a 20 (o 25, o 30, a seconda della quinta\...).
+nome utente e password uguali a `studXX` con XX che va da 01
+a 20 (o 25, o 30, a seconda della quinta...).
 
 Per fare un esperimento che ha senso occorre aggiungere almeno due
 utenti. Per farlo decidete i nomi e poi eseguite per ogni utente
-l\'utitlity **adduser** come amministratore, così:
+l'utitlity **adduser** come amministratore, così:
 
 ``` bash
 $ sudo adduser NOME_UTENTE_DA_CREARE
@@ -206,11 +190,12 @@ tutte premendo INVIO, meno quelle sulla password (da inserire 2 volte).
 
 Tutto qui!
 
-# Server POP e IMAP
+
+## Server POP e IMAP
 
 Per i server POP e IMAP si usa spesso la soluzione modulare **dovecot**,
 un software che contiene come moduli tutti i software di supporto ad un
-MTA. A noi servono i server POP e IMAP e l\'installazione è semplice
+MTA. A noi servono i server POP e IMAP e l'installazione è semplice
 come al solito.
 
 ``` bash
@@ -220,8 +205,7 @@ $ sudo apt install dovecot-pop3d dovecot-imapd
 La configurazione di entrambi i moduli si basa su pochi file che
 dobbiamo modificare per il funzionamento *classico* che ci interessa.
 
-Primo file, il file di configurazione principale
-[dovecot.conf]{.title-ref} che va impostato per accettare tutte le
+Primo file, il file di configurazione principale `dovecot.conf` che va impostato per accettare tutte le
 connessioni in ingresso:
 
 ``` bash
@@ -230,8 +214,7 @@ $ sudo nano /etc/dovecot/dovecot.conf
 listen = *
 ```
 
-Secondo file, quello che specifica quale tipo di contenitore di posta
-utilizza l\'MTA
+Secondo file, quello che specifica quale tipo di contenitore di posta utilizza l'MTA
 
 ``` bash
 $ sudo nano /etc/dovecot/conf.d/10-mail.conf
@@ -239,7 +222,7 @@ $ sudo nano /etc/dovecot/conf.d/10-mail.conf
 mail_location = maildir:~/Maildir
 ```
 
-Terzo e ultimo file, quello che configurare l\'accesso senza cifratura
+Terzo e ultimo file, quello che configurare l'accesso senza cifratura
 
 ``` bash
 $ sudo nano /etc/dovecot/conf.d/10-auth.conf
@@ -255,29 +238,26 @@ $ sudo systemctl start dovecot
 $ sudo systemctl status dovecot
 ```
 
-# Mail Test
 
-Per fare un test approfondito dell\'ambaradan che abbiamo messo su
+## Mail Test
+
+Per fare un test approfondito dell'ambaradan che abbiamo messo su
 occorrerebbe testare il sistema con almeno 3 MUA (Mail User Agent), di
 cui almeno 2 configurati per la ricezione con IMAP (per testare la
 possibilità di ritrovare la mail in entrambi) e almeno uno con POP
 verificando successivamente con uno dei client IMAP che la posta è
 effettivamente scomparsa.
 
-Si può inoltre provare anche l\'esperienza **Telnet e Mail** da qualche
+Si può inoltre provare anche l'esperienza **Telnet e Mail** da qualche
 parte in questo stesso sito.
 
 Per quanto riguarda i MUA provo a suggerirvi alcuni software da testare
 da soli:
 
--   le web applications `squirrelmail` (<http://squirrelmail.org>)
-    oppure `rainloop` (<https://rainloop.net>). Necessitano entrambe di
-    un server web con PHP. Sono entrambe forzatamente client IMAP
--   l\'applicazione `E-Mail` dello smartphone, che contiene sia un
-    client IMAP che POP, ma che è chiaramente ottimizzata per un
-    utilizzo con IMAP.
--   l\'applicazione desktop `Mozilla Thunderbird`
-    (<https://www.thunderbird.net/>) che ovviamente contiene sia un
-    client IMAP che POP.
+- le web applications `squirrelmail` (<http://squirrelmail.org>) oppure `rainloop` (<https://rainloop.net>). 
+  Necessitano entrambe di un server web con PHP. Sono entrambe forzatamente client IMAP
+- l'applicazione `E-Mail` dello smartphone, che contiene sia un client IMAP che POP, ma che è chiaramente ottimizzata per un utilizzo con IMAP.
+- l'applicazione desktop `Mozilla Thunderbird` (<https://www.thunderbird.net/>) che ovviamente contiene sia un client IMAP che POP.
 
 **Buon divertimento!**
+

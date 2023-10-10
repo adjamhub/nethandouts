@@ -1,25 +1,20 @@
----
-title: Sito web a casa tua
----
+# Sito web a casa tua
 
-::: note
-::: title
-Note
-:::
 
-Prerequisti: **PC oppure Raspberry, terminale. esperienza \'port
-forwarding\'**
+!!! note "Argomenti teorici e requisiti tecnici"
+    
+    Prerequisti: **PC oppure Raspberry, terminale. esperienza 'port forwarding'**
+    
+    Argomenti trattati: **HTTP, URL, DNS, livello di trasporto**
+    
+    Linguaggi per il web introdotti: **HTML, CSS, PHP**
 
-Argomenti trattati: **HTTP, URL, DNS, livello di trasporto**
 
-Linguaggi per il web introdotti: **HTML, CSS, PHP**
-:::
-
-Sì, hai capito bene\... proviamo a [hostare]{.title-ref} un sito web a
+Sì, hai capito bene... proviamo a `hostare` un sito web a
 casa di ognuno di voi. Ovviamente sarà un compito per casa e avrà alcune
-condizioni\...
+condizioni...
 
-L\'esperienza si snoda in 3 fasi distinte:
+L'esperienza si snoda in 3 fasi distinte:
 
 1.  installare un server web sul proprio dispositivo (PC/Raspberry)
 2.  configurare il port forwarding fra il vostro dispositivo e il router
@@ -44,35 +39,38 @@ Create una pagina web semplice e divertente e salvatela come
 *index.html* nella cartella *htdocs* dentro la cartella *xampp* (magari
 rinominando quella presente inizialmente).
 
-## Se davvero funziona\...
 
-Controllate l\'IP del dispositivo in cui avete installato il server web
+## Se davvero funziona...
+
+Controllate l'IP del dispositivo in cui avete installato il server web
 e provate a collegarvi con il vostro telefono (collegato al wifi di
 casa) al sito **http://IP_del_dispositivo**.
 
-E se davvero funziona\... potete già cominciare ad essere soddisfatti di
-voi!
+E se davvero funziona... potete già cominciare ad essere soddisfatti di voi!
+
 
 # Fase 2: port forwarding
 
 Per quanto riguarda il port forwarding dovete seguire la guida a
 proposito nella sezione del livello di trasporto ed esporre la porta 80
-del dispositivo in cui avete installato apache all\'esterno.
+del dispositivo in cui avete installato apache all'esterno.
 
-## Se davvero funziona\...
+
+## Se davvero funziona...
 
 Controllate con un sito web tipo <https://whatismyipaddress.com/> il
 vostro indirizzo pubblico e provate con il vostro telefono (non
 collegato al wifi) a collegarvi al sito **http://vostro_IP_pubblico**.
 
-E se davvero funziona\... fate sapere al prof quanto siete tosti!!!
+E se davvero funziona... fate sapere al prof quanto siete tosti!!!
 
-# Fase 3: Dynamic DNS
 
-Ultima fase\... configurazione di un DNS dinamico per rendere il vostro
+## Fase 3: Dynamic DNS
+
+Ultima fase... configurazione di un DNS dinamico per rendere il vostro
 sito raggiungibile con semplicità da chiunque!
 
-Al di là di questa fase c\'è lo zen delle conoscenze di rete, quindi non
+Al di là di questa fase c'è lo zen delle conoscenze di rete, quindi non
 starò a spiegarvi molto se non a darvi due imbeccate:
 
 1.  nei router solitamente è già presente il supporto per il DNS
@@ -84,17 +82,20 @@ starò a spiegarvi molto se non a darvi due imbeccate:
     limitato, host del terzo livello per alcuni servizi. Alcuni fra i
     più famosi siti per il DNS dinamico sono:
 
-    > -   <https://dyndns.it/>
-    > -   <https://www.noip.com/>
-    > -   <https://cloudns.net/>
+    - <https://dyndns.it/>
+    - <https://www.noip.com/>
+    - <https://cloudns.net/>
 
-Fatelo! Se volete un posto in paradiso\... fatelo!
+Fatelo! Se volete un posto in paradiso... fatelo!
 
-## Se davvero funziona\...
+
+
+## Se davvero funziona...
 
 Collegatevi tramite il vostro telefono (non collegato al wifi) al sito
 **http://vostro.host.dinamico**.
 
-E se davvero funziona\... lasciate il dispositivo acceso per
+E se davvero funziona... lasciate il dispositivo acceso per
 pavoneggiarvi a lezione con il prof estasiato e i vostri compagni
 ammirati.
+

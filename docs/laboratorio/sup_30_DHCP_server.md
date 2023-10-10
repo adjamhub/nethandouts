@@ -1,16 +1,12 @@
----
-title: DHCP Server
----
+# DHCP Server
 
-::: note
-::: title
-Note
-:::
 
-Prerequisti: **Linux: terminale**
+!!! note "Argomenti teorici e requisiti tecnici"
+    
+    Prerequisti: **Linux: terminale**
+    
+    Argomenti trattati: **DHCP, DNS, Indirizzamento IP**
 
-Argomenti trattati: **DHCP, DNS, Indirizzamento IP**
-:::
 
 In questo capitolo andremo ad installare un server DHCP su un
 dispositivo con OS Linux. Questo dispositivo monta una versione di Linux
@@ -18,14 +14,14 @@ con package manager **apt**, quindi potrebbe essere un RaspberryPi
 oppure una installazione di Ubuntu Server.
 
 Se avete studiato il protocollo DHCP, sapete che per far funzionare un
-server DHCP c\'è bisogno di un dispositivo con un indirizzo statico. Il
+server DHCP c'è bisogno di un dispositivo con un indirizzo statico. Il
 capitolo sul **Networking** spiega come ottenere questo risultato.
 
 Il server DHCP che andiamo ad installare si chiama **KEA**
 (<https://www.isc.org/kea/>). KEA è un server DHCP open source
-sviluppato dall\'Internet Systems Consortium come (futuro) sostituto
-dello storico *ISC DHCP SERVER*. Se volete saperne di più\... leggete
-dal sito che ho linkato o guardate Wikipedia ;)
+sviluppato dall'Internet Systems Consortium come (futuro) sostituto
+dello storico *ISC DHCP SERVER*. Se volete saperne di più... leggete
+dal sito che ho linkato o guardate Wikipedia :wink:
 
 Per installare il server DHCP KEA, relativo al protocollo IPv4 sul
 nostro OS, dopo un aggiornamento generale dei pacchetti installati, ci
@@ -125,7 +121,7 @@ mettendo in evidenza SOLO i parametri importanti o indispensabili
         // Giuro... non ho mai capito. Lasciamoli stare...
         {
             "name": "boot-file-name",
-            "data": "EST5EDT4\\,M3.2.0/02:00\\,M11.1.0/02:00"
+            "data": "EST5EDT4,M3.2.0/02:00,M11.1.0/02:00"
         },
 
         {
@@ -211,9 +207,6 @@ mettendo in evidenza SOLO i parametri importanti o indispensabili
 }
 ```
 
-Come vedete, viene lungo uguale\... però potete scaricare una copia
-[qui](/_static/files/kea-dhcp4.conf) .
-
 Fatto quanto richiesto e salvato il file, attiviamo (o riattiviamo) il
 servizio *kea-dhcp4*.
 
@@ -221,5 +214,5 @@ servizio *kea-dhcp4*.
 $ sudo systemctl (re)start kea-dhcp4
 ```
 
-Da questo in momento in poi, se non ci sono errori, il servizio DHCP è
-attivo :)
+Da questo in momento in poi, se non ci sono errori, il servizio DHCP è attivo :smile:
+

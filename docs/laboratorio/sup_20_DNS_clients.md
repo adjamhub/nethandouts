@@ -1,16 +1,13 @@
-> \<br\>
-
 # DNS Clients
 
-::: note
-::: title
-Note
-:::
 
-Prerequisti: **OS, terminale**
 
-Argomenti trattati: **DNS, URL, Indirizzamento IP**
-:::
+!!! note "Argomenti teorici e requisiti tecnici"
+    
+    Prerequisti: **OS, terminale**
+    
+    Argomenti trattati: **DNS, URL, Indirizzamento IP**
+
 
 La funzionalità di risoluzione DNS ai software che ne hanno bisogno
 (praticamente tutti quelli che si connettono alla rete) viene solita
@@ -25,14 +22,16 @@ sistemi operativi importanti.
 
 Il client nslookup può essere eseguito in due modalità:
 
-1.  command line mode
-2.  interactive mode
+1. command line mode
+2. interactive mode
+
+
 
 ## nslookup: command line mode
 
 Questa modalità è la più semplice e scarna. Si digita **nslookup HOST**
 e questi ritorna la risoluzione (i record A, AAAA e CNAME presenti)
-dell\'host fornito e termina
+dell'host fornito e termina
 
 ``` 
 $ nslookup www.adjam.org
@@ -51,11 +50,13 @@ standard contentente il server che ha fatto la risoluzione (un server
 non autorevole, come vediamo sotto) e le risoluzioni trovate,
 evidentemente, in questo caso, un record A e un record AAAA.
 
+
+
 ## nslookup: interactive mode
 
 Per entrare in *interactive mode* basta digitare **nslookup** senza
 parametri od opzioni. In questo modo cambia il prompt (diventa un
-maggiore, **\>**) e lì si può richiedere la risoluzione di qualunque
+maggiore, **>**) e lì si può richiedere la risoluzione di qualunque
 host ci interessi. Quando abbiamo finito, possiamo uscire dalla modalità
 interattiva digitando **exit**.
 
@@ -90,12 +91,14 @@ nskooup per modificare la risoluzione richiesta, specificandola meglio:
 
   comando           descrizione
   ----------------- ---------------------------------------------------------------------------------------------------------------------------------------
-  host              l\'host da risolvere.
-  server ip         l\'ip del server DNS da utilizzare nelle prossime risoluzioni interattive
-  set type=record   serve per richiedere la risoluzione del tipo di record indicato. Valori possibili per *record* sono: A, AAAA, CNAME, MX, NS, PTR \...
+  host              l'host da risolvere.
+  server ip         l'ip del server DNS da utilizzare nelle prossime risoluzioni interattive
+  set type=record   serve per richiedere la risoluzione del tipo di record indicato. Valori possibili per *record* sono: A, AAAA, CNAME, MX, NS, PTR ...
 
 Qua di seguito farò 2 esempi per vedere come si utilizzano le 2 opzioni
 non testate: *server* e *set type*
+
+
 
 ### Esempio #1: cambiare server DNS
 
@@ -132,13 +135,15 @@ Name:   gazzetta.it
 Address: 40.1
 ```
 
+
+
 ### Esempio #2: risolvere un record MX
 
 Può essere utile e interessante risolvere un record MX tramite nslookup.
 Per farlo dobbiamo impostare il tipo di record da risolvere con *set
 type*. Ricordo però che il record MX ci dirà praticamente il record A
 che individua il dispositivo che fornisce il servizio di posta, che
-dovrà dunque poi essere risolto per ottenere l\'indirizzo IP.
+dovrà dunque poi essere risolto per ottenere l'indirizzo IP.
 
 ``` 
 $ nslookup
@@ -167,14 +172,15 @@ Name:   smtp-in.libero.it
 Address: 213.209.1.129
 ```
 
+
 ## Web clients
 
 Capita spesso di voler utilizzare il DNS non tanto per verificare il
-funzionamento di un server, ma per verificare l\'effettiva risolvibilità
+funzionamento di un server, ma per verificare l'effettiva risolvibilità
 di un sito web. In questo caso tornano utili alcuni client DNS
 implementati direttamente come servizi WEB. Ne cito alcuni, ritrovati
 rigorosamente nella prima pagina del mio motore di ricerca preferito
-all\'input *DNS web clients*:
+all'input *DNS web clients*:
 
 -   <https://www.whatsmydns.net/>
 

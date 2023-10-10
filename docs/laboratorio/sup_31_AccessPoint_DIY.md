@@ -1,23 +1,18 @@
----
-title: Access Point Fai da te
----
+# Access Point Fai da te
 
-::: note
-::: title
-Note
-:::
 
-Prerequisti: **Raspberry, terminale linux**
+!!! note "Argomenti teorici e requisiti tecnici"
+    
+    Prerequisti: **Raspberry, terminale linux**
+    
+    Argomenti trattati: **DHCP, DNS, Indirizzamento IP**
 
-Argomenti trattati: **DHCP, DNS, Indirizzamento IP**
-:::
 
-L\'idea è quella di implementare un Access Point WIFI analogo a quelli
+L'idea è quella di implementare un Access Point WIFI analogo a quelli
 che si hanno a casa per la connessione, con server DHCP e server DNS
 configurati manualmente.
 
-Prima di andare avanti, ricordiamoci di aggiornare il sistema, ripulire
-e riavviare.
+Prima di andare avanti, ricordiamoci di aggiornare il sistema, ripulire e riavviare.
 
 ``` bash
 $ sudo apt update
@@ -26,53 +21,57 @@ $ sudo apt autoremove
 $ sudo reboot
 ```
 
-# Scegliere un piano di indirizzamento
+
+## Scegliere un piano di indirizzamento
 
 Da quello che abbiamo studiato sappiamo che ogni scheda di rete ha il
 suo indirizzo IP. Nel nostro Raspberry ci sono 2 schede di rete:
 
-1.  la schede di rete cablata, che si chiama [eth0]{.title-ref}
-2.  la scheda di rete wifi, che si chiama [wlan0]{.title-ref}
+1. la schede di rete cablata, che si chiama `eth0`
+2. la scheda di rete wifi, che si chiama `wlan0`
 
 La scheda di rete cablata dovrebbe essere collegata alla rete della
 scuola, quindi ha già un indirizzo IP fornito dai server DHCP della
 scuola. La scheda di rete wifi non dovrebbe essere collegata a nulla e
 quindi non avere alcun indirizzo.
 
-Per verificare i nomi delle schede di rete e l\'indirizzamento attuale
-del nostro Raspberry procediamo da terminale con il comando
-[ifconfig]{.title-ref} (Valido anche da terminale Mac e analogo del
-comando ipconfig di Windows).
+Per verificare i nomi delle schede di rete e l'indirizzamento attuale
+del nostro Raspberry procediamo da terminale con il comando `ifconfig` 
+(Valido anche da terminale Mac e analogo del comando ipconfig di Windows).
+
 
 Si dovrebbe vedere qualcosa di simile a questo:
 
-![output comando ifconfig RPI](images/RPI_NICs.jpg){.align-center}
+![output comando ifconfig RPI](images/RPI_NICs.jpg){style="width:100%"}
 
-L\'indirizzo IP della scheda WIFI dovrà essere statico e scelto da noi.
+
+L'indirizzo IP della scheda WIFI dovrà essere statico e scelto da noi.
 Per il mio esempio e come riferimento in quello che scriverò dopo, io
-scelgo l\'indirizzo 192.168.0.1/24.
+scelgo l'indirizzo 192.168.0.1/24.
 
 A questo punto, immaginando che collegherò il server DHCP
-all\'interfaccia [wlan0]{.title-ref} dovrò scegliere uno scope e
+all'interfaccia `wlan0` dovrò scegliere uno scope e
 identificare tutte le informazioni da passare ai client DHCP.
 
 Io ho scelto le seguenti:
 
 1.  scope: 192.168.0.11-30 con TTL di 1 ora
-2.  gateway sarà ovviamente l\'IP del Raspberry: 192.168.0.1
+2.  gateway sarà ovviamente l'IP del Raspberry: 192.168.0.1
 3.  DNS sarà ancora una volta il Raspberry.
 
 Ultima cosa, poiché si va ad implementare una rete wifi con password,
 bisogna scegliere il nome della rete Wifi (che si definisce SSID) e la
-chiave di accesso (la [password]{.title-ref} del wifi).
+chiave di accesso (la `password` del wifi).
 
 Tenendo bene a mente (no, meglio se segnate su un foglio) le precedenti
-informazioni, possiamo procedere nell\'implementazione del
+informazioni, possiamo procedere nell'implementazione del
 router/AccessPoint con Raspberry.
 
-# Installare e configurare dnsmasq
 
-L\'installazione è facile:
+
+## Installare e configurare dnsmasq
+
+L'installazione è facile:
 
 ``` bash
 $ sudo apt install dnsmasq
@@ -104,9 +103,10 @@ domain-needed
 bogus-priv
 ```
 
-# Installare hostapd
 
-Qui l\'installazione è più complicata :)
+## Installare hostapd
+
+Qui l'installazione è più complicata :)
 
 ``` bash
 $ sudo apt install hostapd
@@ -114,15 +114,14 @@ $ sudo systemctl unmask hostapd
 $ sudo systemctl stop hostapd
 ```
 
-Il file di configurazione va inserito nel percorso
-[/etc/hostapd/hostapd.conf]{.title-ref}, quindi con il comando:
+Il file di configurazione va inserito nel percorso `/etc/hostapd/hostapd.conf`, quindi con il comando:
 
 ``` bash
 $ sudo nano /etc/hostapd/hostapd.conf
 ```
 
 Va copiato dentro pari pari il seguente codice, modificando
-opportunamente l\'SSID scelto e la chiave di accesso:
+opportunamente l'SSID scelto e la chiave di accesso:
 
 ``` bash
 interface=wlan0
@@ -141,15 +140,14 @@ wpa_passphrase=PASSWORDWIFIALMENO8CARATTERI
 rsn_pairwise=CCMP
 ```
 
-Fai in modo che il file di configurazione venga caricato dal demone
-hostapd: apri [/etc/default/hostapd]{.title-ref} e modificalo come
+Fai in modo che il file di configurazione venga caricato dal demone hostapd: apri `/etc/default/hostapd` e modificalo come
 indicato
 
 ``` bash
 $ sudo nano /etc/default/hostapd
 ```
 
-Va modificata un\'unica riga, in corrispondenza della voce DAEMON_CONF
+Va modificata un'unica riga, in corrispondenza della voce DAEMON_CONF
 che va decommentata e riempita come indicato.
 
 ``` bash
@@ -158,7 +156,8 @@ DAEMON_CONF="/etc/hostapd/hostapd.conf"
 
 Ok, siamo pronti!
 
-# Ultime impostazioni
+
+## Ultime impostazioni
 
 Le ultime operazioni da fare servono per far funzionare il Raspberry
 come un router e permettergli dunque di condividere la sua connettività
@@ -195,3 +194,4 @@ Ecco fatto, dovrebbe funzionare tutto!
 
 Prendete il vostro telefono e provate a connettervi alla rete Wifi del
 Raspberry e a navigare!
+

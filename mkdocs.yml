@@ -97,5 +97,13 @@ nav:
     - "Trasporto: wireshark": laboratorio/trasporto_20_wireshark.md
     - "Trasporto: nmap": laboratorio/trasporto_30_nmap.md
     - "Trasporto: port forwarding": laboratorio/trasporto_40_port_forwarding.md
+    - "Superiore: server web": laboratorio/sup_10_server_web.md
+    - "Superiore: sito web a casa tua": laboratorio/sup_11_sito_casa.md
+    - "Superiore: Telnet e HTTP": laboratorio/sup_12_telnet_http.md
+    - "Superiore: DNS clients": laboratorio/sup_20_DNS_clients.md
+    - "Superiore: DNS server": laboratorio/sup_21_DNS_server.md
+    - "Superiore: DHCP server": laboratorio/sup_30_DHCP_server.md
+    - "Superiore: Access Point DIY": laboratorio/sup_31_AccessPoint_DIY.md
+    - "Superiore: Mail server": laboratorio/sup_40_mail_server.md
+    - "Superiore: Telnet e Mail": laboratorio/sup_41_telnet_mail.md
     
-

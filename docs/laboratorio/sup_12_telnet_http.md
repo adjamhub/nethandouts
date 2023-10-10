@@ -1,18 +1,14 @@
----
-title: Telnet e HTTP
----
+# Telnet e HTTP
 
-::: note
-::: title
-Note
-:::
 
-Prerequisti: **OS, terminale**
+!!! note "Argomenti teorici e requisiti tecnici"
+    
+    Prerequisti: **OS, terminale**
+    
+    Argomenti trattati: **Telnet, HTTP**
 
-Argomenti trattati: **Telnet, HTTP**
-:::
 
-# Introduzione
+## Introduzione
 
 Telnet è un piccolo client da terminale, disponibile su ogni sistema
 operativo, che serve per simulare connessioni in chiaro a qualsiasi
@@ -22,7 +18,7 @@ testo semplice per le sua sintassi.
 
 A pensarci bene, tutti i protocolli del livello superiore che abbiamo
 studiato (o che studieremo) utilizzano dati codificati in ASCII,
-quindi\... telnet può essere un semplice strumento per provare ad
+quindi... telnet può essere un semplice strumento per provare ad
 analizzarli!
 
 La sua sintassi è semplicissima:
@@ -31,14 +27,14 @@ La sua sintassi è semplicissima:
 $ telnet HOST PORT
 ```
 
-Da dopo l\'avvenuta connessione bisogna scrivere.. nella lingua del
+Da dopo l'avvenuta connessione bisogna scrivere.. nella lingua del
 servizio con cui vogliamo dialogare, ovvero bisogna usare le specifiche
 del protocollo!
 
-# TELNET e HTTP {#telnet-e-http-1}
+## TELNET e HTTP {#telnet-e-http-1}
 
 Praticamente con telnet ci colleghiamo ad un server HTTP e poi possiamo
-provare a scrivere a mano una richiesta HTTP. Nell\'esempio proviamo a
+provare a scrivere a mano una richiesta HTTP. Nell'esempio proviamo a
 connetterci al generico sito **www.esempio.com** e a chiedere la
 homepage con una richiesta GET.
 
@@ -66,5 +62,5 @@ Hai capito?
 <html>
 ```
 
-Tutto qui\... semplice, ma efficace! Secondo me, anche molto
-affascinante.
+Tutto qui... semplice, ma efficace! Secondo me, anche molto affascinante.
+

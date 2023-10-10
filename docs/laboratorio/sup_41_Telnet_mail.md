@@ -1,18 +1,14 @@
----
-title: Telnet e Mail
----
+# Telnet e Mail
 
-::: note
-::: title
-Note
-:::
 
-Prerequisti: **OS, terminale**
+!!! note "Argomenti teorici e requisiti tecnici"
+    
+    Prerequisti: **OS, terminale**
+    
+    Argomenti trattati: **Telnet, SMTP, POP, IMAP**
 
-Argomenti trattati: **Telnet, SMTP, POP, IMAP**
-:::
 
-# Introduzione
+## Introduzione
 
 Telnet è un piccolo client da terminale, disponibile su ogni sistema
 operativo, che serve per simulare connessioni in chiaro a qualsiasi
@@ -22,7 +18,7 @@ testo semplice per le sua sintassi.
 
 A pensarci bene, tutti i protocolli del livello superiore che abbiamo
 studiato (o che studieremo) utilizzano dati codificati in ASCII,
-quindi\... telnet può essere un semplice strumento per provare ad
+quindi... telnet può essere un semplice strumento per provare ad
 analizzarli!
 
 La sua sintassi è semplicissima:
@@ -31,11 +27,11 @@ La sua sintassi è semplicissima:
 $ telnet HOST PORT
 ```
 
-Da dopo l\'avvenuta connessione bisogna scrivere.. nella lingua del
+Da dopo l'avvenuta connessione bisogna scrivere.. nella lingua del
 servizio con cui vogliamo dialogare, ovvero bisogna usare le specifiche
 del protocollo!
 
-# Telnet e SMTP
+## Telnet e SMTP
 
 Per estrema semplicità simulerò semplicemente una connessione ad un MTA
 generico, di cui elenco le caratteristiche:
@@ -47,7 +43,7 @@ generico, di cui elenco le caratteristiche:
 -   user2: **ciccio**
 -   pass2: **pescegatto**
 
-Tramite telnet l\'utente *pippo* proverà ad inviare una mail all\'utente
+Tramite telnet l'utente *pippo* proverà ad inviare una mail all'utente
 *ciccio*.
 
 ``` bash
@@ -82,12 +78,12 @@ QUIT
 ```
 
 Se avete scritto tutto bene (lo capite osservando le risposte) avete
-inviato una mail scrivendo *a mano* le istruzioni SMTP per l\'MTA!!!
+inviato una mail scrivendo *a mano* le istruzioni SMTP per l'MTA!!!
 Avete notato che non avete mai inserito la password???
 
-# TELNET e IMAP
+## TELNET e IMAP
 
-Adesso proviamo a consultare la mail dell\'utente *ciccio* per trovare
+Adesso proviamo a consultare la mail dell'utente *ciccio* per trovare
 la mail che ha ricevuto. Facciamo prima con IMAP così il messaggio
 rimane sul server e proviamo successivamente provare con POP ;)
 
@@ -115,11 +111,12 @@ a4 FETCH 1 BODY[]
 a5 LOGOUT
 ```
 
-Ecco qua! Avanti\...
+Ecco qua! Avanti...
 
-# TELNET e POP3
 
-Adesso proviamo a consultare la mail dell\'utente *ciccio* con POP,
+## TELNET e POP3
+
+Adesso proviamo a consultare la mail dell'utente *ciccio* con POP,
 cancellando il messaggio alla fine della consultazione.
 
 ``` bash
@@ -153,3 +150,4 @@ QUIT
 Come avete intuito leggendo i comandi, vi siete connessi al server POP
 con le credenziali di *ciccio*, avete elencato i suoi messaggi, avete
 letto (e poi cancellato) il messaggio numero 1.
+
