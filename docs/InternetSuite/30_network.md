@@ -5,21 +5,23 @@ più aderisce negli scopi e nelle funzioni alla strutturazione teorica
 stabilita nel modello OSI, che riconduce i compiti principali di questo
 livello ai seguenti compiti:
 
--   l'**indirizzamento**, ovvero la possibilità di distinguere i
-    dispositivi tra loro e di raggrupparli opportunamente.
--   L'**impacchettamento**, ovvero la preparazione dei pacchetti adatti
-    ad essere trasferiti nella rete Internet per andare dal mittente al
-    destinatario (adesso che con l'indirizzamento può distinguerli).
--   L'**instradamento**, ovvero la scelta del percorso che un generico
-    pacchetto dati deve compiere per andare dal mittente al
-    destinatario.
--   La **gestione delle congestioni**, che durante l'instradamento
-    possono verificarsi se troppi pacchetti sono indirizzati verso un
-    unico percorso di rete, eventualmente troppo trafficato.
+- l'**indirizzamento**, ovvero la possibilità di distinguere i
+  dispositivi tra loro e di raggrupparli opportunamente.
+
+- L'**impacchettamento**, ovvero la preparazione dei pacchetti adatti
+  ad essere trasferiti nella rete Internet per andare dal mittente al
+  destinatario (adesso che con l'indirizzamento può distinguerli).
+
+- L'**instradamento**, ovvero la scelta del percorso che un generico
+  pacchetto dati deve compiere per andare dal mittente al destinatario.
+
+- La **gestione delle congestioni**, che durante l'instradamento
+  possono verificarsi se troppi pacchetti sono indirizzati verso un
+  unico percorso di rete, eventualmente troppo trafficato.
 
 Andando avanti nella trattazione cercheremo di capire chi si occupa di
 quale compito e possibilmente perché il livello di rete è organizzato in
-questo modo! Prima però... vediamo un po\' di terminologia,
+questo modo! Prima però... vediamo un po' di terminologia,
 indispensabile per capire i concetti a cui faremo riferimento.
 
 Quando un dispositivo che accede alla rete acquisisce un indirizzo di
@@ -40,6 +42,8 @@ appunto **tabella di routing**.
 I router possono essere dispositivi hardware espressamente dedicati a
 tali operazioni, oppure semplici pc con più schede di rete installate.
 
+
+
 ## Caratteristiche del livello di rete della suite Internet
 
 A livello di rete distinguiamo 2 caratteristiche che ci permettono di
@@ -47,7 +51,7 @@ classificare i servizi offerti. Le caratteristiche sono:
 
 1.  ***Connessione:*** Un servizio si dice connesso (a livello di
     rete) quando si preoccupa di stabilire un percorso con il
-    destinatario preventivo all\'invio reale dei dati. Prima si
+    destinatario preventivo all'invio reale dei dati. Prima si
     stabilisce un percorso dal mittente al destinatario, poi si inviano
     tutti i pacchetti sempre in quella direzione.
 
@@ -83,11 +87,11 @@ Se volete un esempio di protocollo di rete affidabile... confesso. Non
 lo so. Mi sembra veramente un livello di controllo assurdo per
 comunicazioni "veloci".
 
+
 ## Il Protocollo IPv4
 
 Il protocollo IP è stato determinato nel 1981 (la preistoria
-praticamente) tramite l'[**RFC
-791**](https://tools.ietf.org/html/rfc791) ed è il protocollo
+praticamente) tramite l'[**RFC 791**](https://tools.ietf.org/html/rfc791) ed è il protocollo
 fondamentale della rete Internet dal punto di vista del funzionamento
 della stessa.
 
@@ -127,10 +131,10 @@ l'indirizzamento. Quando il livello di trasporto gli invia dati da
 elaborare, prima di tutto si occupa dell'impacchettamento e poi opera lo
 smistamento secondo la seguente **logica di base del protocollo IP.**
 
-Esso confronta l\'indirizzo IP del mittente del pacchetto con quello del
+Esso confronta l'indirizzo IP del mittente del pacchetto con quello del
 destinatario e si comporta secondo le seguenti regole:
 
--   Se l\'indirizzo IP del mittente è uguale all\'IP del destinatario,
+-   Se l'indirizzo IP del mittente è uguale all'IP del destinatario,
     oppure uno degli indirizzi è della classe 127, il pacchetto viene
     passato al livello superiore (tecnica del **loopback**).
 -   Se il destinatario si trova sullo stesso segmento di rete del
@@ -160,27 +164,7 @@ delle seguenti modalità:
 
 Vediamo l'intestazione (***header***) del datagramma IP:
 
-+------------------------+------------------+----------+------------------+----------+
-| 0 --- 3                | 4 -- 7           | 8 -- 15  | 16 -- 18         | 19 -- 31 |
-+------------------------+------------------+----------+------------------+----------+
-| 0100                   | Lunghezza Header | Servizio | Lunghezza Totale |          |
-+------------------------+------------------+----------+------------------+----------+
-| Identificazione        | flags            | Offset   |                  |          |
-+------------------------+------------------+----------+------------------+----------+
-| TTL                    | Protocollo       | CRC      |                  |          |
-+------------------------+------------------+----------+------------------+----------+
-| Indirizzo Mittente     |                  |          |                  |          |
-+------------------------+------------------+----------+------------------+----------+
-| Indirizzo Destinatario |                  |          |                  |          |
-+------------------------+------------------+----------+------------------+----------+
-| Campi opzionali        |                  |          |                  |          |
-+------------------------+------------------+----------+------------------+----------+
-| DATI                   |                  |          |                  |          |
-|                        |                  |          |                  |          |
-| (body del pacchetto)   |                  |          |                  |          |
-|                        |                  |          |                  |          |
-| . . .                  |                  |          |                  |          |
-+------------------------+------------------+----------+------------------+----------+
+![Pacchetto IPv4](images/IPv4_packet.png){style="width:100%"}
 
 Ok tranquilli... non si tratta di impararlo a memoria o riprodurlo
 uguale durante le interrogazioni! Volevo solo mettere in evidenza alcune
@@ -189,7 +173,7 @@ quelle che ho messo in grassetto:
 
 -   **0100**, il pacchetto IPv4 inizia con 4 in binario.
 -   **lunghezza totale**, numero di byte che compongono il pacchetto.
-    Sono 16 bit, quindi\...
+    Sono 16 bit, quindi...
 -   **TTL**, contatore della vita del pacchetto (Time To Live). Inizia
     da 30 o da 15 e scala di 1 ogni volta che si attraversa un router.
     Se arriva a zero, il pacchetto viene eliminato.
@@ -204,8 +188,7 @@ quelle che ho messo in grassetto:
 
 
 ARP (Address Resolution Protocol) è un protocollo "storico" delle reti,
-implementato nel 1982 tramite l'[**RFC
-826**](https://tools.ietf.org/html/rfc826), rappresenta uno strumento
+implementato nel 1982 tramite l'[**RFC 826**](https://tools.ietf.org/html/rfc826), rappresenta uno strumento
 indispensabile del protocollo di rete e grazie anche al suo opposto RARP
 (Reverse ARP) si pone come strumento di collegamento fra il livello di
 rete e quello inferiore.
@@ -218,7 +201,7 @@ del destinatario si risolve tramite il protocollo ARP, che è in grado di
 abbinare ad ogni indirizzo logico (un indirizzo IP) un indirizzo fisico
 (un **indirizzo MAC**) che identifica univocamente un dispositivo.
 
-L\'indirizzo MAC, o indirizzo fisico, è un identificatore univoco per
+L'indirizzo MAC, o indirizzo fisico, è un identificatore univoco per
 una NIC (Network Interface Card, una scheda di rete). Questo significa
 che ogni scheda di rete prodotta sulla Terra possiede un indirizzo MAC
 diverso e che questo permette di tracciare il costruttore, il pezzo
@@ -236,13 +219,17 @@ Questa identificazione così vincolante (conoscere l'indirizzo MAC di un
 dispositivo... è tanta roba!) può avvenire solo in una rete locale,
 infatti ARP manda in broadcast una richiesta del tipo:
 
-*W*ho has 192.168.0.13? Tell 192.168.0.10
+```
+Who has 192.168.0.13? Tell 192.168.0.10
+```
 
 Tutti i dispositivi della rete locale riceverano la richiesta ma solo
 uno avrà quell'indirizzo IP e risponderà (in unicast, all'indirizzo
 indicato) con il suo indirizzo MAC
 
+```
 192.168.0.13 is at 01:02:03:04:05:06
+```
 
 A questo punto, colui che ha fatto la richiesta (il dispositivo con
 indirizzo 192.168.0.10 nel nostro esempio) inserirà nella sua cache ARP
@@ -251,8 +238,8 @@ di richiedere ogni volta l'intervento del protocollo ARP per risolvere
 un indirizzo.
 
 Allo stesso modo però, per permettere cambiamenti nella configurazione
-della rete, ad ogni voce nella cache viene assegnata un TTL (Time To
-Live), un tempo oltre il quale la voce viene cancellata.
+della rete, ad ogni voce nella cache viene assegnata un `TTL (Time To Live)`, 
+un tempo oltre il quale la voce viene cancellata.
 
 Il TTL di default dura 2 minuti. Ogni volta che avviene traffico fra le
 due stazioni il TTL si resetta a 2 minuti. Oltre 10 minuti la voce in
@@ -318,19 +305,18 @@ entità amministrative locali come **Sistemi Autonomi** (AS), ovvero
 gruppi di router e reti sotto il controllo di una singola e ben definita
 autorità amministrativa.
 
-![Sistema Autonomo](images/routing_esterno.png)
+![Sistema Autonomo](images/routing_esterno.png){style="width:100%"}
 
 Ogni Sistema Autonomo sulla rete Internet è identificato da un numero a 16 bit (**ASN, AS number**).
 
-Il routing realizzabile grazie a questi AS si definisce ***routing
-gerarchico*** ed avviene su 2 diversi livelli:
+Il routing realizzabile grazie a questi AS si definisce ***routing gerarchico*** ed avviene su 2 diversi livelli:
 
 1.  **Routing Interno al Sistema Autonomo**, in cui si utilizzano
     protocolli di tipo **IGP** (Interior Gateway Protocol): ogni AS può
     scegliere quello che preferisce.
-2.  **Di collegamento tra Sistemi Autonomi, ** in cui si utilizza un
+2.  **Di collegamento tra Sistemi Autonomi**, in cui si utilizza un
     unico protocollo di tipo **EGP** (Exterior Gateway Protocol): non
-    voglio togliervi la suspence e anticiparvi il nome\...
+    voglio togliervi la suspence e anticiparvi il nome...
 
 Ipotizziamo ad esempio di voler inviare un pacchetto dall'Italia agli
 Stati Uniti, che appartengono ovviamente a Sistemi Autonomi diversi; il
@@ -381,25 +367,23 @@ Ogni spostamento da un router ad un altro viene definito ***salto***, un
 
 Una ***tabella di routing*** è costituita da almeno 3 campi:
 
--   l'identificativo della rete di destinazione (tipicamente, un network
-    address)
--   la Subnet Mask utilizzata per definire la rete di destinazione
--   il gateway per la destinazione finale (next hop)
+- l'identificativo della rete di destinazione (tipicamente, un network address)
+- la Subnet Mask utilizzata per definire la rete di destinazione
+- il gateway per la destinazione finale (next hop)
+
 
 Vediamo un esempio:
 
-  --------------- --------------- -----------------
-  Network         Mask            Gateway
-  100.0.0.0       255.0.0.0       100.100.1.75
-  170.50.0.0      255.255.0.0     200.200.2.150
-  200.150.100.0   255.255.255.0   150.150.150.150
-  --------------- --------------- -----------------
+| Network        | Mask          | Gateway         |
+|----------------|---------------|-----------------|
+| 100.0.0.0      | 255.0.0.0     | 100.100.1.75    |
+| 170.50.0.0     | 255.255.0.0   | 200.200.2.150   |
+| 200.150.100.0  | 255.255.255.0 | 150.150.150.150 |
 
-Ricapitolando: un pacchetto arriva su un router con la tabella di
-routing qui sopra.
 
-Si diminuisce di 1 il suo TTL e lo si controlla: se è zero, il pacchetto
-viene eliminato.
+Ricapitolando: un pacchetto arriva su un router con la tabella di routing qui sopra.
+
+Si diminuisce di 1 il suo TTL e lo si controlla: se è zero, il pacchetto viene eliminato.
 
 Si controlla il suo indirizzo IP di destinazione per cercare di capire
 verso quale destinazione inviarlo. La tabella si legge dalla prima
@@ -424,18 +408,17 @@ resto è considerato esterno al Sistema Autonomo. Allora la tabella di
 routing del router indicato come R1 sarà così:
 
 
-![](images/AS.jpg)
+![Sistemi Autonomi](images/AS.jpg){style="width:100%"}
 
 
-  ---------- ----------- -----------
-  Network    Mask        Gateway
-  11.0.0.0   255.0.0.0   11.10.9.8
-  12.0.0.0   255.0.0.0   12.3.4.5
-  13.0.0.0   255.0.0.0   13.4.5.6
-  14.0.0.0   255.0.0.0   11.10.9.8
-  15.0.0.0   255.0.0.0   12.3.4.5
-  0.0.0.0    0.0.0.0     7.4.7.4
-  ---------- ----------- -----------
+| Network   | Mask      | Gateway   |
+|-----------|-----------|-----------|
+| 11.0.0.0  | 255.0.0.0 | 11.10.9.8 |
+| 12.0.0.0  | 255.0.0.0 | 12.3.4.5  |
+| 13.0.0.0  | 255.0.0.0 | 13.4.5.6  |
+| 14.0.0.0  | 255.0.0.0 | 11.10.9.8 |
+| 15.0.0.0  | 255.0.0.0 | 12.3.4.5  |
+| 0.0.0.0   | 0.0.0.0   | 7.4.7.4   |
 
 Se il pacchetto è destinato ad una delle reti elencate nelle prime 5
 righe utilizza il gateway indicato. Altrimenti viene indirizzato
@@ -450,36 +433,31 @@ uscita dal Sistema Autonomo.
 
 Gli algoritmi utilizzati per il routing dinamico si dividono in due categorie:
 
-+-----------------+---------------------------------------------------+
-| Algoritmi       | Basati sul ***vettore delle distanze***.          |
-|                 |                                                   |
-| DISTANCE-VECTOR | Utilizzano l'algoritmo ***Bellman-Ford***.        |
-|                 |                                                   |
-|                 | Calcolano la distanza dai router vicini secondo   |
-|                 | una metrica e la comunicano a ognuno di essi; man |
-|                 | mano che le informazioni si divulgano, i router   |
-|                 | calcolano la distanza con i nuovi router che      |
-|                 | prima non conoscevano e si crea tutta la tabella  |
-|                 | di routing.                                       |
-+-----------------+---------------------------------------------------+
-| Algoritmi       | Basati sullo ***stato del collegamento***.        |
-|                 |                                                   |
-| LINK-STATE      | Utilizzano l'algoritmo di ***Dijkstra****.***     |
-|                 |                                                   |
-|                 | Tutti i nodi si scambiano informazioni sul costo  |
-|                 | dei collegamenti coi vicini tramite multicast.    |
-|                 | Quando ogni nodo ha ricevuto tutte le             |
-|                 | informazioni, usa l'algoritmo per determinare il  |
-|                 | cammino minimo per raggiungere ogni nodo, ponendo |
-|                 | se stesso come radice dell\'albero dei cammini    |
-|                 | minimi.                                           |
-+-----------------+---------------------------------------------------+
+---
 
-### Il protocollo RIP
+**Algoritmi DISTANCE-VECTOR**<br>
+Basati sul ***vettore delle distanze***.<br>
+Utilizzano l'algoritmo ***Bellman-Ford***.<br>
+Calcolano la distanza dai router vicini secondo una metrica e la comunicano a ognuno di essi; man
+mano che le informazioni si divulgano, i router calcolano la distanza con i nuovi router che
+prima non conoscevano e si crea tutta la tabella di routing.
+
+---
+
+**Algoritmi LINK-STATE**<br>
+Basati sullo ***stato del collegamento***.<br>
+Utilizzano l'algoritmo di ***Dijkstra***.<br>
+Tutti i nodi si scambiano informazioni sul costo dei collegamenti coi vicini tramite multicast.
+Quando ogni nodo ha ricevuto tutte le informazioni, usa l'algoritmo per determinare il 
+cammino minimo per raggiungere ogni nodo, ponendo se stesso come radice dell'albero dei cammini
+minimi.
+
+<br>
+
+**Il protocollo RIP**
 
 RIP (Routing Information Protocol) è un protocollo IGP di tipo
-***distance-vector*** pubblicato nel 1988 con l'[**RFC
-1058**](https://tools.ietf.org/html/rfc1058) e revisionato con
+***distance-vector*** pubblicato nel 1988 con l'[**RFC 1058**](https://tools.ietf.org/html/rfc1058) e revisionato con
 terrificante regolarità negli anni successivi; ha avuto una grandissima
 diffusione fino a quando non e stato messo a punto OSPF, protocollo di
 tipo link-state, standard attuale per il routing fra gateway interni.
@@ -490,11 +468,12 @@ trasmette di default, ogni 30 secondi, la propria tabella completa di
 routing a tutti i vicini direttamente collegati, generando grande
 traffico dati, spesso inutile per la staticità di molte reti
 
-### Il protocollo OSPF
+<br>
+
+**Il protocollo OSPF**
 
 OSPF (Open Shortest Path First) è un protocollo IGP di tipo
-***link-state*** basato su uno standard aperto (OSPF 2.0, [**RFC
-2178**](https://tools.ietf.org/html/rfc2178), anno 1997) che è in grado
+***link-state*** basato su uno standard aperto (OSPF 2.0, [**RFC 2178**](https://tools.ietf.org/html/rfc2178), anno 1997) che è in grado
 di adattarsi velocemente ai cambiamenti di topologia e supportare vari
 tipi di metriche, ad un costo però non nullo per la rete.
 
@@ -502,12 +481,13 @@ Le informazioni di modifica dello "stato del collegamento" vengono
 inviate in multicast a tutti i router della rete gestita tramite esso,
 aggiornando (continuamente) lo stato complessivo della rete.
 
-### Il protocollo BGP
+<br>
+
+**Il protocollo BGP**
 
 BGP (Border Gateway Protocol) è *il* protocollo EGP di tipo
 ***distance-vector*** che agisce nel "cuore" di Internet, la cui prima
-versione ufficiale è datata 1990, con l'[**RFC
-1267**](https://tools.ietf.org/html/rfc1267).
+versione ufficiale è datata 1990, con l'[**RFC 1267**](https://tools.ietf.org/html/rfc1267).
 
 Viene utilizzato per scambiare informazioni fra i router che
 appartengono a sistemi autonomi distinti (i cosiddetti ***gateway
