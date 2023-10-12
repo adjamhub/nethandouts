@@ -62,8 +62,9 @@ di comunicare con un’altra nell’host B.
 **<div style="background:#FFFF88; font-size:1.1rem;">Livello 7: Applicazione</div>**
 
 Il livello di applicazione é il livello più alto del modello OSI. Nella teoria del modello dunque, è quello
-progettato per fornire un **_insieme di interfacce comuni alle applicazioni_** , che permetta alle stesse di
-comprendere come utilizzare i servizi della rete quali ad esempio il collegamento, il trasferimento file,
+progettato per **spiegare alle applicazioni come utilizzare il modello per la trasmissione delle informazioni**. 
+Tecnicamente si dice che il livello applicazione fa da interfaccia fra l'applicazione stessa e il modello per capire 
+come utilizzare i servizi della rete quali ad esempio il collegamento, il trasferimento file,
 la gestione dello scambio di messaggi, l’elaborazione delle richieste.
 
 <br>
