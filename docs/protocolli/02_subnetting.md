@@ -36,7 +36,7 @@ nessun altro!!!
 > Si incastra perfettamente nella sua organizzazione per classi senza stravolgere la logica di base di IPv4.
 
 
-**La tecnica del subnetting divide una rete in N sottoreti (dove N è un multiplo di 2).**
+**La tecnica del subnetting divide una rete in N sottoreti (dove N è una potenza di 2).**
 
 Ad esempio, nel caso di PUNTO.IT precedentemente illustrato, dividendo la rete in 2 parti (da 32 mila indirizzi ciascuna), il problema dello spreco di indirizzi
 sarebbe praticamente annullato: PUNTO.IT avrebbe gli IP a lui necessari (con 2000 host circa disponibili per “migliorare” il suo
