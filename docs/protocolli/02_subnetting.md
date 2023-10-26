@@ -15,7 +15,7 @@ di cui rivendere gli indirizzi IP validi e poi, una volta terminati, richiederne
 
 !!! tip "Internet Service Providers"
     
-    Gli **ISP**, acronimo per *Internet Service Providers*, ovvero *provider di servizi internet* sono quelle
+    Gli **ISP**, acronimo per *Internet Service Providers*, ovvero *fornitori di servizi internet* sono quelle
     società che forniscono connettività ai privati.
     
     In Italia le più famose sono TIM, Vodafone, Fastweb, Iliad, etc...
