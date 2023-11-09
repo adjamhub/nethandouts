@@ -84,8 +84,10 @@ nav:
     - Livello Superiore: InternetSuite/70_superiore.md
   - Protocolli Internet:
     - Introduzione: protocolli/00_intro.md
-    - IPv4: protocolli/01_IPv4.md
-    - Subnetting: protocolli/02_subnetting.md
+    - IPv4: protocolli/31_IPv4.md
+    - Indirizzamento IPv4: protocolli/32_IndirizzamentoIPv4.md
+    - Subnetting: protocolli/33_subnetting.md
+    - ARP: protocolli/37_ARP.md
   - Laboratorio:
     - Introduzione: laboratorio/00_intro.md
     - "Rete: ipconfig": laboratorio/net_10_ipconfig.md

@@ -1,138 +1,91 @@
 # Il livello di rete
 
-Il livello di rete della suite Internet è probabilmente quello che di
-più aderisce negli scopi e nelle funzioni alla strutturazione teorica
-stabilita nel modello OSI, che riconduce i compiti principali di questo
-livello ai seguenti compiti:
+Il livello di rete della suite Internet è probabilmente quello che di più aderisce negli scopi e nelle funzioni alla strutturazione teorica
+stabilita nel modello OSI, che riconduce i compiti principali di questo livello ai seguenti compiti:
 
-- l'**indirizzamento**, ovvero la possibilità di distinguere i
-  dispositivi tra loro e di raggrupparli opportunamente.
+- l'**indirizzamento**, ovvero la possibilità di distinguere i dispositivi tra loro e di raggrupparli opportunamente.
 
-- L'**impacchettamento**, ovvero la preparazione dei pacchetti adatti
-  ad essere trasferiti nella rete Internet per andare dal mittente al
-  destinatario (adesso che con l'indirizzamento può distinguerli).
+- L'**impacchettamento**, ovvero la preparazione dei pacchetti adatti ad essere trasferiti nella rete Internet 
+  per andare dal mittente al destinatario (adesso che con l'indirizzamento può distinguerli).
 
-- L'**instradamento**, ovvero la scelta del percorso che un generico
-  pacchetto dati deve compiere per andare dal mittente al destinatario.
+- L'**instradamento**, ovvero la scelta del percorso che un generico pacchetto dati deve compiere per andare dal mittente al destinatario.
 
-- La **gestione delle congestioni**, che durante l'instradamento
-  possono verificarsi se troppi pacchetti sono indirizzati verso un
+- La **gestione delle congestioni**, che durante l'instradamento possono verificarsi se troppi pacchetti sono indirizzati verso un
   unico percorso di rete, eventualmente troppo trafficato.
 
-Andando avanti nella trattazione cercheremo di capire chi si occupa di
-quale compito e possibilmente perché il livello di rete è organizzato in
-questo modo! Prima però... vediamo un po' di terminologia,
-indispensabile per capire i concetti a cui faremo riferimento.
 
-Quando un dispositivo che accede alla rete acquisisce un indirizzo di
-rete, tramite il quale può essere identificato univocamente, esso prende
-il nome di **host**.
-
-Mittente e destinatario e tutti i dispositivi che lavorano a livello di
-rete sono dunque sicuramente degli host.
-
-La scelta del percorso da compiere, l'instradamento o **routing**, viene
-fatto tramite appositi dispositivi di rete, collegati a più reti
-contemporaneamente. Questi dispositivi, che realizzano fisicamente
-l'operazione di instradamento vengono definiti ***router***. Per
-decidere il percorso da assegnare ad ogni pacchetto in transito su di
-essi consultano una speciale *tabella delle destinazioni*, definita
-appunto **tabella di routing**.
-
-I router possono essere dispositivi hardware espressamente dedicati a
-tali operazioni, oppure semplici pc con più schede di rete installate.
+Andando avanti nella trattazione cercheremo di capire chi si occupa di quale compito e possibilmente perché il livello di rete 
+è organizzato in questo modo! 
+Prima però... vediamo un po' di terminologia, indispensabile per capire i concetti a cui faremo riferimento.
 
 
+## Terminologia
 
-## Caratteristiche del livello di rete della suite Internet
+
+**host**<br>
+Qualunque dispositivo che accede alla rete tramite un indirizzo IP, grazie al quale può essere identificato univocamente.
+
+**routing (instradamento)**<br>
+Scelta del percorso che un pacchetto IP deve compiere.
+
+**router**<br>
+Software che determina il routing. Poiché tipicamente queste operazioni vengono svolte su dispositivi dedicati,
+il termine indica spesso anche l'apposito dispositivo di rete, in cui è stato installato il software per la selezione del percorso
+dei pacchetti che transitano su di esso.
+
+**tabella di routing**<br>
+Set di informazioni che permettono al router di stabilire il percorso per ogni pacchetto in transito.
+
+
+
+## Caratteristiche
 
 A livello di rete distinguiamo 2 caratteristiche che ci permettono di
 classificare i servizi offerti. Le caratteristiche sono:
 
-1.  ***Connessione:*** Un servizio si dice connesso (a livello di
-    rete) quando si preoccupa di stabilire un percorso con il
-    destinatario preventivo all'invio reale dei dati. Prima si
-    stabilisce un percorso dal mittente al destinatario, poi si inviano
-    tutti i pacchetti sempre in quella direzione.
+1.  ***Connessione:*** Un servizio si dice connesso (a livello di rete) quando si preoccupa di stabilire un percorso con il
+    destinatario preventivo all'invio reale dei dati. Prima si stabilisce un percorso dal mittente al destinatario, 
+    poi si inviano tutti i pacchetti sempre in quella direzione.
 
-    Viceversa, un servizio non connesso a livello di rete deve calcolare
-    il tragitto per ogni pacchetto inviato.
+    Viceversa, un servizio non connesso a livello di rete deve calcolare il tragitto per ogni pacchetto inviato.
 
-2.  ***Affidabilità***: Un servizio si dice affidabile (a livello di rete)
-    quando ogni nodo del percorso si preoccupa di avvisare il nodo
-    precedente se un pacchetto gli è arrivato da esso.
+2.  ***Affidabilità***: Un servizio si dice affidabile (a livello di rete) quando ogni nodo del percorso si preoccupa 
+    di avvisare il nodo precedente se un pacchetto gli è arrivato da esso.
 
-    Viceversa un servizio non affidabile a livello di rete non avvisa
-    nessuna per ogni pacchetto ricevuto o no in attraversamento sui
-    nodi.
-
-Mettiamo subito un punto in chiaro: tutti i protocolli di rete della
-Suite Internet non sono né connessi, né affidabili: i dati da
-trasportare sono suddivisi in pacchetti definiti ***datagrammi***,
-contenenti ognuno l'indirizzo del destinatario e il livello di rete
-sceglie per ognuno un percorso, potenzialmente un percorso diverso per
-ogni pacchetto.
-
-Se volete un esempio di protocollo di rete connesso dovete pensare a
-quello della vecchia telefonia mobile. Grande qualità per un certo tipo
-di dati (le telefonate da telefono fisso nel 1920 funzionavano meglio
-delle telefonate con *WhatsApp* nel 2020) ma poca flessibilità per il
-grande numero di dati presenti in una rete come la rete Internet. Oltre
-alla naturale gestione dei problemi insita in una struttura non connessa
-(ogni volta si ricalcola la strada, se una non c'è più se ne sceglie
-un'altra. Nei protocolli connessi finché va tutto bene ok, ma se va
-male...).
-
-Se volete un esempio di protocollo di rete affidabile... confesso. Non
-lo so. Mi sembra veramente un livello di controllo assurdo per
-comunicazioni "veloci".
+    Viceversa un servizio non affidabile a livello di rete non avvisa nessuna per ogni pacchetto ricevuto o no 
+    in attraversamento sui nodi.
 
 
-## Il Protocollo IPv4
+**Tutti i protocolli di rete della Suite Internet non sono né connessi, né affidabili**.  Per ogni pacchetto viene calcolato un percorso (potenzionalmente diverso)
+e tutti i controlli di affidabilità vengono lasciati (eventualmente) al livello di trasporto.
 
-Il protocollo IP è stato determinato nel 1981 (la preistoria
-praticamente) tramite l'[**RFC 791**](https://tools.ietf.org/html/rfc791) ed è il protocollo
-fondamentale della rete Internet dal punto di vista del funzionamento
-della stessa.
 
-È il protocollo che si occupa dell'identificazione dei dispositivi
-tramite il suo ***indirizzamento*** (appunto l'indirizzamento IPv4, di
-cui studiamo a parte), questo significa che deve essere eseguito nel
-100% dei dispositivi che vogliono utilizzare la rete Internet (l'unico
-protocollo a presentare questa caratteristica).
+!!! tip "Protocolli connessi e affidabili a livello di rete"
 
-È il protocollo che funge da interfaccia verso il livello di trasporto e
-questo significa che è il primo protocollo di rete ad essere utilizzato
-ed è dunque quello che si occupa dell'***impacchettamento***: riceve i
-dati dal livello di trasporto e li prepara in pacchetti di rete definiti
-**datagrammi**.
+    Se volete un esempio di protocollo di rete connesso dovete pensare a
+    quello della *vecchia telefonia mobile*. Grande qualità per un certo tipo
+    di dati (le telefonate da telefono fisso nel 1920 funzionavano meglio
+    delle telefonate con *WhatsApp* nel 2020) ma poca flessibilità per il
+    grande numero di dati presenti in una rete come la rete Internet. Oltre
+    alla naturale gestione dei problemi insita in una struttura non connessa
+    (ogni volta si ricalcola la strada, se una non c'è più se ne sceglie
+    un'altra. Nei protocolli connessi finché va tutto bene ok, ma se va
+    male...).
 
-Avrete già notato che il protocollo IPv4 si occupa da solo di ben 2
-compiti (su 4) di tutto il livello di rete. Beh... non è finita.
+    Se volete un esempio di protocollo di rete affidabile... confesso. Non
+    lo so. Mi sembra veramente un livello di controllo assurdo per comunicazioni "veloci".
 
-IPv4 È un protocollo **instradabile**, ovvero i pacchetti che esso crea,
-i datagrammi, sono adatti per essere usati così come sono per le
-operazioni di routing: questo significa che nessuno dei protocolli del
-livello di rete modificherà più la struttura del pacchetto, ma
-semplicemente inserirà o modificherà le informazioni necessarie per i
-suoi scopi nell'header IP.
 
-**È un protocollo non connesso e non affidabile: **ogni datagramma IP
-(così si chiamano i suoi pacchetti) diretto verso una stessa
-destinazione può seguire percorsi diversi, arrivare in ordine sparso o
-addirittura non arrivare affatto!
+**Il primo protocollo di rete che si incontra è sempre il protocollo IP**!! Esso è responsabile dell'impacchettamento e dell'indirizzamento.
 
-La consegna non è garantita, ma il protocollo IP non se ne preoccupa: i
-controlli di affidabilità della suite Internet sono eventualmente
-affidati al livello di trasporto.
+Avere questi compiti e questa posizione lo rende l'unico protocollo della Suite Internet ad essere eseguito sempre e comunque! Tutti gli 
+altri protocolli di rete utilizzano i pacchetti IP, che vengono definiti **datagrammi** e presentano la caratteristica di essere **instradabili**,
+ovvero di essere adatti alle operazioni di routing.
 
-Il protocollo IP agisce da quando il dispositivo è acceso, tramite
-l'indirizzamento. Quando il livello di trasporto gli invia dati da
-elaborare, prima di tutto si occupa dell'impacchettamento e poi opera lo
-smistamento secondo la seguente **logica di base del protocollo IP.**
+Per la precisione, il protocollo IP si occupa perfino dell'instradamento del primo salto del pacchetto, ovvero dell'uscita dal dispositivo del mittente,
+tramite la sua **logica di base del protocollo IP.**
 
-Esso confronta l'indirizzo IP del mittente del pacchetto con quello del
-destinatario e si comporta secondo le seguenti regole:
+Esso confronta l'indirizzo IP del mittente del pacchetto con quello del destinatario e si comporta secondo le seguenti regole:
 
 -   Se l'indirizzo IP del mittente è uguale all'IP del destinatario,
     oppure uno degli indirizzi è della classe 127, il pacchetto viene
@@ -144,107 +97,9 @@ destinatario e si comporta secondo le seguenti regole:
 -   Se il destinatario NON si trova nella stessa rete del mittente, si
     invia il pacchetto al **default gateway**.
 
-Per inviare i pacchetti nella rete, il protocollo IP può utilizzare una
-delle seguenti modalità:
 
--   ***Unicasting***: è il caso più comune. Un pacchetto destinato ad un
-    solo computer viene infatti definito unicast, quindi concettualmente
-    una trasmissione unicasting corrisponde ad una trasmissione
-    punto-a-punto. Si verifica quando l'indirizzo del destinatario è un
-    indirizzo valido.
--   ***Broadcasting***: indica la spedizione di un generico pacchetto ad
-    un indirizzo particolare che permetterà di consegnarlo a tutti i
-    dispositivi collegati a quel segmento di rete. Si verifica quando
-    l'indirizzo del destinatario è un indirizzo di broadcast.
--   ***Multicasting***: si intende la trasmissione contemporanea di
-    frame ad un gruppo di dispositivi che hanno espresso interesse a
-    riceverla. Il tipico esempio è quello delle trasmissioni
-    multimediali in streaming. Si verifica quando l'indirizzo del
-    destinatario è di classe D.
-
-Vediamo l'intestazione (***header***) del datagramma IP:
-
-![Pacchetto IPv4](images/IPv4_packet.png){style="width:100%"}
-
-Ok tranquilli... non si tratta di impararlo a memoria o riprodurlo
-uguale durante le interrogazioni! Volevo solo mettere in evidenza alcune
-informazioni che l'intestazione del datagramma IP si porta con sé,
-quelle che ho messo in grassetto:
-
--   **0100**, il pacchetto IPv4 inizia con 4 in binario.
--   **lunghezza totale**, numero di byte che compongono il pacchetto.
-    Sono 16 bit, quindi...
--   **TTL**, contatore della vita del pacchetto (Time To Live). Inizia
-    da 30 o da 15 e scala di 1 ogni volta che si attraversa un router.
-    Se arriva a zero, il pacchetto viene eliminato.
--   **CRC**, campo di controllo. Serve a verificare se il pacchetto è
-    arrivato corrotto o no.
--   **indirizzi mittente e destinatario**, IP mittente e destinatario
--   **dati**, dati trasportati dal frame IP.
-
-
-
-## Protocollo ARP
-
-
-ARP (Address Resolution Protocol) è un protocollo "storico" delle reti,
-implementato nel 1982 tramite l'[**RFC 826**](https://tools.ietf.org/html/rfc826), rappresenta uno strumento
-indispensabile del protocollo di rete e grazie anche al suo opposto RARP
-(Reverse ARP) si pone come strumento di collegamento fra il livello di
-rete e quello inferiore.
-
-Per essere spedito infatti, un pacchetto IP deve essere passato al
-livello inferiore che avrà il compito di individuare fisicamente il
-dispositivo del destinatario e di trasformare in segnali fisici i dati
-logici contenuti nei pacchetti IP. La procedura di individuazione fisica
-del destinatario si risolve tramite il protocollo ARP, che è in grado di
-abbinare ad ogni indirizzo logico (un indirizzo IP) un indirizzo fisico
-(un **indirizzo MAC**) che identifica univocamente un dispositivo.
-
-L'indirizzo MAC, o indirizzo fisico, è un identificatore univoco per
-una NIC (Network Interface Card, una scheda di rete). Questo significa
-che ogni scheda di rete prodotta sulla Terra possiede un indirizzo MAC
-diverso e che questo permette di tracciare il costruttore, il pezzo
-prodotto e in molti casi persino l'acquirente (da parte della ditta
-produttrice).
-
-L'indirizzo MAC é formato da 6 coppie di cifre esadecimali, indicate di
-solito con due punti che li separano, ad esempio: 00:C0:9F:3C:C0:20
-
-Delle 6 coppie le prime 3 (in questo caso 00:C0:9F) identificano la
-ditta produttrice, mentre le 3 rimanenti identificano il "pezzo" nel
-lotto di produzione.
-
-Questa identificazione così vincolante (conoscere l'indirizzo MAC di un
-dispositivo... è tanta roba!) può avvenire solo in una rete locale,
-infatti ARP manda in broadcast una richiesta del tipo:
-
-```
-Who has 192.168.0.13? Tell 192.168.0.10
-```
-
-Tutti i dispositivi della rete locale riceverano la richiesta ma solo
-uno avrà quell'indirizzo IP e risponderà (in unicast, all'indirizzo
-indicato) con il suo indirizzo MAC
-
-```
-192.168.0.13 is at 01:02:03:04:05:06
-```
-
-A questo punto, colui che ha fatto la richiesta (il dispositivo con
-indirizzo 192.168.0.10 nel nostro esempio) inserirà nella sua cache ARP
-la coppia indirizzo IP / indirizzo MAC. In questo modo non avrà bisogno
-di richiedere ogni volta l'intervento del protocollo ARP per risolvere
-un indirizzo.
-
-Allo stesso modo però, per permettere cambiamenti nella configurazione
-della rete, ad ogni voce nella cache viene assegnata un `TTL (Time To Live)`, 
-un tempo oltre il quale la voce viene cancellata.
-
-Il TTL di default dura 2 minuti. Ogni volta che avviene traffico fra le
-due stazioni il TTL si resetta a 2 minuti. Oltre 10 minuti la voce in
-cache viene comunque eliminata.
-
+Impacchettato correttamente, inserito in un indirizzamento organizzato e finalmente fuori dal disposirivo mittente, il prossimo compito del livello
+di rete viene affidato ai protocolli di routing.
 
 
 ## Routing
@@ -294,8 +149,10 @@ con IPv4 (oltre 2 milioni di reti), come è possibile realizzare questa
 incredibile magia della tecnologia, del pensiero e dell'informatica che
 è l'instradamento globale?
 
-La risposta sta nell'organizzazione imposta alla rete da **ICANN** (vi
-ricordate questa società?). Questa organizzazione ha strutturato
+![Sistema Autonomo](images/routing_esterno.png){style="float:right; margin: 10px"}
+
+La risposta sta nell'organizzazione imposta alla rete da **ICANN**. 
+Questa organizzazione ha strutturato
 Internet in maniera gerarchica tramite l'assegnazione delle reti IP agli
 ISP (Internet Service Provider).
 
@@ -305,7 +162,6 @@ entità amministrative locali come **Sistemi Autonomi** (AS), ovvero
 gruppi di router e reti sotto il controllo di una singola e ben definita
 autorità amministrativa.
 
-![Sistema Autonomo](images/routing_esterno.png){style="width:100%"}
 
 Ogni Sistema Autonomo sulla rete Internet è identificato da un numero a 16 bit (**ASN, AS number**).
 
@@ -375,7 +231,7 @@ Una ***tabella di routing*** è costituita da almeno 3 campi:
 Vediamo un esempio:
 
 | Network        | Mask          | Gateway         |
-|----------------|---------------|-----------------|
+|---------------:|--------------:|----------------:|
 | 100.0.0.0      | 255.0.0.0     | 100.100.1.75    |
 | 170.50.0.0     | 255.255.0.0   | 200.200.2.150   |
 | 200.150.100.0  | 255.255.255.0 | 150.150.150.150 |
@@ -404,21 +260,22 @@ illustrato, ovvero ***routing gerarchico*** e ***tabelle di routing***?
 
 Proverò ancora a spiegare la questione con un esempio. Immaginate che un
 AS gestisca al suo interno 5 reti come nella figura sotto. Tutto il
-resto è considerato esterno al Sistema Autonomo. Allora la tabella di
-routing del router indicato come R1 sarà così:
+resto è considerato esterno al Sistema Autonomo. 
 
 
 ![Sistemi Autonomi](images/AS.jpg){style="width:100%"}
 
 
-| Network   | Mask      | Gateway   |
-|-----------|-----------|-----------|
-| 11.0.0.0  | 255.0.0.0 | 11.10.9.8 |
-| 12.0.0.0  | 255.0.0.0 | 12.3.4.5  |
-| 13.0.0.0  | 255.0.0.0 | 13.4.5.6  |
-| 14.0.0.0  | 255.0.0.0 | 11.10.9.8 |
-| 15.0.0.0  | 255.0.0.0 | 12.3.4.5  |
-| 0.0.0.0   | 0.0.0.0   | 7.4.7.4   |
+Allora la tabella di routing del router indicato come R1 sarà così:
+
+| Network    | Mask       | Gateway    |
+|-----------:|-----------:|-----------:|
+| 11.0.0.0   | 255.0.0.0  | 11.10.9.8  |
+| 12.0.0.0   | 255.0.0.0  | 12.3.4.5   |
+| 13.0.0.0   | 255.0.0.0  | 13.4.5.6   |
+| 14.0.0.0   | 255.0.0.0  | 11.10.9.8  |
+| 15.0.0.0   | 255.0.0.0  | 12.3.4.5   |
+| 0.0.0.0    | 0.0.0.0    | 7.4.7.4    |
 
 Se il pacchetto è destinato ad una delle reti elencate nelle prime 5
 righe utilizza il gateway indicato. Altrimenti viene indirizzato
@@ -499,3 +356,4 @@ ma agisce basandosi su regole specifiche definite su ciascun sistema
 autonomo da accordi politici fra i vari "proprietari" (o forse dovevo
 scrivere "gestori"?) dei sistemi autonomi.
 
+<br>
