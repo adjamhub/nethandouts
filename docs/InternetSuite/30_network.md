@@ -134,10 +134,10 @@ Capito più o meno cosa si intende per routing adesso vogliamo capire:
 chi se ne occupa? E come? Fisicamente il routing viene effettuato dai
 router, i dispositivi del livello di rete che organizzano la rete
 stessa. E come fanno? Ci riescono grazie a due concetti fondamentali, di
-cui parleremo dalla prossima pagina:
+cui parleremo a breve:
 
--   il routing gerarchico
--   le tabelle di routing
+- il routing gerarchico
+- le tabelle di routing
 
 
 
