@@ -27,32 +27,40 @@ hide:
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <section class="">
 
-<div class="w3-row">
-
-<div class="w3-half" style="padding:0 10px">
+<div style="padding:0 10px">
 <a href="teoria/01_OSI/" class="md-button md-button--primary" style="width:250px">Teoria delle reti</a>
 <p>Il modello OSI e la suite Internet. Le organizzazioni che gestiscono Internet. Cenni alla storia delle reti.</p>
 <br>
 <br>
 </div>
 
+<div class="w3-row">
+
 <div class="w3-half" style="padding:0 10px">
-<a href="InternetSuite/00_intro/" class="md-button" style="width:250px">La Suite Internet</a>
-<p>Schematizzazione dei compiti dei livelli della Suite Internet. Applicazioni ed Esperienze di laboratorio.</p>
+<a href="LivelloInferiore/00_intro/" class="md-button" style="width:250px">Livello Inferiore</a>
+<p>Compiti e Informazioni gestite dal livello Inferiore della Suite Internet. Applicazioni ed Esperienze di laboratorio.</p>
 <br>
 <br>
 </div>
 
 <div class="w3-half" style="padding:0 10px">
-<a href="protocolli/00_intro/" class="md-button" style="width:250px">Protocolli Internet</a>
-<p>Protocolli, strumenti e implementazioni dei livelli della Suite Internet. Applicazioni Reali.</p>
+<a href="LivelloRete/00_intro/" class="md-button" style="width:250px">Livello di Rete</a>
+<p>Protocolli, strumenti e implementazioni del livello di Rete della Suite Internet. Applicazioni Reali.</p>
 <br>
 <br>
 </div>
 
 <div class="w3-half" style="padding:0 10px">
-<a href="laboratorio/00_intro/" class="md-button" style="width:250px">Laboratorio</a>
-<p>Materiale, software, tools, esperienze di laboratorio di reti. Da fare a scuola o a casa.</p>
+<a href="LivelloTrasporto/00_intro/" class="md-button" style="width:250px">Livello di Trasporto</a>
+<p>Protocolli, strumenti e implementazioni del livello di Trasporto della Suite Internet. Esperienze di laboratorio.</p>
+
+<br>
+<br>
+</div>
+
+<div class="w3-half" style="padding:0 10px">
+<a href="LivelloSuperiore/00_intro/" class="md-button" style="width:250px">Livello Superiore</a>
+<p>Protocolli, strumenti e implementazioni del livello Superiore della Suite Internet. Applicazioni Reali.</p>
 <br>
 <br>
 </div>

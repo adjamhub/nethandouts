@@ -57,8 +57,8 @@ regola per gestire tutto lo stack di rete era solo una: **TCP/IP**.
 
 La `Internet Protocol Suite` è un insieme di protocolli di rete che implementa la pila di protocolli su cui funziona Internet. 
 
-Se la cercate in rete o nella letteratura attuale, la troverete nominata in vari modi: **_Internet Protocol Suite_**, o più semplicemente **_Suite Internet__**, 
-o addirittura con il nomignolo **_TCP/IP_**, che deriva dalla grande importanza storica 
+Se la cercate in rete o nella letteratura attuale, la troverete nominata in vari modi: ***Internet Protocol Suite***, o più semplicemente ***Suite Internet***, 
+o addirittura con il nomignolo ***TCP/IP***, che deriva dalla grande importanza storica 
 dei suoi due protocolli più rappresentativi: TCP e IP.
 
 La necessità di implementare realmente i livelli descritti ha portato ad una semplificazione di alcune parti del modello OSI, come si desume dalla figura seguente:
