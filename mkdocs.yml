@@ -83,13 +83,14 @@ nav:
    # ---------------------------------------------------------------    
   - Livello Rete:
     - Introduzione: LivelloRete/00_intro.md
-    - IPv4: LivelloRete/31_IPv4.md
-    - (LAB) ping: LivelloRete/net_20_ping.md
-    - (LAB) traceroute: LivelloRete/net_40_traceroute.md
     - Indirizzamento IPv4: LivelloRete/32_IndirizzamentoIPv4.md
     - (LAB) ipconfig: LivelloRete/net_10_ipconfig.md
     - (LAB) ifconfig,ip: LivelloRete/net_11_ifconfig_ip.md
     - Subnetting: LivelloRete/33_subnetting.md
+    - IPv4: LivelloRete/31_IPv4.md
+    - (LAB) ping: LivelloRete/net_20_ping.md
+    - Routing: LivelloRete/35_routing.md
+    - (LAB) traceroute: LivelloRete/net_40_traceroute.md
     - ARP: LivelloRete/37_ARP.md
     - (LAB) arp: LivelloRete/net_30_arp.md
    # ---------------------------------------------------------------    
