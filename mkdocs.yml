@@ -74,42 +74,51 @@ nav:
   - Home: index.md
   # ---------------------------------------------------------------
   - Teoria:
-    - Il Modello OSI: teoria/01_OSI.md
-    - Implementazioni Reali: teoria/02_suites.md
-    - Gestione e Sviluppo di Internet: teoria/03_assoc.md
+    - Il Modello OSI:                   teoria/01_OSI.md
+    - Implementazioni Reali:            teoria/02_suites.md
+    - Gestione e Sviluppo di Internet:  teoria/03_assoc.md
   # ---------------------------------------------------------------    
   - Livello Inferiore:
-    - Introduzione: LivelloInferiore/00_intro.md
+    - Specifiche IEEE 802:  Inferiore/01_IEEE802.md
+    - Tipologie di rete:    Inferiore/02_tipologie.md
+    - Topologie di rete:    Inferiore/03_topologie.md
+    - Dispositivi di rete:  Inferiore/04_dispositivi.md
+    - In Laboratorio:       Inferiore/05_lab.md
    # ---------------------------------------------------------------    
   - Livello Rete:
-    - Introduzione: LivelloRete/00_intro.md
-    - Indirizzamento IPv4: LivelloRete/32_IndirizzamentoIPv4.md
-    - (LAB) ipconfig: LivelloRete/net_10_ipconfig.md
-    - (LAB) ifconfig,ip: LivelloRete/net_11_ifconfig_ip.md
-    - Subnetting: LivelloRete/33_subnetting.md
-    - IPv4: LivelloRete/31_IPv4.md
-    - (LAB) ping: LivelloRete/net_20_ping.md
-    - Routing: LivelloRete/35_routing.md
-    - (LAB) traceroute: LivelloRete/net_40_traceroute.md
-    - ARP: LivelloRete/37_ARP.md
-    - (LAB) arp: LivelloRete/net_30_arp.md
+    - Introduzione:         Rete/00_intro.md
+    - Indirizzamento IPv4:  Rete/32_IndirizzamentoIPv4.md
+    - (LAB) ipconfig:       Rete/lab_310_ipconfig.md
+    - (LAB) ifconfig,ip:    Rete/lab_311_ifconfig_ip.md
+    - Subnetting:           Rete/33_subnetting.md
+    - IPv4:                 Rete/31_IPv4.md
+    - (LAB) ping:           Rete/lab_320_ping.md
+    - Routing:              Rete/35_routing.md
+    - (LAB) traceroute:     Rete/lab_340_traceroute.md
+    - ARP:                  Rete/37_ARP.md
+    - (LAB) arp:            Rete/lab_330_arp.md
    # ---------------------------------------------------------------    
   - Livello Trasporto:
-    - Introduzione: LivelloTrasporto/00_intro.md
-    - (LAB) netstat: LivelloTrasporto/trasporto_10_netstat.md
-    - (LAB) wireshark: LivelloTrasporto/trasporto_20_wireshark.md
-    - (LAB) nmap: LivelloTrasporto/trasporto_30_nmap.md
-    - (LAB) port forwarding: LivelloTrasporto/trasporto_40_port_forwarding.md
+    - Introduzione:     Trasporto/00_intro.md
+    - Sockets e Porte:  Trasporto/01_sockets_ports.md
+    - (LAB) netstat:    Trasporto/lab_410_netstat.md
+    - QoS:              Trasporto/02_QoS.md
+    - Protocollo TCP:   Trasporto/03_TCP.md
+    - Protocollo UDP:   Trasporto/04_UDP.md
+    - (LAB) wireshark:  Trasporto/lab_420_wireshark.md
+    - (LAB) nmap:       Trasporto/lab_430_nmap.md
+    - (LAB) port forwarding: Trasporto/lab_440_port_forwarding.md
   # ---------------------------------------------------------------    
   - Livello Superiore:
-    - Introduzione: LivelloSuperiore/00_intro.md
-    - (LAB) server web: LivelloSuperiore/sup_10_server_web.md
-    - (LAB) sito web a casa tua: LivelloSuperiore/sup_11_sito_casa.md
-    - (LAB) Telnet e HTTP: LivelloSuperiore/sup_12_telnet_http.md
-    - (LAB) DNS clients: LivelloSuperiore/sup_20_DNS_clients.md
-    - (LAB) DNS server: LivelloSuperiore/sup_21_DNS_server.md
-    - (LAB) DHCP server: LivelloSuperiore/sup_30_DHCP_server.md
-    - (LAB) Access Point DIY: LivelloSuperiore/sup_31_AccessPoint_DIY.md
-    - (LAB) Mail server: LivelloSuperiore/sup_40_mail_server.md
-    - (LAB) Telnet e LivelloSuperiore: LivelloSuperiore/sup_41_telnet_mail.md
+    - Introduzione:             Superiore/00_intro.md
+    - (LAB) server web:         Superiore/lab_710_server_web.md
+    - (LAB) sito web a casa tua:    Superiore/lab_711_sito_casa.md
+    - (LAB) Telnet e HTTP:      Superiore/lab_712_telnet_http.md
+    - (LAB) DNS clients:        Superiore/sup_720_DNS_clients.md
+    - (LAB) DNS server:         Superiore/lab_721_DNS_server.md
+    - (LAB) DHCP server:        Superiore/lab_730_DHCP_server.md
+    - (LAB) Access Point DIY:   Superiore/lab_731_AccessPoint_DIY.md
+    - (LAB) Mail server:        Superiore/lab_740_mail_server.md
+    - (LAB) Telnet e LivelloSuperiore: Superiore/lab_741_telnet_mail.md
+    
     
