@@ -111,14 +111,18 @@ nav:
   # ---------------------------------------------------------------    
   - Livello Superiore:
     - Introduzione:             Superiore/00_intro.md
-    - (LAB) server web:         Superiore/lab_710_server_web.md
-    - (LAB) sito web a casa tua:    Superiore/lab_711_sito_casa.md
-    - (LAB) Telnet e HTTP:      Superiore/lab_712_telnet_http.md
+    - Protocollo DNS:           Superiore/01_DNS.md
     - (LAB) DNS clients:        Superiore/lab_720_DNS_clients.md
     - (LAB) DNS server:         Superiore/lab_721_DNS_server.md
+    - Protocollo DHCP:          Superiore/02_DHCP.md
     - (LAB) DHCP server:        Superiore/lab_730_DHCP_server.md
     - (LAB) Access Point DIY:   Superiore/lab_731_AccessPoint_DIY.md
+    - Protocollo HTTP:          Superiore/03_HTTP.md
+    - (LAB) Telnet e HTTP:      Superiore/lab_712_telnet_http.md
+    - (LAB) server web:         Superiore/lab_710_server_web.md
+    - (LAB) sito web a casa tua:  Superiore/lab_711_sito_casa.md
+    - Posta Elettronica:        Superiore/04_MAIL.md
     - (LAB) Mail server:        Superiore/lab_740_mail_server.md
-    - (LAB) Telnet e LivelloSuperiore: Superiore/lab_741_telnet_mail.md
+    - (LAB) Telnet e Mail:      Superiore/lab_741_telnet_mail.md
     
     
