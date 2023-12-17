@@ -66,7 +66,7 @@ e passa il dato al livello superiore.
 
 
 
-## Il meccanismo delle porte logiche
+## Sockets e Porte
 
 
 Il protocollo di trasporto per suddividere il traffico in entrata e
