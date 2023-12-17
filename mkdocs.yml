@@ -114,7 +114,7 @@ nav:
     - (LAB) server web:         Superiore/lab_710_server_web.md
     - (LAB) sito web a casa tua:    Superiore/lab_711_sito_casa.md
     - (LAB) Telnet e HTTP:      Superiore/lab_712_telnet_http.md
-    - (LAB) DNS clients:        Superiore/sup_720_DNS_clients.md
+    - (LAB) DNS clients:        Superiore/lab_720_DNS_clients.md
     - (LAB) DNS server:         Superiore/lab_721_DNS_server.md
     - (LAB) DHCP server:        Superiore/lab_730_DHCP_server.md
     - (LAB) Access Point DIY:   Superiore/lab_731_AccessPoint_DIY.md

@@ -137,23 +137,8 @@ Nella tabella seguente elenco le porte utilizzate dai protocolli più comuni.
 
 Ovviamente dovrete impararle tutte!
 
-(in realtà, le studieremo 2 o 3 alla volta parlando del relativo
-protocollo)
+![Transport Layer Common Ports](images/Transport_Layer_Ports.png)
 
-| Protocollo                 | Porta |
-|----------------------------|-------|
-| DHCP server (BOOTP)        |    67 |
-| DHCP client (BOOTP)        |    68 |
-| DNS                        |    53 |
-| DNS over TLS               |   853 |
-| HTTP                       |    80 |
-| HTTP (porta registrata)    |  8080 |
-| HTTP over TLS (HTTPS)      |   443 |
-| SMTP                       |    25 |
-| SMTP over TLS (SUBMISSION) |   587 |
-| POP                        |   110 |
-| POP over TLS               |   995 |
-| IMAP                       |   143 |
-| IMAP over TLS              |   993 |
-
+<br>
+<br>
 
