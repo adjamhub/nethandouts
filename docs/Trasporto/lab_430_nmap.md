@@ -30,7 +30,7 @@ questi:
 - `RANGE`: ad esempio *192.168.1.1-20*
 - `SUBNET`: ad esempio *192.168.1.0/24*
 
-Ricorda comunque che la scansione che nnap esegue richiede del tempo
+Ricorda comunque che la scansione che nmap esegue richiede del tempo
 quindi occhio ad impostare RANGE o SUBNET troppo ampi...
 
 Le **OPTIONS** disponibili sono tranquillamente un migliaio... noi qui
@@ -70,7 +70,7 @@ $ sudo nmap -sS HOST
 
 !!! warning "TCP scan vs SYN scan"
     
-    Mentre un 3way handshake prevede l'invio e la ricezione di 3 pacchetti
+    Mentre un 3-way handshake prevede l'invio e la ricezione di 3 pacchetti
     con l'attivazione di una connessione fra i 2 host e permette dunque al
     sistema target di *accorgersi* del dispositivo che lo scansiona, un SYN
     scan invia al TARGET solo il primo pacchetto dell'handshake e determina
@@ -80,7 +80,7 @@ $ sudo nmap -sS HOST
 
 
 Le due precedenti scansioni ci elencano semplicemente le porte che
-rispondono o no al 3 way handshake. Per determinare i servizi realmente
+rispondono o no al 3-way handshake. Per determinare i servizi realmente
 attivi dietro alle porte attive:
 
 ``` bash
