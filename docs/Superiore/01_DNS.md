@@ -85,7 +85,7 @@ vedremo, esistono 13 server autoritativi per la root zone, i cosiddetti
 I server DNS sono configurabili per funzionare in varie modalità, a
 seconda del ruolo che devono svolgere nel sistema di risoluzione:
 
-- se configurato in modalità “***r****esolver***”, il server risponde
+- se configurato in modalità “***resolver***”, il server risponde
   alle query dei client (anzi è l’unica modalità che interagisce coi
   client) interrogando la sua cache locale ed eventualmente rivolgendo
   la domanda agli altri tipi di server fino a che non è in grado di
