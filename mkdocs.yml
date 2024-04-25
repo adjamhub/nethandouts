@@ -74,9 +74,9 @@ nav:
   - Home: index.md
   # ---------------------------------------------------------------
   - Teoria:
-    - Il Modello OSI:                   teoria/01_OSI.md
-    - Implementazioni Reali:            teoria/02_suites.md
-    - Gestione e Sviluppo di Internet:  teoria/03_assoc.md
+    - Il Modello OSI:                   00_teoria/01_OSI.md
+    - Implementazioni Reali:            00_teoria/02_suites.md
+    - Gestione e Sviluppo di Internet:  00_teoria/03_assoc.md
   # ---------------------------------------------------------------    
   - Livello Inferiore:
     - Specifiche IEEE 802:  01_inferiore/01_IEEE802.md
