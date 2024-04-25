@@ -28,7 +28,7 @@ hide:
 <section class="">
 
 <div style="padding:0 10px">
-<a href="teoria/01_OSI/" class="md-button md-button--primary" style="width:250px">Teoria delle reti</a>
+<a href="00_teoria/01_OSI/" class="md-button md-button--primary" style="width:250px">Teoria delle reti</a>
 <p>Il modello OSI e la suite Internet. Le organizzazioni che gestiscono Internet. Cenni alla storia delle reti.</p>
 <br>
 <br>
@@ -37,21 +37,21 @@ hide:
 <div class="w3-row">
 
 <div class="w3-half" style="padding:0 10px">
-<a href="Inferiore/01_IEEE802/" class="md-button" style="width:250px">Livello Inferiore</a>
+<a href="01_nferiore/01_IEEE802/" class="md-button" style="width:250px">Livello Inferiore</a>
 <p>Compiti e Informazioni gestite dal livello Inferiore della Suite Internet. Applicazioni ed Esperienze di laboratorio.</p>
 <br>
 <br>
 </div>
 
 <div class="w3-half" style="padding:0 10px">
-<a href="Rete/00_intro/" class="md-button" style="width:250px">Livello di Rete</a>
+<a href="03_rete/00_intro/" class="md-button" style="width:250px">Livello di Rete</a>
 <p>Protocolli, strumenti e implementazioni del livello di Rete della Suite Internet. Applicazioni Reali.</p>
 <br>
 <br>
 </div>
 
 <div class="w3-half" style="padding:0 10px">
-<a href="Trasporto/00_intro/" class="md-button" style="width:250px">Livello di Trasporto</a>
+<a href="04_trasporto/00_intro/" class="md-button" style="width:250px">Livello di Trasporto</a>
 <p>Protocolli, strumenti e implementazioni del livello di Trasporto della Suite Internet. Esperienze di laboratorio.</p>
 
 <br>
@@ -59,7 +59,7 @@ hide:
 </div>
 
 <div class="w3-half" style="padding:0 10px">
-<a href="Superiore/00_intro/" class="md-button" style="width:250px">Livello Superiore</a>
+<a href="07_superiore/00_intro/" class="md-button" style="width:250px">Livello Superiore</a>
 <p>Protocolli, strumenti e implementazioni del livello Superiore della Suite Internet. Applicazioni Reali.</p>
 <br>
 <br>

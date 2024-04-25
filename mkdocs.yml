@@ -79,50 +79,50 @@ nav:
     - Gestione e Sviluppo di Internet:  teoria/03_assoc.md
   # ---------------------------------------------------------------    
   - Livello Inferiore:
-    - Specifiche IEEE 802:  Inferiore/01_IEEE802.md
-    - Tipologie di rete:    Inferiore/02_tipologie.md
-    - Topologie di rete:    Inferiore/03_topologie.md
-    - Dispositivi di rete:  Inferiore/04_dispositivi.md
-    - In Laboratorio:       Inferiore/05_lab.md
+    - Specifiche IEEE 802:  01_inferiore/01_IEEE802.md
+    - Tipologie di rete:    01_inferiore/02_tipologie.md
+    - Topologie di rete:    01_inferiore/03_topologie.md
+    - Dispositivi di rete:  01_inferiore/04_dispositivi.md
+    - In Laboratorio:       01_inferiore/05_lab.md
    # ---------------------------------------------------------------    
   - Livello Rete:
-    - Introduzione:         Rete/00_intro.md
-    - Indirizzamento IPv4:  Rete/32_IndirizzamentoIPv4.md
-    - (LAB) ipconfig:       Rete/lab_310_ipconfig.md
-    - (LAB) ifconfig,ip:    Rete/lab_311_ifconfig_ip.md
-    - Subnetting:           Rete/33_subnetting.md
-    - IPv4:                 Rete/31_IPv4.md
-    - (LAB) ping:           Rete/lab_320_ping.md
-    - Routing:              Rete/35_routing.md
-    - (LAB) traceroute:     Rete/lab_340_traceroute.md
-    - ARP:                  Rete/37_ARP.md
-    - (LAB) arp:            Rete/lab_330_arp.md
+    - Introduzione:         03_rete/00_intro.md
+    - Indirizzamento IPv4:  03_rete/32_IndirizzamentoIPv4.md
+    - (LAB) ipconfig:       03_rete/lab_310_ipconfig.md
+    - (LAB) ifconfig,ip:    03_rete/lab_311_ifconfig_ip.md
+    - Subnetting:           03_rete/33_subnetting.md
+    - IPv4:                 03_rete/31_IPv4.md
+    - (LAB) ping:           03_rete/lab_320_ping.md
+    - Routing:              03_rete/35_routing.md
+    - (LAB) traceroute:     03_rete/lab_340_traceroute.md
+    - ARP:                  03_rete/37_ARP.md
+    - (LAB) arp:            03_rete/lab_330_arp.md
    # ---------------------------------------------------------------    
   - Livello Trasporto:
-    - Introduzione:     Trasporto/00_intro.md
-    - Sockets e Porte:  Trasporto/01_sockets_ports.md
-    - (LAB) netstat:    Trasporto/lab_410_netstat.md
-    - QoS:              Trasporto/02_QoS.md
-    - Protocollo TCP:   Trasporto/03_TCP.md
-    - Protocollo UDP:   Trasporto/04_UDP.md
-    - (LAB) wireshark:  Trasporto/lab_420_wireshark.md
-    - (LAB) nmap:       Trasporto/lab_430_nmap.md
-    - (LAB) port forwarding: Trasporto/lab_440_port_forwarding.md
+    - Introduzione:          04_trasporto/00_intro.md
+    - Sockets e Porte:       04_trasporto/01_sockets_ports.md
+    - (LAB) netstat:         04_trasporto/lab_410_netstat.md
+    - QoS:                   04_trasporto/02_QoS.md
+    - Protocollo TCP:        04_trasporto/03_TCP.md
+    - Protocollo UDP:        04_trasporto/04_UDP.md
+    - (LAB) wireshark:       04_trasporto/lab_420_wireshark.md
+    - (LAB) nmap:            04_trasporto/lab_430_nmap.md
+    - (LAB) port forwarding: 04_trasporto/lab_440_port_forwarding.md
   # ---------------------------------------------------------------    
   - Livello Superiore:
-    - Introduzione:             Superiore/00_intro.md
-    - Protocollo DNS:           Superiore/01_DNS.md
-    - (LAB) DNS clients:        Superiore/lab_720_DNS_clients.md
-    - (LAB) DNS server:         Superiore/lab_721_DNS_server.md
-    - Protocollo DHCP:          Superiore/02_DHCP.md
-    - (LAB) DHCP server:        Superiore/lab_730_DHCP_server.md
-    - (LAB) Access Point DIY:   Superiore/lab_731_AccessPoint_DIY.md
-    - Protocollo HTTP:          Superiore/03_HTTP.md
-    - (LAB) Telnet e HTTP:      Superiore/lab_712_telnet_http.md
-    - (LAB) server web:         Superiore/lab_710_server_web.md
-    - (LAB) sito web a casa tua:  Superiore/lab_711_sito_casa.md
-    - Posta Elettronica:        Superiore/04_MAIL.md
-    - (LAB) Mail server:        Superiore/lab_740_mail_server.md
-    - (LAB) Telnet e Mail:      Superiore/lab_741_telnet_mail.md
+    - Introduzione:               07_superiore/00_intro.md
+    - Protocollo DNS:             07_superiore/01_DNS.md
+    - (LAB) DNS clients:          07_superiore/lab_720_DNS_clients.md
+    - (LAB) DNS server:           07_superiore/lab_721_DNS_server.md
+    - Protocollo DHCP:            07_superiore/02_DHCP.md
+    - (LAB) DHCP server:          07_superiore/lab_730_DHCP_server.md
+    - (LAB) Access Point DIY:     07_superiore/lab_731_AccessPoint_DIY.md
+    - Protocollo HTTP:            07_superiore/03_HTTP.md
+    - (LAB) Telnet e HTTP:        07_superiore/lab_712_telnet_http.md
+    - (LAB) server web:           07_superiore/lab_710_server_web.md
+    - (LAB) sito web a casa tua:  07_superiore/lab_711_sito_casa.md
+    - Posta Elettronica:          07_superiore/04_MAIL.md
+    - (LAB) Mail server:          07_superiore/lab_740_mail_server.md
+    - (LAB) Telnet e Mail:        07_superiore/lab_741_telnet_mail.md
     
     
