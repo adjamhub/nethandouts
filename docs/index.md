@@ -37,7 +37,7 @@ hide:
 <div class="w3-row">
 
 <div class="w3-half" style="padding:0 10px">
-<a href="01_nferiore/01_IEEE802/" class="md-button" style="width:250px">Livello Inferiore</a>
+<a href="01_inferiore/01_IEEE802/" class="md-button" style="width:250px">Livello Inferiore</a>
 <p>Compiti e Informazioni gestite dal livello Inferiore della Suite Internet. Applicazioni ed Esperienze di laboratorio.</p>
 <br>
 <br>
