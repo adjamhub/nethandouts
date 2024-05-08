@@ -182,6 +182,13 @@ implementati direttamente come servizi WEB. Ne cito alcuni, ritrovati
 rigorosamente nella prima pagina del mio motore di ricerca preferito
 all'input *DNS web clients*:
 
+-   <https://toolbox.googleapps.com/apps/dig/>
+
+    Rappresenta la versione web del famoso client testuale *dig*,
+    sviluppato al server *BIND*, il server web più famoso al mondo. Poco
+    da dire e facile da usare. Molto completo nelle risposte (troppo per
+    noi?), ma molto semplice da utilizzare nella sua interfaccia web.
+
 -   <https://www.whatsmydns.net/>
 
     Esso è un sito che permette di specificare una stringa di ricerca,
@@ -190,12 +197,6 @@ all'input *DNS web clients*:
     e interessante, nel caso si voglia studiare la propagazione di un
     certo nome di dominio.
 
--   <https://toolbox.googleapps.com/apps/dig/>
-
-    Rappresente la versione web del famoso client testuale *dig*,
-    sviluppato al server *BIND*, il server web più famoso al mondo. Poco
-    da dire e facile da usare. Molto completo nelle risposte (troppo per
-    noi?), ma molto semplice da utilizzare nella sua interfaccia web.
     
 
 <br>
