@@ -80,7 +80,7 @@ $ sudo apt install dnsmasq
 Il file di configurare da modificare è il seguente
 
 ``` bash
-$ sudo nano /etc/dnsmasq.d/dnsmasq.conf
+$ sudo nano /etc/dnsmasq.conf
 ```
 
 Va impostato in questo modo, trovando le sezioni opportune:
