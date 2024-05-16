@@ -89,7 +89,7 @@ Esso confronta l'indirizzo IP del mittente del pacchetto con quello del destinat
 
 -   Se l'indirizzo IP del mittente è uguale all'IP del destinatario,
     oppure uno degli indirizzi è della classe 127, il pacchetto viene
-    passato al livello superiore (tecnica del **loopback**).
+    *rimbalzato* al livello di trasporto (tecnica del **loopback**).
 -   Se il destinatario si trova sullo stesso segmento di rete del
     mittente, il pacchetto viene inviato in maniera diretta,
     individuando il destinatario tramite ARP (un altro protocollo di
