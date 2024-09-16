@@ -30,8 +30,8 @@ tramite la stesura di documenti aperti alla discussione da parte di chiunque, de
 For Comments).
 
 Finita la discussione e approvato il documento da tutta l’associazione, l’RFC diventa immutabile e
-diviene come se fosse una “ **legge di Internet** ”. Non è possibile “eliminare” un RFC approvato, ma è
-possibile “superarlo” con un RFC successivo.
+diviene come se fosse una ***legge di Internet***. Non è possibile *eliminare* un RFC approvato, ma è
+possibile *superarlo* con un RFC successivo.
 
 Ad esempio la prima versione del protocollo IP risale all’RFC numero 760, che poi è stato reso
 obsoleto dai successivi 777, 791 ( **IPv4** ), aggiornato da 792, 1349, 2474 e nuovamente reso obsoleto da
@@ -39,6 +39,9 @@ obsoleto dai successivi 777, 791 ( **IPv4** ), aggiornato da 792, 1349, 2474 e n
 
 Tutti gli RFC sono pubblicati in ASCII (No Word, No Pdf, No immagini, solo testo semplice!!!) sul sito
 IETF. Diamo un occhio al *famoso* [RFC 791](https://www.rfc-editor.org/rfc/rfc791).
+
+<br>
+<br>
 
 La seconda associazione che entra in gioco si chiama **IEEE** , una associazione americana senza scopo
 di lucro che raduna scienziati professionisti riconosciuti a livello internazionale e che si prefigge
@@ -62,6 +65,9 @@ a toccare la sfera di appartenenza dei produttori di hardware, che in IEEE spess
 compromesso fra innovazione e collaborazione.
 
 E la terza società? È quella che si occupa di gestire il tutto!
+
+<br>
+<br>
 
 > **ICANN (Internet Corporation for Assigned Names and Numbers, <a href="https://www.icann.org/" target="_blank">https://www.icann.org/</a>)** 
 > è un ente di gestione internazionale registrato presso il Dipartimento del commercio degli Stati Uniti. 

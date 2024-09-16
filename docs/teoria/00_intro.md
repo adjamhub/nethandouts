@@ -1,4 +1,4 @@
-# Il Modello OSI
+# Teoria delle Reti
 
 
 Il **modello OSI** , acronimo di **Open Systems Interconnection** , è un modello per le architetture di rete,

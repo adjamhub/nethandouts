@@ -27,40 +27,33 @@ hide:
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <section class="">
 
-<div style="padding:0 10px">
-<a href="00_teoria/01_OSI/" class="md-button md-button--primary" style="width:250px">Teoria delle reti</a>
-<p>Il modello OSI e la suite Internet. Le organizzazioni che gestiscono Internet. Cenni alla storia delle reti.</p>
-<br>
-<br>
-</div>
-
 <div class="w3-row">
 
 <div class="w3-half" style="padding:0 10px">
-<a href="01_inferiore/01_IEEE802/" class="md-button" style="width:250px">Livello Inferiore</a>
-<p>Compiti e Informazioni gestite dal livello Inferiore della Suite Internet. Applicazioni ed Esperienze di laboratorio.</p>
+<a href="teoria/00_intro/" class="md-button md-button--primary" style="width:250px">La teoria delle reti</a>
+<p>Il modello OSI e la Suite Internet. Le organizzazioni che gestiscono Internet. Cenni alla storia delle reti.</p>
 <br>
 <br>
 </div>
 
 <div class="w3-half" style="padding:0 10px">
-<a href="03_rete/00_intro/" class="md-button" style="width:250px">Livello di Rete</a>
-<p>Protocolli, strumenti e implementazioni del livello di Rete della Suite Internet. Applicazioni Reali.</p>
+<a href="programmazione/00_intro/" class="md-button" style="width:250px">La Programmazione</a>
+<p>Librerie Python per la programmazione di rete. Risoluzione degli indirizzi. Servizi Web, etc...</p>
 <br>
 <br>
 </div>
 
 <div class="w3-half" style="padding:0 10px">
-<a href="04_trasporto/00_intro/" class="md-button" style="width:250px">Livello di Trasporto</a>
-<p>Protocolli, strumenti e implementazioni del livello di Trasporto della Suite Internet. Esperienze di laboratorio.</p>
+<a href="laboratorio/00_intro/" class="md-button" style="width:250px">Il laboratorio</a>
+<p>Le esperienze di laboratorio per impaarrendere disponibile un servizio di rete</p>
 
 <br>
 <br>
 </div>
 
 <div class="w3-half" style="padding:0 10px">
-<a href="07_superiore/00_intro/" class="md-button" style="width:250px">Livello Superiore</a>
-<p>Protocolli, strumenti e implementazioni del livello Superiore della Suite Internet. Applicazioni Reali.</p>
+<a href="complementi/00_intro/" class="md-button" style="width:250px">I complementi</a>
+<p>Cose che servono per capire la teoria, fare programmazione di rete, far funzionare le esercitazioni di laboratorio</p>
 <br>
 <br>
 </div>

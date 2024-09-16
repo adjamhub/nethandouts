@@ -4,9 +4,11 @@ School Handouts about Networking
 See: <a href="https://adjamhub.github.io/nethandouts/" target="_blank">https://adjamhub.github.io/nethandouts/</a>
 
 
-## Eventuale (nuova) reorganizzazione
+## Spunti di lavoro per il prof (eventuali novità)
 
-Argomenti: OSI, Internet Suite, IP, trasporto, HTTP, DNS, SMTP
+
+Argomenti più: OSI, Internet Suite, IP, trasporto, HTTP, DNS, SMTP.
+(per metà raggiunto con l'attuale reorganizzazione)
 
 Quiz per argomento: vedi AI
 
@@ -20,6 +22,7 @@ Quiz per argomento: vedi AI
 
 Python:
 
+* TCP/UDP sockets
 * libreria standard: ipaddress
 * libreria standard: urllib
 * libreria requests
@@ -29,7 +32,13 @@ Python:
 
 Verifiche orali
 
-databases??
-wireshark??
-routing??
+* databases??
+* wireshark??
+* routing??
+
+## Cose da (eventualmente) rivedere
+
+- IPv4??? sembrano ci siano delle ripetizioni
+- ARP?? va riorganizzato insieme ad un'esperienza con Mac Address
+- Routing: semplifica!!!
 

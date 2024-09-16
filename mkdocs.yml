@@ -2,7 +2,7 @@ site_name: Networking Course
 site_author: Andrea Diamantini
 
 copyright: >
-    Andrea Diamantini (c) 2022-2023<br>
+    Andrea Diamantini (c) 2022-2024<br>
     <a href="#__consent">Change Cookie Settings</a>
 
 # -----------------------------------------------------------------------------------------------
@@ -74,55 +74,59 @@ nav:
   - Home: index.md
   # ---------------------------------------------------------------
   - Teoria:
-    - Il Modello OSI:                   00_teoria/01_OSI.md
-    - Implementazioni Reali:            00_teoria/02_suites.md
-    - Gestione e Sviluppo di Internet:  00_teoria/03_assoc.md
+    - Il Modello OSI:                   teoria/00_intro.md
+    - Implementazioni Reali:            teoria/02_suites.md
+    - Gestione e Sviluppo di Internet:  teoria/03_assoc.md
+    # --
+    - Livello Inferiore:     teoria/100_inferior.md
+    # --
+    - Livello di Rete:      teoria/300_network.md
+    - ARP:                  teoria/302_ARP.md
+    - Routing:              teoria/311_routing.md
+    # --
+    - Livello di Trasporto: teoria/400_transport.md
+    # --
+    - Livello Superiore: teoria/700_superior.md
+    - DNS:               teoria/701_DNS.md
+    - DHCP:              teoria/702_DHCP.md
+    - HTTP:              teoria/703_HTTP.md
+    - Mail:              teoria/704_MAIL.md
   # ---------------------------------------------------------------    
-  - Livello Inferiore:
-    - Specifiche IEEE 802:  01_inferiore/01_IEEE802.md
-    - Tipologie di rete:    01_inferiore/02_tipologie.md
-    - Topologie di rete:    01_inferiore/03_topologie.md
-    - Dispositivi di rete:  01_inferiore/04_dispositivi.md
-    - In Laboratorio:       01_inferiore/05_lab.md
+  - Programmazione:
+    - Introduzione:    programmazione/00_intro.md
+    - ipaddress:       programmazione/01_ipaddress.md
+    - urllib:          programmazione/02_urllib.md
+    - requests:        programmazione/03_requests.md
+    - Flask:           programmazione/04_Flask.md
+    - smtplib:         programmazione/05_smtplib.md
+    - dnspython:       programmazione/06_dnspython.md
    # ---------------------------------------------------------------    
-  - Livello Rete:
-    - Introduzione:         03_rete/00_intro.md
-    - Indirizzamento IPv4:  03_rete/32_IndirizzamentoIPv4.md
-    - (LAB) ipconfig:       03_rete/lab_310_ipconfig.md
-    - (LAB) ifconfig,ip:    03_rete/lab_311_ifconfig_ip.md
-    - Subnetting:           03_rete/33_subnetting.md
-    - IPv4:                 03_rete/31_IPv4.md
-    - (LAB) ping:           03_rete/lab_320_ping.md
-    - Routing:              03_rete/35_routing.md
-    - (LAB) traceroute:     03_rete/lab_340_traceroute.md
-    - ARP:                  03_rete/37_ARP.md
-    - (LAB) arp:            03_rete/lab_330_arp.md
+  - Laboratorio:
+    - Introduzione:         laboratorio/00_intro.md
+    - (LAB) inf:            laboratorio/lab_101_boh.md
+    - (LAB) ipconfig:       laboratorio/lab_310_ipconfig.md
+    - (LAB) ifconfig,ip:    laboratorio/lab_311_ifconfig_ip.md
+    - (LAB) ping:           laboratorio/lab_320_ping.md
+    - (LAB) traceroute:     laboratorio/lab_340_traceroute.md
+    - (LAB) arp:            laboratorio/lab_330_arp.md
+    - (LAB) netstat:        laboratorio/lab_410_netstat.md
+    - (LAB) wireshark:      laboratorio/lab_420_wireshark.md
+    - (LAB) nmap:           laboratorio/lab_430_nmap.md
+    - (LAB) port forwarding: laboratorio/lab_440_port_forwarding.md
+    - (LAB) DNS clients:          laboratorio/lab_720_DNS_clients.md
+    - (LAB) DNS server:           laboratorio/lab_721_DNS_server.md
+    - (LAB) DHCP server:          laboratorio/lab_730_DHCP_server.md
+    - (LAB) Access Point DIY:     laboratorio/lab_731_AccessPoint_DIY.md
+    - (LAB) Telnet e HTTP:        laboratorio/lab_712_telnet_http.md
+    - (LAB) server web:           laboratorio/lab_710_server_web.md
+    - (LAB) sito web a casa tua:  laboratorio/lab_711_sito_casa.md
+    - (LAB) Mail server:          laboratorio/lab_740_mail_server.md
+    - (LAB) Telnet e Mail:        laboratorio/lab_741_telnet_mail.md
    # ---------------------------------------------------------------    
-  - Livello Trasporto:
-    - Introduzione:          04_trasporto/00_intro.md
-    - Sockets e Porte:       04_trasporto/01_sockets_ports.md
-    - (LAB) netstat:         04_trasporto/lab_410_netstat.md
-    - QoS:                   04_trasporto/02_QoS.md
-    - Protocollo TCP:        04_trasporto/03_TCP.md
-    - Protocollo UDP:        04_trasporto/04_UDP.md
-    - (LAB) wireshark:       04_trasporto/lab_420_wireshark.md
-    - (LAB) nmap:            04_trasporto/lab_430_nmap.md
-    - (LAB) port forwarding: 04_trasporto/lab_440_port_forwarding.md
-  # ---------------------------------------------------------------    
-  - Livello Superiore:
-    - Introduzione:               07_superiore/00_intro.md
-    - Protocollo DNS:             07_superiore/01_DNS.md
-    - (LAB) DNS clients:          07_superiore/lab_720_DNS_clients.md
-    - (LAB) DNS server:           07_superiore/lab_721_DNS_server.md
-    - Protocollo DHCP:            07_superiore/02_DHCP.md
-    - (LAB) DHCP server:          07_superiore/lab_730_DHCP_server.md
-    - (LAB) Access Point DIY:     07_superiore/lab_731_AccessPoint_DIY.md
-    - Protocollo HTTP:            07_superiore/03_HTTP.md
-    - (LAB) Telnet e HTTP:        07_superiore/lab_712_telnet_http.md
-    - (LAB) server web:           07_superiore/lab_710_server_web.md
-    - (LAB) sito web a casa tua:  07_superiore/lab_711_sito_casa.md
-    - Posta Elettronica:          07_superiore/04_MAIL.md
-    - (LAB) Mail server:          07_superiore/lab_740_mail_server.md
-    - (LAB) Telnet e Mail:        07_superiore/lab_741_telnet_mail.md
-    
+  - Complementi:
+    - Introduzione:         complementi/00_intro.md
+    - Indirizzamento IPv4:  complementi/01_IndirizzamentoIPv4.md
+    - Subnetting:           complementi/02_subnetting.md
+    - URL:                  complementi/11_URL.md
+
     

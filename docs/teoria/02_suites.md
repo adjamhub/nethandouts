@@ -26,15 +26,6 @@ implementazioni pratiche del modello OSI.
 
 ## Suite di rete
 
-- `TCP/IP`; originariamente caratteristica dei sistemi UNIX
-
-    - In grado di gestire il routing: adatta anche per reti geografiche.
-    - Robusta (nei livelli inferiori) e flessibile (nei livelli superiori)
-
-- `IPX/SPX`; tipica dei sistemi XEROX e Novell NetWare
-
-    - Ottimizzata per reti locali/domestiche
-    - Distingue a livello di rete client e server
 
 - `NetBEUI`; tipica dei sistemi Microsoft (prima dell'adozione di TCP/IP con Win98SE)
 
@@ -45,6 +36,17 @@ implementazioni pratiche del modello OSI.
 
     - Progettata per reti locali e servizi specifici (trasferimento file, supporto multiclient avanzato)
     - Utilizza un servizio di naming basato su broadcast
+
+- `IPX/SPX`; tipica dei sistemi XEROX e Novell NetWare
+
+    - Ottimizzata per reti locali/domestiche
+    - Distingue a livello di rete client e server
+
+- `TCP/IP`; originariamente caratteristica dei sistemi UNIX
+
+    - In grado di gestire il routing: adatta anche per reti geografiche.
+    - Robusta (nei livelli inferiori) e flessibile (nei livelli superiori)
+
 
 Ovviamente ogni produttore di software per OS spinse per l'adozione globale del suo stack e, finché la
 disputa avvenne solo sulle reti locali, nessuno ebbe la meglio.
