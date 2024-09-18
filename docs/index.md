@@ -45,7 +45,7 @@ hide:
 
 <div class="w3-half" style="padding:0 10px">
 <a href="laboratorio/00_intro/" class="md-button" style="width:250px">Il laboratorio</a>
-<p>Le esperienze di laboratorio per impaarrendere disponibile un servizio di rete</p>
+<p>Le esperienze di laboratorio per capire come rendere disponibile un servizio di rete</p>
 
 <br>
 <br>
