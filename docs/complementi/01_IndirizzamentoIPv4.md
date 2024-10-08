@@ -158,6 +158,9 @@ Subnet mask per la Classe C in notazione CIDR = 24
 
 ## Indirizzi speciali
 
+TODO: completa con https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml
+
+
 L’indirizzo di rete `127` è riservato per funzioni di ***loopback*** , cioè i pacchetti spediti a quell’indirizzo
 vengono trattati come pacchetti in arrivo sulla NIC (Network Interface Card, la scheda di rete) anche se
 non l’hanno mai lasciata.
