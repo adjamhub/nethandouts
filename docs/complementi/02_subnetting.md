@@ -156,8 +156,8 @@ rete. Spiegare.
 
 **Esercizio 105**
 
-Ha senso creare una porzione di sottorete in un indirizzo di rete di classe C? Se sì, quante porzioni è
-possibile creare? Con quanti host? Se no, spiegare le proprie motivazioni.
+Sia data la rete di classe C 192.193.194.0. In quanti modi è possibile fare il subnetting su di essa?
+Elencare i possibili subnetting indicando anche il numero di host per sottorete che si ottengono in ogni caso.
 
 ---
 
