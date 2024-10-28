@@ -2,8 +2,10 @@
 
 !!! warning "IPv4 vs IPv6"
 
-    Il modulo `ipaddress` gestisce perfettamente indirizzi IPv4 e IPv6. In questa trattazione però ci concentreremo
-    solo sull'indirizzamento IPv4. Questo per alleggerire la trattazione e per 
+    Il modulo `ipaddress` gestisce perfettamente sia l'indirizzamento **IPv4** che quello basato su **IPv6**. Per semplicità, in questa trattazione ci concentreremo
+    solo sull'indirizzamento IPv4.
+    
+
 Il modulo `ipaddress` è un modulo per la gestione e la manipolazione degli indirizzi IP (IPv4/IPv6). Per poter utilizzare il modulo è necessario istanziare un oggetto della classe, un indirizzo.
 
 Questo può essere fatto per valore:
@@ -43,7 +45,7 @@ ValueError: 192.0.2.1/24 has host bits set
 IPv4Network('192.0.2.0/24')
 ```
 
-Come per gli indirizzi, è possibili utilizzare i numeri interi anche per la definizione delle reti:
+Come per gli indirizzi, è possibile utilizzare i numeri interi anche per la definizione delle reti:
 
 ``` python
 >>> net4 = ipaddress.ip_network(3221225984)
@@ -81,7 +83,7 @@ Anche con le reti, è possibile fare parecchie cose in maniera abbastanza sempli
 IPv4Address('255.255.255.0')
 ```
 
-Le reti possono essere trattate anche come liste:
+Gli oggetti di tipo network possono essere trattate anche come liste:
 
 ``` python
 >>> net4[1]
