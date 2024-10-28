@@ -102,6 +102,8 @@ nav:
     - smtplib:         programmazione/05_smtplib.md
     - dnspython:       programmazione/06_dnspython.md
     - sockets:         programmazione/10_socket.md
+    - soup:            programmazione/11_bs4.md
+    
    # ---------------------------------------------------------------    
   - Laboratorio:
     - Introduzione:         laboratorio/00_intro.md
