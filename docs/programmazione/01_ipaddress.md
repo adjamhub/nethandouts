@@ -2,8 +2,8 @@
 
 !!! warning "IPv4 vs IPv6"
 
-    Il modulo `ipaddress` gestisce perfettamente sia l'indirizzamento **IPv4** che quello basato su **IPv6**. Per semplicità, in questa trattazione ci concentreremo
-    solo sull'indirizzamento IPv4.
+    Il modulo `ipaddress` gestisce perfettamente sia l'indirizzamento **IPv4** che quello basato su **IPv6**. <br>
+    Per semplicità, in questa trattazione ci concentreremo solo sull'indirizzamento IPv4.
     
 
 Il modulo `ipaddress` è un modulo per la gestione e la manipolazione degli indirizzi IP (IPv4/IPv6). Per poter utilizzare il modulo è necessario istanziare un oggetto della classe, un indirizzo.
@@ -11,28 +11,25 @@ Il modulo `ipaddress` è un modulo per la gestione e la manipolazione degli indi
 Questo può essere fatto per valore:
 
 ``` python
+>>> # indirizzo inserito tramite notazione decimale puntata
 >>> a = ipaddress.ip_address('192.0.2.1')
 IPv4Address('192.0.2.1')
-```
 
-Tecnicamente è possibile creare un indirizzo anche a partire da un semplice numero intero:
-
-``` python
+>>> # indirizzo inserito in forma numerica (int)
 >>> b = ipaddress.ip_address(3221225985)
 IPv4Address('192.0.2.1')
-
->>> c = ipaddress.ip_address(1)
-IPv4Address('0.0.0.1')
 ```
 
 Come per gli indirizzi, è possibile definire una rete di indirizzi (tramite un network address):
 
 ``` python
+>>> # definizione tramite notazione decimale puntata più network mask in notazione CIDR
 >>> net1 = ipaddress.ip_network('192.0.2.0/24')
 IPv4Network('192.0.2.0/24')
 ```
 
-Se sei somaro sui network address, ma ci capisci di Python, è facile ottenere un indirizzo di rete a partire da qualunque indirizzo IP, con la funzione `ip_network` e l'opzione `strict=False`:
+Se inserisci un ip che non è un network address, la funzione `ip_network` da giustamente errore. Però se sei somaro sui network address, ma ci capisci di Python, 
+è possibile ottenere un indirizzo di rete a partire da qualunque indirizzo IP, tramite l'opzione `strict=False`:
 
 
 ``` python
