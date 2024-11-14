@@ -39,11 +39,12 @@ Set di informazioni che permettono al router di stabilire il percorso per ogni p
 Ok, adesso siamo pronti!!!
 
 
-## Rete e Routing
+## Protocollo IP
 
 
-Descrivere il livello di rete è molto facile: praticamente fa tutto il protocollo IP!! Più precisamente si occupa dell'indirizzamento, dell'impacchettamento e
-della prima fase dell'instradamento!
+Quando si descrive il livello di rete non si può fare a meno di parlare del protocollo IP! Questo protocollo infatti,
+interviene in tutte le connessioni (unico protocollo della suite sempre utilizzato) e si occupa di gran parte del lavoro!
+Più precisamente si occupa dell'indirizzamento, dell'impacchettamento e della prima fase dell'instradamento!
 
 ---
 
@@ -56,14 +57,13 @@ Dovremmo aver già studiato l'indirizzamento IP! Quella struttura permette di di
 **Impacchettamento**
 
 IP è l'unico protocollo di rete che fa pacchetti. Questi presentano la caratteristica di essere **instradabili**, ovvero di essere adatti alle operazioni di routing.
-Tutti gli altri protocolli di rete intervengono **eventualmente** dopo IP.
+Tutti gli altri protocolli di rete intervengono **eventualmente** dopo IP, utilizzando direttamente i pacchetti IP per le loro operazioni, eventualmente modificando l'intestazione del pacchetto.
 
 ---
 
 **Routing (primo step)**
 
-Il protocollo IP si occupa perfino dell'instradamento del primo salto del pacchetto, ovvero dell'uscita dal dispositivo del mittente,
-tramite la sua **logica di base del protocollo IP.**
+Il protocollo IP si occupa perfino del primo instradamento, ovvero dell'uscita dal dispositivo del mittente tramite la sua **logica di base del protocollo IP.**
 
 Esso confronta l'indirizzo IP del mittente del pacchetto con quello del destinatario e si comporta secondo le seguenti regole:
 
