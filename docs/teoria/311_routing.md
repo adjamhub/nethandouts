@@ -115,7 +115,7 @@ per la creazione delle tabelle di routing, non per il routing vero e
 proprio!
 
 Ogni spostamento da un router ad un altro viene definito ***salto***, un
-***hop. ***Ogni salto diminuisce (di uno) il TTL di un pacchetto.
+***hop. ***Ogni salto diminuisce (di uno) il TTL (Time To Live) di un pacchetto.
 
 Una ***tabella di routing*** è costituita da almeno 3 campi:
 
