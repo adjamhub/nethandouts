@@ -64,7 +64,7 @@ disponibile una risorsa, sia essa un file (FTP), una pagina web (HTTP),
 una mail (SMTP), eccetera...
 
 Per identificare nella rete le risorse si utilizzano degli
-identificatori ben definiti: gli URL (vai a guardare sui supplementi!!!).
+identificatori ben definiti: gli URL (vai a guardare sui complementi!!!).
 
 
 <br>
