@@ -8,16 +8,19 @@ See: <a href="https://adjamhub.github.io/nethandouts/" target="_blank">https://a
 
 Blocchi di argomenti:
 
+
 * OSI
 * Implementazioni reali
 * Internet Suite
 * Gestione e Sviluppo di Internet
+
 
 * trasporto
 * porte logiche
 * wireshark??
 * Python: libreria socket
 * Python: libreria asyncio
+
 
 * Configurazione di rete: IP,subnet mask, gateway, elenco DNS
 * (IP, subnet mask) ---> Indirizzamento IP ; problema IPv6 ; funzionamento IPv4
@@ -26,8 +29,10 @@ Blocchi di argomenti:
 * (DNS) ---> protocollo DNS ; esercizi con nslookup ; Python: dnspython??
 * DHCP ---> da sviluppare
 
+
 * SMTP
 * Python: smtplib
+
 
 * HTTP
 * URL
