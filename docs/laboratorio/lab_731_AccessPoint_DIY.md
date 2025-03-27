@@ -124,20 +124,32 @@ Va copiato dentro pari pari il seguente codice, modificando
 opportunamente l'SSID scelto e la chiave di accesso:
 
 ``` bash
+# set operation mode
 interface=wlan0
 driver=nl80211
-ssid=NOMESSIDSCELTO
 hw_mode=g
-channel=2
-ieee80211n=1
-wmm_enabled=1
-macaddr_acl=0
-auth_algs=1
-ignore_broadcast_ssid=0
-wpa=2
+country_code=IT
+channel=6
+
+## Key management algorithms ##
 wpa_key_mgmt=WPA-PSK
-wpa_passphrase=PASSWORDWIFIALMENO8CARATTERI
+wpa=2
+
+## Set cipher suites (encryption algorithms) ##
+## TKIP = Temporal Key Integrity Protocol
+## CCMP = AES in Counter mode with CBC-MAC
+wpa_pairwise=TKIP
 rsn_pairwise=CCMP
+
+## Shared Key Authentication ##
+auth_algs=1
+
+## Accept all MAC address ###
+macaddr_acl=0
+
+# SSID & passphrase
+ssid=IL_NOME_DELLA_RETE_WIFI
+wpa_passphrase=LA_PASSWORD_DEL_WIFI
 ```
 
 Fai in modo che il file di configurazione venga caricato dal demone hostapd: apri `/etc/default/hostapd` e modificalo come
