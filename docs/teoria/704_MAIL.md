@@ -28,9 +28,7 @@ Exchange).
 
 Poiché SMTP è un protocollo testuale basato sulla codifica ASCII, non è
 permesso trasmettere direttamente testo composto con un diverso set di
-caratteri e tanto meno file binari.
-
-Vedremo più avanti che per aggirare questo ostacolo e inviare file
+caratteri e tanto meno file binari. Vedremo più avanti che per aggirare questo ostacolo e inviare file
 binari tramite SMTP (chi non ha mai allegato ad una mail un file pdf,
 una immagine o un file mp3?) si utilizzano i `MIME Types`, uno
 standard che permette di estendere il formato dei messaggi permettendo
@@ -116,10 +114,10 @@ per lo scambio di informazioni e documenti in ufficio (da cui la sua
 considerare.
 
 Se proiettiamo queste caratteristiche nella Internet del nuovo millennio
-c'è poco da fare! Con SMTP lo *spam[^1]* con SMTP non è un rischio, è
+c'è poco da fare! Con SMTP lo *spam* non è un rischio, è
 una certezza...
 
-Il problema principale di SMTP e della posta elettronica in generale è,
+Il problema principale della posta elettronica in generale è,
 paradossalmente, il fatto che abbia avuto una così grande diffusione!
 E' impensabile nel mondo di oggi sostituire SMTP con una
 implementazione alternativa e sicura.
@@ -181,9 +179,6 @@ Ognuno di questi ha opportuni sottotipi, come `image/png` o `application/zip`.
 Il tipo MIME viene appeso come un header al contenuto
 del pacchetto inviato e viene utilizzato dal destinatario per
 interpretare correttamente i dati arrivati.
-
-[^1]: Definizione di SPAM. Cosa è precisamente? E' illegale? Davvero??
-
 
 <br>
 <br>
