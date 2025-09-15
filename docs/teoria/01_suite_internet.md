@@ -7,12 +7,12 @@ Se la cercate in rete o nella letteratura attuale, la troverete nominata in vari
 o addirittura con il nomignolo ***TCP/IP***, che deriva dalla grande importanza storica 
 dei suoi due protocolli più rappresentativi: TCP e IP.
 
-!!! note 'Protocolli (di rete) e suite(s)'
+!!! note "Protocolli (di rete) e suite(s)"
 
     Un **_protocollo_** è un insieme di regole utilizzate per favorire la comunicazione tra due o più entità. 
     Ovviamente nel caso specifico di un **_protocollo di rete_**, queste regole andranno a definire le modalità di
     interazioni fra due o più dispositivi.
-
+    <br><br>
     Uno **_stack (o una suite) di protocolli_** è un insieme di protocolli che collaborano fra loro per ottenere uno scopo comune.
 
 La necessità di implementare realmente i livelli descritti ha portato ad una semplificazione di alcune parti del modello OSI, come si desume dalla figura seguente:
