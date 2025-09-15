@@ -76,11 +76,11 @@ nav:
   # ---------------------------------------------------------------
   - Teoria:
     #- Il Modello OSI:                   teoria/00_intro.md
-    - Implementazioni Reali:            teoria/02_suites.md
-    - Gestione e Sviluppo di Internet:  teoria/03_assoc.md
+    - la Suite Internet:            teoria/01_suite_internet.md
+    - Gestione e Sviluppo di Internet:  teoria/02_assoc.md
     # --
-    - Indirizzamento IPv4:  complementi/01_IndirizzamentoIPv4.md
-    - Subnetting:           complementi/02_subnetting.md
+    - Indirizzamento IPv4:  teoria/03_IndirizzamentoIPv4.md
+    - Subnetting:           teoria/04_subnetting.md
     # --
     #- Livello Inferiore:     teoria/100_inferior.md
     # --

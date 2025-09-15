@@ -14,15 +14,10 @@ hide:
 <!-- style="background: #4051b5; background:linear-gradient(#4051b5 0%, #4051b5 20%, #C4D5F9 100%);"> -->
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div class="" style="background:yellow; text-align:center">
-<h2>ATTENZIONE!<h2>
-<p><b>Materiale in fase di allestimento per l'as 2025-2026...</b></p>
-</div>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <section class="">
 
 <h1 style="font-weight:bold;margin:0px">Corso di Reti</h1>
+<p style="background:yellow"><b>ATTENZIONE!!! Materiale in fase di allestimento per l'as 2025-2026...</b></p>
 <p>Le dispense per le lezioni di informatica del prof...</p>
 
 <br>
@@ -36,7 +31,7 @@ hide:
 <div class="w3-row">
 
 <div class="w3-half" style="padding:0 10px">
-<a href="teoria/00_intro/" class="md-button md-button--primary" style="width:250px">La teoria delle reti</a>
+<a href="teoria/01_suite_internet/" class="md-button md-button--primary" style="width:250px">La teoria delle reti</a>
 <p>Il modello OSI e la Suite Internet. Le organizzazioni che gestiscono Internet. Cenni alla storia delle reti.</p>
 <br>
 <br>
