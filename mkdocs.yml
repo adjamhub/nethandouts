@@ -75,15 +75,18 @@ nav:
   - Home: index.md
   # ---------------------------------------------------------------
   - Teoria:
-    - Il Modello OSI:                   teoria/00_intro.md
+    #- Il Modello OSI:                   teoria/00_intro.md
     - Implementazioni Reali:            teoria/02_suites.md
     - Gestione e Sviluppo di Internet:  teoria/03_assoc.md
     # --
-    - Livello Inferiore:     teoria/100_inferior.md
+    - Indirizzamento IPv4:  complementi/01_IndirizzamentoIPv4.md
+    - Subnetting:           complementi/02_subnetting.md
     # --
-    - Livello di Rete:      teoria/300_network.md
-    - ARP:                  teoria/302_ARP.md
-    - Routing:              teoria/311_routing.md
+    #- Livello Inferiore:     teoria/100_inferior.md
+    # --
+    #- Livello di Rete:      teoria/300_network.md
+    - ARP (?):                  teoria/302_ARP.md
+    #- Routing:              teoria/311_routing.md
     # --
     - Livello di Trasporto: teoria/400_transport.md
     # --
@@ -129,8 +132,6 @@ nav:
    # ---------------------------------------------------------------    
   - Complementi:
     - Introduzione:         complementi/00_intro.md
-    - Indirizzamento IPv4:  complementi/01_IndirizzamentoIPv4.md
-    - Subnetting:           complementi/02_subnetting.md
     - URL:                  complementi/11_URL.md
 
     

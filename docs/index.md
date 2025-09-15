@@ -14,6 +14,12 @@ hide:
 <!-- style="background: #4051b5; background:linear-gradient(#4051b5 0%, #4051b5 20%, #C4D5F9 100%);"> -->
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="" style="background:yellow; text-align:center">
+<h2>ATTENZIONE!<h2>
+<p><b>Materiale in fase di allestimento per l'as 2025-2026...</b></p>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <section class="">
 
 <h1 style="font-weight:bold;margin:0px">Corso di Reti</h1>
@@ -22,12 +28,6 @@ hide:
 <br>
 <br>
 
-</section>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<section class="" style="background:yellow; text-align:center">
-<h2>ATTENZIONE!<h2>
-<p><b>Materiale in fase di allestimento per l'as 2025-2026...</b></p>
 </section>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
