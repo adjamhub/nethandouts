@@ -25,6 +25,12 @@ hide:
 </section>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<section class="" style="background:yellow; text-align:center">
+<h2>ATTENZIONE!<h2>
+<p><b>Materiale in fase di allestimento per l'as 2025-2026...</b></p>
+</section>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <section class="">
 
 <div class="w3-row">
