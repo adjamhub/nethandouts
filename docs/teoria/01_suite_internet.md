@@ -19,9 +19,17 @@ La necessità di implementare realmente i livelli descritti ha portato ad una se
 
 ![Confronto fra OSI e TCP/IP](images/OSI_vs_TCPIP.png)
 
-Come vedremo, le implementazioni dei livelli superiori sono affidate al *software* (e quindi vanno insieme!). Livello di trasporto e di rete hanno i compiti più gravosi
-e quindi rimangono da soli: i compiti del livello di trasporto sono affidati al *Sistema Operativo*, quelli del livello di rete al cosiddetto *firmware* (driver, router, etc),
-infine quelli del livello inferiore all'*hardware*!!!
+
+Il livello *superiore*, la cui implementazione è affidata al *software*, si occupa di stabilire le regole che permettono ai dati utente di essere trasportati
+in maniera organizzata: si passa quindi dai *dati* (chat, siti web, files, etc...) ai *blocchi*, insiemi organizzati di dati.
+
+Il livello di *trasporto*, implementato a livello di *Sistema Operativo*, si occupa prevalentemente di individuare il mittente e il destinatario della comunicazione, ovvero
+il punto di partenza dei blocchi che arrivano dal livello superiore e il punto ove questi devono arrivare.
+
+Il livello di *rete*, implementato nel *firmware (driver, router, etc)*, si occupa di due compiti fondamentali: preparare i pacchetti dati che saranno inviati, completi delle informazioni arrivate dai livelli precedenti,
+e stabilire il percorso che i pacchetti devono compiere per arrivare dal mittente al destinatario.
+
+Infine il livello *inferiore*, implementato a livello *hardware*, si occupa di trasformare i pacchetti logici in segnali fisici.
 
 NOTA: qui ci va un disegnino sul funzionamento della suite: la storia di un pacchetto!!!
 
