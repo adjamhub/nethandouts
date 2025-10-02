@@ -3,7 +3,7 @@
 Due parole sulle associazioni che gestiscono la rete Internet così come la conosciamo.
 
 
-## Lo svilppo dei protocolli dello Stack TCP/IP
+## Lo sviluppo dei protocolli dello Stack TCP/IP
 
 Se avete seguito bene la discussione sull’affermazione della Suite Internet sulle suite supportate
 nientemeno che da tre delle aziende più importanti della storia dell’informatica (Microsoft, Apple,
