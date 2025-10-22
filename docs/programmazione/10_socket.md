@@ -57,7 +57,6 @@ risponde OK se il numero di lettere arrivate è pari, ERR se sono dispari.
 
 ``` python title="UDP Server in Python"
 import socket
-import time
 
 localIP = "192.168.110.200"  # Qui ci va il tuo IP, come stringa
 localPort = 20000            # Qui ci va una porta (> 1024), come intero
@@ -74,7 +73,6 @@ print("UDP server up and listening")
 while True:
     message,address = udp_socket.recvfrom(1024)
 
-    time.sleep(0.1)
     print("Message from Client:", message.decode() )
     print("Client IP Address:", address)
 
@@ -97,7 +95,6 @@ di inviare al server un messaggio qualunque.
 
 ``` python title="UDP Client in Python"
 import socket
-import time
 
 Server_IP   = "192.168.110.200"  # Qui ci va l'IP del dispositivo che esegue il tuo server, come stringa
 Server_PORT = 20000              # Qui ci va la porta del tuo server (la devi sapere), come intero
@@ -111,8 +108,6 @@ print("message: ", MESSAGE)
 # UDP Socket Object
 udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 udp_socket.sendto(MESSAGE.encode(), (Server_IP, Server_PORT))
-
-time.sleep(0.1)
 
 message,address = udp_socket.recvfrom(1024)
 
