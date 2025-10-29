@@ -118,6 +118,48 @@ print("Server IP Address:", address)
 Adesso basta solo provare :)
 
 
+### Esercizi su socket UDP
+
+
+Alcuni esercizi per prendere confidenza con i socket UDP
+
+
+**Esercizio 3301**
+
+Implementare un *peer* ovvero un programma che contiene contemporaneamente client e server UDP. Eseguirne due copie in grado di 
+colloquiare alternativamente fra loro: il primo manda un msg di testo al secondo, il secondo lo vede e manda una risposta (digitata dall'utente) al primo,
+il primo legge la risposta e può rispondere... e così all'infinito (finché non si interrompe il programma).
+
+------------------------------------------------------------------------------------------------
+
+**Esercizio 3302**
+
+Implementare un *peer* ovvero un programma che contiene contemporaneamente client e server UDP. Entrambi possono scrivere quando vogliono e
+visualizzano i messaggi che arrivano nell'istante in cui lo fanno.
+
+------------------------------------------------------------------------------------------------
+
+**Esercizio 3302 GUI**
+
+Come l'esercizio precedente, ma fornendo una GUI scritta in wxPython
+
+------------------------------------------------------------------------------------------------
+
+**Esercizio 3303**
+
+Coppia di programmi che permettono di inviare file di testo semplice fra programma e programma. Individuare il file (ad esempio con l'ausilio della libreria pathlib)
+e inviate la stringa [NOME_FILE + "\n\n" + CONTENUTO_FILE ]. Il client è in grado di salvare nella stessa cartella dello script il file con il nome inviato.
+
+------------------------------------------------------------------------------------------------
+
+**Esercizio 3303 GUI**
+
+Come l'esercizio precedente, ma fornendo una GUI scritta in wxPython. 
+Eventualmente nel programma di ricezione si può permettere all'utente di selezionare DOVE salvare il file
+
+
+
+
 ## Comunicazione client/server TCP in Python
 
 TCP è un protocollo ben più complicato di UDP! Vi espongo le differenze fondamentali:
@@ -186,6 +228,11 @@ while True:
         tcp_socket.close()
         break
 ```
+
+
+### Esercizi su socket TCP
+
+blah blah...
 
 <br>
 <br>

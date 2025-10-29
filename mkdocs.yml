@@ -100,13 +100,13 @@ nav:
   - Programmazione:
     - Introduzione:    programmazione/00_intro.md
     - ipaddress:       programmazione/01_ipaddress.md
-    - urllib:          programmazione/02_urllib.md
-    - requests:        programmazione/03_requests.md
-    - Flask:           programmazione/04_Flask.md
-    - smtplib:         programmazione/05_smtplib.md
-    - dnspython:       programmazione/06_dnspython.md
     - sockets:         programmazione/10_socket.md
-    - soup:            programmazione/11_bs4.md
+    - Flask:           programmazione/20_Flask.md
+    - urllib:          programmazione/21_urllib.md
+    - requests:        programmazione/22_requests.md
+    - soup:            programmazione/23_bs4.md
+    - dnspython:       programmazione/30_dnspython.md
+    - smtplib:         programmazione/40_smtplib.md
     
    # ---------------------------------------------------------------    
   - Laboratorio:
