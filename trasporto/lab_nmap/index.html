@@ -1,0 +1,2128 @@
+
+<!doctype html>
+<html lang="it" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Andrea Diamantini">
+      
+      
+      
+        <link rel="prev" href="../lab_wireshark/">
+      
+      
+        <link rel="next" href="../lab_port_forwarding/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>(LAB) nmap - Networking Course</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#nmap" class="md-skip">
+          Vai al contenuto
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Intestazione">
+    <a href="../.." title="Networking Course" class="md-header__button md-logo" aria-label="Networking Course" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Networking Course
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              (LAB) nmap
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="green"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="green"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Cancella" aria-label="Cancella" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inizializza la ricerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../teoria/01_suite_internet/" class="md-tabs__link">
+          
+  
+  Teoria
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reti/IndirizzamentoIPv4/" class="md-tabs__link">
+          
+  
+  Reti
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../routing/network/" class="md-tabs__link">
+          
+  
+  Routing (*)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../transport/" class="md-tabs__link">
+          
+  
+  Trasporto
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../HTTP/HTTP/" class="md-tabs__link">
+          
+  
+  HTTP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../DNS/DNS/" class="md-tabs__link">
+          
+  
+  DNS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../DHCP/DHCP/" class="md-tabs__link">
+          
+  
+  DHCP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../MAIL/MAIL/" class="md-tabs__link">
+          
+  
+  MAIL
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigazione" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Networking Course" class="md-nav__button md-logo" aria-label="Networking Course" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Networking Course
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Teoria
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Teoria
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teoria/01_suite_internet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    la Suite Internet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../teoria/02_assoc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gestione e Sviluppo di Internet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Reti
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Reti
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reti/IndirizzamentoIPv4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Indirizzamento IPv4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reti/subnetting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Subnetting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reti/py_ipaddress/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (PY) ipaddress
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reti/lab_ipconfig/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) ipconfig
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reti/lab_ifconfig_ip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) ifconfig,ip
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Routing (*)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Routing (*)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routing/network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Livello di Rete
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routing/ARP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ARP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routing/NAT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NAT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routing/routing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Routing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routing/lab_ping/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) ping
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routing/lab_arp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) arp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routing/lab_traceroute/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) traceroute
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Trasporto
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Trasporto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transport/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Livello di Trasporto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../py_socket/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    sockets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab_netstat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) netstat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab_wireshark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) wireshark
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    (LAB) nmap
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) nmap
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#porte-scansionate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Porte scansionate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nmap-scripting-engine-nse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nmap Scripting Engine (NSE)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esempi-ed-esercizi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Esempi ed Esercizi
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab_port_forwarding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) port forwarding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    HTTP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            HTTP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTTP/HTTP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTTP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTTP/URL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    URL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTTP/py_Flask/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flask
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTTP/py_urllib/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    urllib
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTTP/py_requests/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    requests
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTTP/py_bs4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    soup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTTP/lab_telnet_http/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) Telnet e HTTP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTTP/lab_server_web/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) server web
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../HTTP/lab_sito_casa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) sito web DIY
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DNS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            DNS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/DNS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DNS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/py_dnspython/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    dnspython
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/lab_DNS_clients/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) DNS clients
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DNS/lab_DNS_server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) DNS server
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DHCP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            DHCP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DHCP/DHCP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DHCP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DHCP/lab_DHCP_server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) DHCP server
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DHCP/lab_AccessPoint_DIY/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) Access Point DIY
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    MAIL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            MAIL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MAIL/MAIL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Posta Elettronica
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MAIL/py_smtplib/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (PY) smtplib
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MAIL/lab_telnet_mail/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) Telnet e Mail
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MAIL/lab_mail_server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    (LAB) Mail server
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="nmap">nmap</h1>
+<div class="admonition note">
+<p class="admonition-title">Argomenti teorici e requisiti tecnici</p>
+<p>Prerequisti: <strong>Windows, Linux, Mac</strong></p>
+<p>Argomenti trattati: <strong>Protocolli di trasporto</strong></p>
+</div>
+<p>Nmap è un software libero distribuito con licenza GNU GPL da
+Insecure.org (<a href="https://insecure.org">https://insecure.org</a>) e disponibile per il download sul
+sito <a href="https://nmap.org/">https://nmap.org/</a> creato per effettuare port scanning, cioè
+mirato all'individuazione di porte aperte su un computer bersaglio o
+anche su range di indirizzi IP, in modo da determinare quali servizi di
+rete siano disponibili.</p>
+<p>Vediamo la sintassi di base:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>nmap<span class="w"> </span>OPTIONS<span class="w"> </span>TARGET
+</code></pre></div>
+<p>Il <strong>TARGET</strong> è il dispositivo o l'elenco di dispositivi che nmap deve
+scannerizzare per capire il tipo di dispositivo che ci troviamo davanti
+(produttore, sistema operativo, servizi attivi) e può essere uno tra
+questi:</p>
+<ul>
+<li><code>HOST</code>: ad esempio <em>ciccio</em>, oppure <em>192.168.1.1</em></li>
+<li><code>RANGE</code>: ad esempio <em>192.168.1.1-20</em></li>
+<li><code>SUBNET</code>: ad esempio <em>192.168.1.0/24</em></li>
+</ul>
+<p>Ricorda comunque che la scansione che nmap esegue richiede del tempo
+quindi occhio ad impostare RANGE o SUBNET troppo ampi...</p>
+<p>Le <strong>OPTIONS</strong> disponibili sono tranquillamente un migliaio... noi qui
+ovviamente noi vediamo le più semplici e interessanti:</p>
+<div class="admonition tip">
+<p class="admonition-title">Relatività</p>
+<p>nmap è un software molto <em>veloce</em> considerato quello che fa e come lo fa.</p>
+<p>Il problema è che impiega comunque un buon minuto per una scansione,
+quindi agli occhi delle persone normali risulta <em>lentissimo</em>.</p>
+<p>Fra le opzioni ne abbiamo anche una per la velocità, con 5 possibilità:
+<strong>-T0 (più lento ed accurato), -T1, -T2, -T3, -T4, -T5 (più veloce e potenzialmente impreciso)</strong>.</p>
+<p>Sta a voi decidere se e quale usare se l'attesa diventa insopportabile</p>
+</div>
+<p>L'opzione più veloce di scansione controlla solo le 100 porte più comuni:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>nmap<span class="w"> </span>-F<span class="w"> </span>TARGET
+</code></pre></div>
+<p>La scansione di default senza privilegi amministrativi viene fatta con il 3-way handshake (TCP scan):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>nmap<span class="w"> </span>-sT<span class="w"> </span>HOST
+</code></pre></div>
+<p>Se si hanno privilegi amministrativi è meglio procedere ad un SYN scan (più discreto e più veloce)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>nmap<span class="w"> </span>-sS<span class="w"> </span>HOST
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">TCP scan vs SYN scan</p>
+<p>Mentre un 3-way handshake prevede l'invio e la ricezione di 3 pacchetti
+con l'attivazione di una connessione fra i 2 host e permette dunque al
+sistema target di <em>accorgersi</em> del dispositivo che lo scansiona, un SYN
+scan invia al TARGET solo il primo pacchetto dell'handshake e determina
+l'apertura di un servizio con la ricezione del pacchetto SYN+ACK, ma
+<strong>non</strong> risponde con un ACK ad esso, non aprendo la connessione sul
+target!</p>
+</div>
+<p>Le due precedenti scansioni ci elencano semplicemente le porte che
+rispondono o no al 3-way handshake. Per determinare i servizi realmente
+attivi dietro alle porte attive:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>nmap<span class="w"> </span>-sV<span class="w"> </span>TARGET
+</code></pre></div>
+<p>Per cercare di capire il sistema operativo del dispositivo target
+(richiede privilegi amministrativi):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>nmap<span class="w"> </span>-O<span class="w"> </span>TARGET
+</code></pre></div>
+<p>Per una scansione <em>generica</em> di quale potrebbe essere il sistema
+operativo e i servizi attivi:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>nmap<span class="w"> </span>-A<span class="w"> </span>HOST
+</code></pre></div>
+<p>Se si vuole capire quali sono gli host online in una rete:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>nmap<span class="w"> </span>-sn<span class="w"> </span>SUBNET
+</code></pre></div>
+<h2 id="porte-scansionate">Porte scansionate</h2>
+<p>Quando nmap scansiona le porte logiche di un dispositivo TARGET può
+ritornare risultati di 6 tipi:</p>
+<table>
+<thead>
+<tr>
+<th>Classificazione Porta</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>open</td>
+<td>Una porta che accetta connessioni</td>
+</tr>
+<tr>
+<td>closed</td>
+<td>Accessibile ma senza una applicazione in ascolto su di essa. Permette di capire che un sistema è attivo e senza firewall.</td>
+</tr>
+<tr>
+<td>filtered</td>
+<td>Non si può determinare con esattezza se la porta sia aperta o no. Le porte protette dai firewall sono così.</td>
+</tr>
+<tr>
+<td>unfiltered</td>
+<td>Una porta non protetta da firewall, ma che non si capisce se sia aperta o meno. Un amministratore acuto si nasconde di solito dietro ad essa...</td>
+</tr>
+<tr>
+<td>open</td>
+<td>filtered</td>
+</tr>
+<tr>
+<td>closed</td>
+<td>filtered</td>
+</tr>
+</tbody>
+</table>
+<h2 id="nmap-scripting-engine-nse">Nmap Scripting Engine (NSE)</h2>
+<div class="admonition warning">
+<p class="admonition-title">Attenzione!</p>
+<p>Da un grande potere deriva una grande responsabilità</p>
+<p><em>(zio Ben)</em></p>
+</div>
+<p>La caratteristica migliore di nmap è la possibilità di aumentare a
+dismisura le sue capacità di scanning grazie al meccanismo degli script
+e al suo NSE ovvero il software in grado di eseguirli.</p>
+<p>Sono presenti centinaia di script per le scansioni più disparate, organizzati nelle seguenti categorie:</p>
+<table>
+<thead>
+<tr>
+<th>Categoria</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auth</td>
+<td>Script per l'autenticazione e i privilegi utente.</td>
+</tr>
+<tr>
+<td>broadcast</td>
+<td>Network discovery basato su broadcast.</td>
+</tr>
+<tr>
+<td>brute</td>
+<td>Attacchi di tipo brute-force per indovinare le credenziali di accesso.</td>
+</tr>
+<tr>
+<td>default</td>
+<td>Gli script più popolari e considerati più utili.</td>
+</tr>
+<tr>
+<td>discovery</td>
+<td>Network, Service and Host discovery</td>
+</tr>
+<tr>
+<td>dos</td>
+<td>Attacchi di tipo "Denial of service"</td>
+</tr>
+<tr>
+<td>exploit</td>
+<td>Service exploitation on different CVEs</td>
+</tr>
+<tr>
+<td>external</td>
+<td>Scripts che si appoggiano a servizi o dati esterni per funzionare</td>
+</tr>
+<tr>
+<td>fuzzer</td>
+<td>Attacchi di tipo <em>fuzzing</em> ad app, servizi, reti.</td>
+</tr>
+<tr>
+<td>intrusive</td>
+<td>Attacchi aggressivi che potrebbero danneggiare il funzionamento della rete.</td>
+</tr>
+<tr>
+<td>malware</td>
+<td>Malware detections and exploration scripts</td>
+</tr>
+<tr>
+<td>safe</td>
+<td>Safe and non-intrusive/noisy scripts</td>
+</tr>
+<tr>
+<td>version</td>
+<td>OS, service and software detection scripts</td>
+</tr>
+<tr>
+<td>vuln</td>
+<td>Vulnerability detection and exploitation scripts</td>
+</tr>
+</tbody>
+</table>
+<p>Viste le categorie complete, sappiate che un elenco completo degli script disponibili con una descrizione esplicativa 
+accanto si trova sul sito <a href="https://nmap.org/nsedoc/">https://nmap.org/nsedoc/</a>.</p>
+<p>Per quanto riguarda il nostro corso, diciamo che prima di poter
+utilizzare gli script è bene assicurarsi che essi siano presenti,
+aggiornati all'ultima versione disponibile e catalogati nel database
+del sistema. Si ottiene questo risultato eseguendo il comando:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>nmap<span class="w"> </span>--script-updatedb
+</code></pre></div>
+<p>Fatto questo, la sintassi per eseguire gli script è molto semplice e si
+basa sull'opzione <code>--script</code>: ho fatto alcuni esempi per capire il funzionamento.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>//<span class="w"> </span>SINTASSI<span class="w"> </span>GENERALE
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>$<span class="w"> </span>sudo<span class="w"> </span>nmap<span class="w"> </span>--script<span class="w"> </span>QUALCOSINA<span class="w"> </span>TARGET
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>//<span class="w"> </span>Per<span class="w"> </span>eseguire<span class="w"> </span>tutti<span class="w"> </span>gli<span class="w"> </span>script<span class="w"> </span>di<span class="w"> </span>default<span class="w"> </span>verso<span class="w"> </span>un<span class="w"> </span>TARGET<span class="w"> </span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>sudo<span class="w"> </span>nmap<span class="w"> </span>--script<span class="w"> </span>default<span class="w"> </span>TARGET
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>//<span class="w"> </span>Per<span class="w"> </span>eseguire<span class="w"> </span>gli<span class="w"> </span>script<span class="w"> </span>dei<span class="w"> </span>gruppi<span class="w"> </span>broadcast<span class="w"> </span>e<span class="w"> </span>discovery<span class="w"> </span>verso<span class="w"> </span>un<span class="w"> </span>TARGET
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>sudo<span class="w"> </span>nmap<span class="w"> </span>--script<span class="w"> </span>broadcast,discovery<span class="w"> </span>TARGET
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>//<span class="w"> </span>come<span class="w"> </span>sopra,<span class="w"> </span>esattamente<span class="w"> </span>equivalente
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>sudo<span class="w"> </span>nmap<span class="w"> </span>--script<span class="w"> </span><span class="s2">&quot;broadcast or discovery&quot;</span><span class="w"> </span>TARGET
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>//<span class="w"> </span>Per<span class="w"> </span>eseguire<span class="w"> </span>tutti<span class="w"> </span>gli<span class="w"> </span>script<span class="w"> </span>relativi<span class="w"> </span>ad<span class="w"> </span>HTTP<span class="w"> </span>verso<span class="w"> </span>un<span class="w"> </span>target
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>sudo<span class="w"> </span>nmap<span class="w"> </span>--script<span class="w"> </span>http*<span class="w"> </span>TARGET
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>//<span class="w"> </span>Per<span class="w"> </span>eseguire<span class="w"> </span>lo<span class="w"> </span>script<span class="w"> </span>chiamato<span class="w"> </span>dhcp-discover<span class="w"> </span>verso<span class="w"> </span>un<span class="w"> </span>target
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>sudo<span class="w"> </span>nmap<span class="w"> </span>--script<span class="w"> </span>dhcp-discover<span class="w"> </span>TARGET
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>//<span class="w"> </span>Per<span class="w"> </span>eseguire<span class="w"> </span>solo<span class="w"> </span>gli<span class="w"> </span>script<span class="w"> </span>relativi<span class="w"> </span>ad<span class="w"> </span>HTTP<span class="w"> </span>del<span class="w"> </span>gruppo<span class="w"> </span>discovery<span class="w"> </span>verso<span class="w"> </span>un<span class="w"> </span>target
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>sudo<span class="w"> </span>nmap<span class="w"> </span>--script<span class="w"> </span><span class="s2">&quot;http* and discovery&quot;</span><span class="w"> </span>TARGET
+</code></pre></div>
+<h2 id="esempi-ed-esercizi">Esempi ed Esercizi</h2>
+<p>Nel primo esempio proveremo ad interrogare il server DHCP per ottenere
+le informazioni di rete, fingendo di essere un client DHCP (con un MAC
+inventato) e visualizzando le informazioni ottenute senza realmente
+applicarle.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>//<span class="w"> </span>l<span class="s1">&#39;opzione -sU indirizza la scansione sul protocollo UDP</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="s1">// l&#39;</span>opzione<span class="w"> </span>-p<span class="w"> </span><span class="m">67</span><span class="w"> </span>individua<span class="w"> </span>la<span class="w"> </span>porta<span class="w"> </span>del<span class="w"> </span>server<span class="w"> </span>DHCP:<span class="w"> </span>velocizza<span class="w"> </span>la<span class="w"> </span>scansione
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>//<span class="w"> </span>lo<span class="w"> </span>script<span class="w"> </span>si<span class="w"> </span>chiama<span class="w"> </span>dhcp-discover
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>$<span class="w"> </span>sudo<span class="w"> </span>nmap<span class="w"> </span>-sU<span class="w"> </span>-p<span class="w"> </span><span class="m">67</span><span class="w"> </span>--script<span class="w"> </span>dhcp-discover<span class="w"> </span>IP_SERVER_DHCP
+</code></pre></div>
+<p>Nel secondo esempio proviamo ad elencare le cartelle condivise da un
+generico PC con Windows, per ottenere informazioni su cartelle condivise
+eventualmente accessibili.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>//<span class="w"> </span>opzione<span class="w"> </span><span class="o">(</span>-sU<span class="o">)</span><span class="w"> </span>per<span class="w"> </span>scansione<span class="w"> </span>UDP,<span class="w"> </span>opzione<span class="w"> </span><span class="o">(</span>-sS<span class="o">)</span><span class="w"> </span>per<span class="w"> </span>scansione<span class="w"> </span>TCP<span class="w"> </span>SYN
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>//<span class="w"> </span>Le<span class="w"> </span>porte<span class="w"> </span>elencate<span class="w"> </span><span class="o">(</span><span class="m">137</span>/udp<span class="w"> </span>e<span class="w"> </span><span class="m">139</span>/tcp<span class="o">)</span><span class="w"> </span>servono<span class="w"> </span>per<span class="w"> </span>velocizzare<span class="w"> </span>le<span class="w"> </span>operazioni
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>//<span class="w"> </span>lo<span class="w"> </span>script<span class="w"> </span>si<span class="w"> </span>chiama<span class="w"> </span>smb-enum-shares
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>$<span class="w"> </span>sudo<span class="w"> </span>nmap<span class="w"> </span>-sU<span class="w"> </span>-sS<span class="w"> </span>-p<span class="w"> </span>U:137,T:139<span class="w"> </span>--script<span class="w"> </span>smb-enum-shares<span class="w"> </span>IP_SERVER_SMB
+</code></pre></div>
+<p>Nel terzo esempio proviamo ad ottenere informazioni dettagliate sul PC
+Windows che ci interessa studiare.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>//<span class="w"> </span>opzione<span class="w"> </span><span class="o">(</span>-sU<span class="o">)</span><span class="w"> </span>per<span class="w"> </span>scansione<span class="w"> </span>UDP,<span class="w"> </span>opzione<span class="w"> </span><span class="o">(</span>-sS<span class="o">)</span><span class="w"> </span>per<span class="w"> </span>scansione<span class="w"> </span>TCP<span class="w"> </span>SYN
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>//<span class="w"> </span>Le<span class="w"> </span>porte<span class="w"> </span>elencate<span class="w"> </span><span class="o">(</span><span class="m">137</span>/udp<span class="w"> </span>e<span class="w"> </span><span class="m">139</span>/tcp<span class="o">)</span><span class="w"> </span>servono<span class="w"> </span>per<span class="w"> </span>velocizzare<span class="w"> </span>le<span class="w"> </span>operazioni
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>//<span class="w"> </span>lo<span class="w"> </span>script<span class="w"> </span>si<span class="w"> </span>chiama<span class="w"> </span>smb-system-info
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>$<span class="w"> </span>sudo<span class="w"> </span>nmap<span class="w"> </span>-sU<span class="w"> </span>-sS<span class="w"> </span>-p<span class="w"> </span>U:137,T:139<span class="w"> </span>--script<span class="w"> </span>smb-system-info<span class="w"> </span>IP_SERVER_SMB
+</code></pre></div>
+<p>Nel quarto esempio faremo fare a nmap una scansione tipo traceroute di
+tutti gli hop attraversati con la localizzazione geografica delle
+posizioni di ognuna.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>nmap<span class="w"> </span>--traceroute<span class="w"> </span>--script<span class="w"> </span>traceroute-geolocation<span class="w"> </span>TARGET
+</code></pre></div>
+<p>Nel quinto esempio simuleremo un attacco (di 10 minuti) ad un server DNS
+allo scopo di testare la qualità della rete e del servizio DNS di
+quest'ultima. Attenzione...</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>nmap<span class="w"> </span>-sU<span class="w"> </span>--script<span class="w"> </span>dns-fuzz<span class="w"> </span>TARGET
+</code></pre></div>
+<p>Nel sesto e ultimo esempio utilizzeremo uno script di tipo brute per
+tentare di indovinare nome utente e password di un utente collegato ad
+un Mac. Anche questo script ha ovviamente l'unico scopo di scoraggiare
+l'utilizzo di nomi utente e password semplici da indovinare.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>$<span class="w"> </span>sudo<span class="w"> </span>nmap<span class="w"> </span>-p<span class="w"> </span><span class="m">548</span><span class="w"> </span>--script<span class="w"> </span>afp-brute<span class="w"> </span>IP_COMPUTER_MAC
+</code></pre></div>
+<p><br>
+<br></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Torna su
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Piede" >
+        
+          
+          <a href="../lab_wireshark/" class="md-footer__link md-footer__link--prev" aria-label="Precedente: (LAB) wireshark">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Precedente
+              </span>
+              <div class="md-ellipsis">
+                (LAB) wireshark
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../lab_port_forwarding/" class="md-footer__link md-footer__link--next" aria-label="Successivo: (LAB) port forwarding">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Successivo
+              </span>
+              <div class="md-ellipsis">
+                (LAB) port forwarding
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Andrea Diamantini (c) 2022-2024<br> <a href="#__consent">Change Cookie Settings</a><br> This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+
+  
+
+<h4>Consenso all'uso dei Cookie(s)</h4>
+<p>Questo sito memorizza alcuni cookies solo per riconoscere un visitatore  che non è alla sua prima visita e alcune preferenze, come il tema di visualizzazione della pagina selezionato.<br> Se non acconsenti, questa finestra riapparirà ogni volta che riapri il sito.<br> Se vuoi cambiare le tue scelte, in fondo alla pagina trovi un link per modificarle ;)
+</p>
+<input class="md-toggle" type="checkbox" id="__settings" checked>
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accetta</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Rifiuta</button>
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer", "navigation.tabs", "navigation.sections", "navigation.top", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>
