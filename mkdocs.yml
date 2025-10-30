@@ -87,8 +87,8 @@ nav:
     # - Livello Superiore: teoria/700_superior.md
   # ---------------------------------------------------------------    
   - Reti:
-    - Indirizzamento IPv4:  reti/th_IndirizzamentoIPv4.md
-    - Subnetting:           reti/th_subnetting.md
+    - Indirizzamento IPv4:  reti/IndirizzamentoIPv4.md
+    - Subnetting:           reti/subnetting.md
     - (PY) ipaddress:       reti/py_ipaddress.md
     - (LAB) ipconfig:       reti/lab_ipconfig.md
     - (LAB) ifconfig,ip:    reti/lab_ifconfig_ip.md

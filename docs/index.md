@@ -15,14 +15,9 @@ hide:
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <section class="">
-
 <h1 style="font-weight:bold;margin:0px">Corso di Reti</h1>
-<p style="background:yellow"><b>ATTENZIONE!!! Materiale in fase di allestimento per l'as 2025-2026...</b></p>
-<p>Le dispense per le lezioni di informatica del prof...</p>
-
 <br>
 <br>
-
 </section>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -30,33 +25,44 @@ hide:
 
 <div class="w3-row">
 
-<div class="w3-half" style="padding:0 10px">
+<div class="w3-half" style="padding:10px">
 <a href="teoria/01_suite_internet/" class="md-button md-button--primary" style="width:250px">La teoria delle reti</a>
-<p>Il modello OSI e la Suite Internet. Le organizzazioni che gestiscono Internet. Cenni alla storia delle reti.</p>
-<br>
-<br>
+<p>La Suite Internet e le organizzazioni che la gestiscono.</p>
 </div>
 
-<div class="w3-half" style="padding:0 10px">
-<a href="programmazione/00_intro/" class="md-button" style="width:250px">La Programmazione</a>
-<p>Librerie Python per la programmazione di rete. Risoluzione degli indirizzi. Servizi Web, etc...</p>
-<br>
-<br>
+<div class="w3-half" style="padding:10px">
+<a href="reti/IndirizzamentoIPv4/" class="md-button" style="width:250px">Reti</a>
+<p>Protocolli di rete, indirizzamento IPv4, IPv6, subnetting</p>
 </div>
 
-<div class="w3-half" style="padding:0 10px">
-<a href="laboratorio/00_intro/" class="md-button" style="width:250px">Il laboratorio</a>
-<p>Le esperienze di laboratorio per capire come rendere disponibile un servizio di rete</p>
-
-<br>
-<br>
+<div class="w3-half" style="padding:10px">
+<a href="routing/network/" class="md-button" style="width:250px">Routing</a>
+<p>Selezione del percorso di rete</p>
 </div>
 
-<div class="w3-half" style="padding:0 10px">
-<a href="complementi/00_intro/" class="md-button" style="width:250px">I complementi</a>
-<p>Cose che servono per capire la teoria, fare programmazione di rete, far funzionare le esercitazioni di laboratorio</p>
-<br>
-<br>
+<div class="w3-half" style="padding:10px">
+<a href="trasporto/transport/" class="md-button" style="width:250px">Trasporto</a>
+<p>Individuazione del mittente e del destinatario della comunicazione</p>
+</div>
+
+<div class="w3-half" style="padding:10px">
+<a href="HTTP/HTTP/" class="md-button" style="width:250px">HTTP</a>
+<p>Siti web, servizi web, richieste e risposte HTTP</p>
+</div>
+
+<div class="w3-half" style="padding:10px">
+<a href="DNS/DNS/" class="md-button" style="width:250px">DNS</a>
+<p>Risoluzione dei nomi di dominio</p>
+</div>
+
+<div class="w3-half" style="padding:10px">
+<a href="DHCP/DHCP/" class="md-button" style="width:250px">DHCP</a>
+<p>Configurazione dinamica degli host di rete</p>
+</div>
+
+<div class="w3-half" style="padding:10px">
+<a href="MAIL/MAIL/" class="md-button" style="width:250px">MAIL</a>
+<p>Protocolli per la posta elettronica</p>
 </div>
 
 </div>
