@@ -79,60 +79,71 @@ nav:
     - la Suite Internet:            teoria/01_suite_internet.md
     - Gestione e Sviluppo di Internet:  teoria/02_assoc.md
     # --
-    - Indirizzamento IPv4:  teoria/03_IndirizzamentoIPv4.md
-    - Subnetting:           teoria/04_subnetting.md
+
     # --
     #- Livello Inferiore:     teoria/100_inferior.md
     # --
-    #- Livello di Rete:      teoria/300_network.md
-    #- ARP (?):                  teoria/302_ARP.md
-    - NAT:                  teoria/303_NAT.md
-    #- Routing:              teoria/311_routing.md
     # --
-    - Livello di Trasporto: teoria/400_transport.md
     # --
-    - Livello Superiore: teoria/700_superior.md
-    - DNS:               teoria/701_DNS.md
-    - DHCP:              teoria/702_DHCP.md
-    - HTTP:              teoria/703_HTTP.md
-    - Mail:              teoria/704_MAIL.md
+    # - Livello Superiore: teoria/700_superior.md
   # ---------------------------------------------------------------    
-  - Programmazione:
-    - Introduzione:    programmazione/00_intro.md
+  - Reti:
+    - Indirizzamento IPv4:  teoria/03_IndirizzamentoIPv4.md
+    - Subnetting:           teoria/04_subnetting.md
     - ipaddress:       programmazione/01_ipaddress.md
-    - sockets:         programmazione/10_socket.md
-    - Flask:           programmazione/20_Flask.md
-    - urllib:          programmazione/21_urllib.md
-    - requests:        programmazione/22_requests.md
-    - soup:            programmazione/23_bs4.md
-    - dnspython:       programmazione/30_dnspython.md
-    - smtplib:         programmazione/40_smtplib.md
-    
-   # ---------------------------------------------------------------    
-  - Laboratorio:
-    - Introduzione:         laboratorio/00_intro.md
     - (LAB) inf:            laboratorio/lab_101_boh.md
     - (LAB) ipconfig:       laboratorio/lab_310_ipconfig.md
     - (LAB) ifconfig,ip:    laboratorio/lab_311_ifconfig_ip.md
     - (LAB) ping:           laboratorio/lab_320_ping.md
+  # ---------------------------------------------------------------    
+  - Routing:
+    #- Livello di Rete:      teoria/300_network.md
+    #- ARP (?):                  teoria/302_ARP.md
+    - NAT:                  teoria/303_NAT.md
+    #- Routing:              teoria/311_routing.md
     - (LAB) traceroute:     laboratorio/lab_340_traceroute.md
     - (LAB) arp:            laboratorio/lab_330_arp.md
+  
+  # ---------------------------------------------------------------    
+  - Trasporto:
+    - Livello di Trasporto: teoria/400_transport.md
+    - sockets:         programmazione/10_socket.md
     - (LAB) netstat:        laboratorio/lab_410_netstat.md
     - (LAB) wireshark:      laboratorio/lab_420_wireshark.md
     - (LAB) nmap:           laboratorio/lab_430_nmap.md
     - (LAB) port forwarding: laboratorio/lab_440_port_forwarding.md
-    - (LAB) DNS clients:          laboratorio/lab_720_DNS_clients.md
-    - (LAB) DNS server:           laboratorio/lab_721_DNS_server.md
-    - (LAB) DHCP server:          laboratorio/lab_730_DHCP_server.md
-    - (LAB) Access Point DIY:     laboratorio/lab_731_AccessPoint_DIY.md
+
+  # ---------------------------------------------------------------    
+  - HTTP:
+    - HTTP:              teoria/703_HTTP.md
+    - URL:                  complementi/11_URL.md
+    - Flask:           programmazione/20_Flask.md
+    - urllib:          programmazione/21_urllib.md
+    - requests:        programmazione/22_requests.md
+    - soup:            programmazione/23_bs4.md
     - (LAB) Telnet e HTTP:        laboratorio/lab_712_telnet_http.md
     - (LAB) server web:           laboratorio/lab_710_server_web.md
     - (LAB) sito web a casa tua:  laboratorio/lab_711_sito_casa.md
+
+  # ---------------------------------------------------------------    
+  - DNS:
+    - DNS:               teoria/701_DNS.md
+    - dnspython:       programmazione/30_dnspython.md
+    - (LAB) DNS clients:          laboratorio/lab_720_DNS_clients.md
+    - (LAB) DNS server:           laboratorio/lab_721_DNS_server.md
+    
+  # ---------------------------------------------------------------    
+  - DHCP:
+    - DHCP:              teoria/702_DHCP.md
+    - (LAB) DHCP server:          laboratorio/lab_730_DHCP_server.md
+    - (LAB) Access Point DIY:     laboratorio/lab_731_AccessPoint_DIY.md
+    
+  # ---------------------------------------------------------------    
+  - MAIL:
+    - Mail:              teoria/704_MAIL.md
+    - smtplib:         programmazione/40_smtplib.md    
     - (LAB) Mail server:          laboratorio/lab_740_mail_server.md
     - (LAB) Telnet e Mail:        laboratorio/lab_741_telnet_mail.md
    # ---------------------------------------------------------------    
-  - Complementi:
-    - Introduzione:         complementi/00_intro.md
-    - URL:                  complementi/11_URL.md
-
+  
     
