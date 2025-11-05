@@ -135,6 +135,30 @@ il primo legge la risposta e può rispondere... e così all'infinito (finché no
 
 ------------------------------------------------------------------------------------------------
 
+**Esercizio 3301 bis**
+
+Implementare un *peer* ovvero un programma che contiene contemporaneamente client e server UDP. Eseguirne tre o quattro copie (opportunamente configurate) 
+in grado di colloquiare fra loro secondo un ordine prestabilito: il primo manda un msg di testo agli altri tre, poi il secondo, poi il terzo, poi il quarto e si ricomincia.
+Tutti ricevono i messaggi di tutti
+
+------------------------------------------------------------------------------------------------
+
+
+**Esercizio 3301 ter**
+
+Implementare un *server* in grado di servire quattro persone che parlano fra di loro. Questo riceve un msg da uno qualsiasi dei client e lo invia agli altri tre.
+Implementare un *client* in grado di inviare messaggi al server e di riceverli. Modificare il client in modo da stabilire l'ordine con cui le persone parlano (vedi 3301 bis).
+
+------------------------------------------------------------------------------------------------
+
+
+**Esercizio 3301 quater**
+
+Implementare un *server* in grado di servire un numero imprecisato di client. Ogni volta che un client invia un messaggio questi viene aggiunto alla lista dei client
+a cui inviare i messaggi degli altri. Il  *client* dell'esercizio precedente dovrebbe funzionare bene anche con questo server.
+
+------------------------------------------------------------------------------------------------
+
 **Esercizio 3302**
 
 Implementare un *peer* ovvero un programma che contiene contemporaneamente client e server UDP. Entrambi possono scrivere quando vogliono e
