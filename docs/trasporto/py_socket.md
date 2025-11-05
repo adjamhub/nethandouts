@@ -155,7 +155,13 @@ Implementare un *client* in grado di inviare messaggi al server e di riceverli. 
 **Esercizio 3301 quater**
 
 Implementare un *server* in grado di servire un numero imprecisato di client. Ogni volta che un client invia un messaggio questi viene aggiunto alla lista dei client
-a cui inviare i messaggi degli altri. Il  *client* dell'esercizio precedente dovrebbe funzionare bene anche con questo server.
+a cui inviare i messaggi degli altri. Il *client* dell'esercizio precedente dovrebbe funzionare bene anche con questo server.
+
+------------------------------------------------------------------------------------------------
+
+**Esercizio 3301 quinquies GUI**
+
+Il *server* è quello dell'esercizio precedente. Il *client* ha le stesse funzionalità di prima, ma implementa una interfaccia grafica in wxPython.
 
 ------------------------------------------------------------------------------------------------
 
