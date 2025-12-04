@@ -265,7 +265,74 @@ while True:
 
 ### Esercizi su socket TCP
 
-blah blah...
+------------------------------------------------------------------------------------------------
+
+
+**Esercizio 3401**
+
+Implementare un *peer* ovvero un programma che contiene contemporaneamente client e server TCP. Eseguirne due copie in grado di 
+colloquiare alternativamente fra loro: il primo manda un msg di testo al secondo, il secondo lo vede e manda una risposta (digitata dall'utente) al primo,
+il primo legge la risposta e può rispondere... e così all'infinito (finché non si interrompe il programma).
+
+------------------------------------------------------------------------------------------------
+
+**Esercizio 3401 bis**
+
+Implementare un *peer* ovvero un programma che contiene contemporaneamente client e server TCP. Eseguirne tre o quattro copie (opportunamente configurate) 
+in grado di colloquiare fra loro secondo un ordine prestabilito: il primo manda un msg di testo agli altri tre, poi il secondo, poi il terzo, poi il quarto e si ricomincia.
+Tutti ricevono i messaggi di tutti
+
+------------------------------------------------------------------------------------------------
+
+
+**Esercizio 3401 ter**
+
+Implementare un *server* in grado di servire quattro persone che parlano fra di loro. Questo riceve un msg da uno qualsiasi dei client e lo invia agli altri tre.
+Implementare un *client* in grado di inviare messaggi al server e di riceverli. Modificare il client in modo da stabilire l'ordine con cui le persone parlano (vedi 3401 bis).
+
+------------------------------------------------------------------------------------------------
+
+
+**Esercizio 3401 quater**
+
+Implementare un *server* in grado di servire un numero imprecisato di client. Ogni volta che un client invia un messaggio questi viene aggiunto alla lista dei client
+a cui inviare i messaggi degli altri. Il *client* dell'esercizio precedente dovrebbe funzionare bene anche con questo server.
+
+------------------------------------------------------------------------------------------------
+
+**Esercizio 3401 quinquies GUI**
+
+Il *server* è quello dell'esercizio precedente. Il *client* ha le stesse funzionalità di prima, ma implementa una interfaccia grafica in wxPython.
+
+------------------------------------------------------------------------------------------------
+
+**Esercizio 3402**
+
+Implementare un *peer* ovvero un programma che contiene contemporaneamente client e server TCP. Entrambi possono scrivere quando vogliono e
+visualizzano i messaggi che arrivano nell'istante in cui lo fanno.
+
+------------------------------------------------------------------------------------------------
+
+**Esercizio 3402 GUI**
+
+Come l'esercizio precedente, ma fornendo una GUI scritta in wxPython
+
+------------------------------------------------------------------------------------------------
+
+**Esercizio 3403**
+
+Coppia di programmi che permettono di inviare file di testo semplice fra programma e programma. Individuare il file (ad esempio con l'ausilio della libreria pathlib)
+e inviate la stringa [NOME_FILE + "\n\n" + CONTENUTO_FILE ]. Il client è in grado di salvare nella stessa cartella dello script il file con il nome inviato.
+
+------------------------------------------------------------------------------------------------
+
+**Esercizio 3403 GUI**
+
+Come l'esercizio precedente, ma fornendo una GUI scritta in wxPython. 
+Eventualmente nel programma di ricezione si può permettere all'utente di selezionare DOVE salvare il file
+
+
+
 
 <br>
 <br>
