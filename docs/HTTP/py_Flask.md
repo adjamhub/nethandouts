@@ -475,12 +475,14 @@ def cerca():
 Gestisci una lista personale di film.
 
 Ogni film ha:
+
 - `titolo` (stringa, obbligatorio)
 - `regista` (stringa, obbligatorio)
 - `anno` (intero, obbligatorio)
 - `visto` (booleano, default `false`)
 
 Pagina iniziale con i link alle seguenti pagine:
+
 - Pagina che permette di aggiungere un film.
 - Pagina che permette una ricerca (per titolo o per regista, con i radiobutton per scegliere)
 - Pagina per vedere i film visti
@@ -496,12 +498,14 @@ facendo diventare il film da 'da vedere' a 'visto' (campo 'visto' da `False` a `
 Pubblica e gestisci annunci.
 
 Ogni annuncio ha:
+
 - `titolo` (stringa, obbligatorio)
 - `testo` (stringa, obbligatorio)
 - `autore` (stringa, obbligatorio)
 - `data` (stringa ISO, generata automaticamente con `datetime.date.today().isoformat()`)
 
 Pagina iniziale con i link alle seguenti pagine:
+
 - Pagina che permette di aggiungere un annuncio
 - Pagina che permette una ricerca per titolo o per autore
 - Pagina che permette di vedere tutti gli annunci presenti in bacheca
@@ -515,6 +519,7 @@ Pagina iniziale con i link alle seguenti pagine:
 Gestisci la classifica di un torneo.
 
 Ogni squadra ha:
+
 - `nome` (stringa, obbligatorio)
 - `punteggio` (intero, default `0`)
 - `partite` (intero, default `0`)
@@ -522,10 +527,12 @@ Ogni squadra ha:
 All'inizio sono presenti le seguenti squadre: polli, aquile, somari, cavallette. All'inizio punteggio e partite sono tutte 0.
 
 La pagina iniziale visualizza la classifica aggiornata e presenta i seguenti link:
+
 - Aggiungi partita: due tendine per selezionare le squadre e due caselle di testo per il punteggio della partita. Alla fine, 2 punti alla squadra vincente, 0 a quella che perde. 1 ad entrambe per il pareggio.
 
 
 Funzionalità aggiuntive suggerite:
+
 - La classifica è sempre mostrata ordinata per punteggio decrescente
 
 --
@@ -535,18 +542,21 @@ Funzionalità aggiuntive suggerite:
 Tieni traccia di locali visitati.
 
 Ogni recensione ha:
+
 - `nome` (stringa, obbligatorio)
 - `tipo` (stringa tra`"ristorante"`, `"bar"`, `"pizzeria"`)
 - `voto` (intero da 1 a 10, obbligatorio)
 - `commento` (stringa, opzionale)
 
 Pagina iniziale che elenca tutti i risultati inseriti, con i link alle seguenti pagine:
+
 - Pagina che permette di filtrare per tipo (URL /tipo/<tipo>)
 - Pagina che permette di aggiungere una recensione.
 - Pagina che permette di visualizzare solo la recensione con il voto più alto
 - Pagina che permette di visualizzare solo la recensione con il voto più basso
 
 Funzionalità aggiuntive suggerite:
+
 - Mostra la media dei voti in cima alla pagina
 
 <br>
