@@ -135,68 +135,141 @@ if __name__ == "__main__":
 
 
 <!-- ################################################################################# -->
-## Esercizio svolto
+## render_template
 
-Ho scritto la mia bella pagina web in HTML, CSS, JS e via discorrendo.
-Ho tutto pronto nel file "pagina.html": come la rendo disponibile
-online?
-
-Nella stessa cartella della pagina web creo uno script Python con il
-seguente codice:
+Finora le nostre funzioni restituivano semplici stringhe di testo. 
+In una vera applicazione web vogliamo restituire pagine HTML complete. 
+Potremmo costruire l'HTML direttamente in Python:
 
 ```python
-from flask import Flask
+@app.route('/')
+def home():
+    return '<html><body><h1>Ciao!</h1></body></html>'
+```
+
+Funziona, ma diventa presto ingestibile. I **template** risolvono questo problema: sono file HTML separati, con la possibilità di inserire dati dinamici al loro interno.
+
+Flask usa il motore di template **Jinja2**, che è già incluso nell'installazione di Flask.
+
+---
+
+### Struttura delle cartelle
+
+Flask si aspetta che i template siano nella cartella `templates`, nella stessa directory di `app.py`:
+
+```
+progettoFlask/
+├── app.py
+└── templates/
+    └── index.html
+```
+
+Crea la cartella `templates` e al suo interno il file `index.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>La mia prima pagina</title>
+</head>
+<body>
+    <h1>Ciao, Flask!</h1>
+</body>
+</html>
+```
+
+Per restituire questo template da Flask si usa la funzione `render_template`:
+
+```python
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route("/")
-def index():
-    file = open("pagina.html")
-    content = file.read()
-    file.close()
-    return content
+@app.route('/')
+def home():
+    return render_template('index.html')
 ```
 
-<!-- ################################################################################# -->
-## L'esercizio svolto è sbagliato!
+Flask troverà automaticamente il file nella cartella `templates`.
 
-In che senso sbagliato... l'esercizio è giusto. Funziona! L'ho appena
-provato... inoltre ha senso, combacia con la teoria spiegata nella
-pagina precedente... Cosa ha di sbagliato?
+---
 
-In realtà nulla.
+### Passare dati al template
 
-Il fatto è che tramite Flask è possibile fare le cose in maniera
-addirittura più semplice!
-
-Ho provato a disegnare uno schema per spiegare il concetto... se a
-sinistra (on the web) descrivo come scriveresti una normale pagina web,
-a destra (on the Flask framework) descrivo come andrebbero organizzati i
-file.
-
-![Organizzazione dei file con Flask](images/Flask_organizzazione_files.jpg "Organizzazione dei file con Flask")
-
-Il web framework Flask considera (scontata) la presenza di 2 directory:
-
--   la cartella **static**, che andrà a contenere tutti file "statici"
-    del sito: immagini, css, javascript, etc...
--   la cartella **templates**, che andrà a contenere tutti i file html
-    del sito. Vengono definiti templates e non sono considerati statici
-    perché possono essere completati o modificati tramite codice andando
-    a creare contenuti dinamici.
-
-Quando si utilizza la cartella templates, il (poco) lavoro svolto nell'esempio svolto 
-si fa in meno di una riga di codice, tramite la funzione `render_template`
+Il vantaggio dei template è che possiamo passare dati da Python all'HTML. Si usa il secondo argomento di `render_template`:
 
 ```python
-from flask import Flask,render_template
-
-app = Flask(__name__)
-
-@app.route("/")
-def index():
-    return render_template("pagina.html")
+@app.route('/')
+def home():
+    return render_template('index.html', nome='Marco', eta=17)
 ```
+
+Modifica il body del file HTML in questo modo: le variabili si usano con la sintassi `{{ variabile }}`:
+
+```html
+<body>
+    <h1>Ciao, {{ nome }}!</h1>
+    <p>Hai {{ eta }} anni.</p>
+</body>
+```
+
+Possiamo passare anche strutture dati più complesse, come liste e dizionari:
+
+```python
+@app.route('/')
+def home():
+    studenti = ['Alice', 'Bruno', 'Carla']
+    return render_template('index.html', studenti=studenti)
+```
+
+### Cicli nei template
+
+Per scorrere una lista si usa `for`:
+
+```html
+<p>
+{% for studente in studenti %}
+    {{ studente }}<br>
+{% endfor %}
+</p>
+```
+
+### Iterare su dizionari
+
+Possiamo passare anche dizionari e iterare sulle loro chiavi e valori:
+
+```python
+@app.route('/prodotto')
+def prodotto():
+    info = {
+        'nome': 'Zaino',
+        'prezzo': 29.90,
+        'disponibile': True
+    }
+    return render_template('prodotto.html', info=info)
+```
+
+```html
+<dl>
+{% for chiave, valore in info.items() %}
+    <dt>{{ chiave }}</dt>
+    <dd>{{ valore }}</dd>
+{% endfor %}
+</dl>
+```
+
+Oppure accedendo direttamente ai campi:
+
+```html
+<h2>{{ info.nome }}</h2>
+<p>Prezzo: {{ info.prezzo }} €</p>
+{% if info.disponibile %}
+    <p>Disponibile</p>
+{% else %}
+    <p>Non disponibile</p>
+{% endif %}
+```
+
 
 <!-- ################################################################################# -->
 ## Variabili dinamiche
@@ -301,7 +374,7 @@ Entrambe le pagine saranno servite dalla nostra applicazione Flask.
 
 La pagina con il form HTML
 
-```html
+```html title="form html, metodo POST"
 <form action="/data" method="POST">
 
 USER: <input name="username"><br>
@@ -327,7 +400,7 @@ cartella "templates" della nostra app.
 
 La pagina per visualizzare i dati:
 
-```html
+```html title="dati.html"
 USER: {{ username }} <br>
 PASS: {{ password }} <br>
 ```
@@ -350,9 +423,10 @@ def index():
 
 @app.route("/data", methods=["POST"])
 def login():
-    u = request.form["username"]
-    p = request.form["password"]
-    return render_template("data.html",username = u,password = p)
+    if request.method == 'POST':
+        u = request.form.get("username")
+        p = request.form.get("password")
+    return render_template("dati.html",username = u,password = p)
 ```
 
 Come vedete il codice introduce un nuovo oggetto: `request`.
@@ -370,18 +444,111 @@ Fatto!
 
 Detto tutto questo... basta provare!
 
+
+### Recupero dati inviati con GET
+
+Oltre ai parametri dinamici nel path, puoi leggere i **dati contenuti nella query** dell'URL della richiesta:
+
+```
+http://127.0.0.1:5000/cerca?q=flask
+```
+
+```python
+@app.route('/cerca')
+def cerca():
+    termine = request.args.get('q', '')
+    return f'Stai cercando: {termine}'
+```
+
+`request.args.get('q', '')` legge il parametro `q` dall'URL. Il secondo argomento (`''`) è il valore di default se il parametro non è presente.
+
+
 <br>
 <br>
 <br>
 
-<!-- TODO                                   -->
-<!-- esercizi mirati per ogni parte         -->
-<!-- integrazione con DB  -->
-<!-- * Flask & mysql: <https://www.askpython.com/python-modules/flask/flask-mysql-database> -->
-<!-- * Flask & sqlite: <https://pythonbasics.org/flask-sqlite/> -->
-<!-- * Flask & mongoDB: <https://pythonbasics.org/flask-mongodb/> -->
+## Esercizi Finali
+
+
+**Esercizio 1: Watchlist film**
+
+Gestisci una lista personale di film.
+
+Ogni film ha:
+- `titolo` (stringa, obbligatorio)
+- `regista` (stringa, obbligatorio)
+- `anno` (intero, obbligatorio)
+- `visto` (booleano, default `false`)
+
+Pagina iniziale con i link alle seguenti pagine:
+- Pagina che permette di aggiungere un film.
+- Pagina che permette una ricerca (per titolo o per regista, con i radiobutton per scegliere)
+- Pagina per vedere i film visti
+- Pagina per vedere i film ancora 'da vedere'
+
+Funzionalità aggiuntiva: nella pagina dei film da vedere accanto ad ogni film abbiamo un link (o un pulsante, o... quello che volete) per modificare il dato,
+facendo diventare il film da 'da vedere' a 'visto' (campo 'visto' da `False` a `True`)
+
+--
+
+**Esercizio 2: Bacheca annunci**
+
+Pubblica e gestisci annunci.
+
+Ogni annuncio ha:
+- `titolo` (stringa, obbligatorio)
+- `testo` (stringa, obbligatorio)
+- `autore` (stringa, obbligatorio)
+- `data` (stringa ISO, generata automaticamente con `datetime.date.today().isoformat()`)
+
+Pagina iniziale con i link alle seguenti pagine:
+- Pagina che permette di aggiungere un annuncio
+- Pagina che permette una ricerca per titolo o per autore
+- Pagina che permette di vedere tutti gli annunci presenti in bacheca
+- Pagina che permette di selezionare ed eliminare un annuncio
+ 
+
+--
+
+**Esercizio 3: Classifica torneo**
+
+Gestisci la classifica di un torneo.
+
+Ogni squadra ha:
+- `nome` (stringa, obbligatorio)
+- `punteggio` (intero, default `0`)
+- `partite` (intero, default `0`)
+
+All'inizio sono presenti le seguenti squadre: polli, aquile, somari, cavallette. All'inizio punteggio e partite sono tutte 0.
+
+La pagina iniziale visualizza la classifica aggiornata e presenta i seguenti link:
+- Aggiungi partita: due tendine per selezionare le squadre e due caselle di testo per il punteggio della partita. Alla fine, 2 punti alla squadra vincente, 0 a quella che perde. 1 ad entrambe per il pareggio.
+
+
+Funzionalità aggiuntive suggerite:
+- La classifica è sempre mostrata ordinata per punteggio decrescente
+
+--
+
+**Esercizio 4: Registro recensioni**
+
+Tieni traccia di locali visitati.
+
+Ogni recensione ha:
+- `nome` (stringa, obbligatorio)
+- `tipo` (stringa tra`"ristorante"`, `"bar"`, `"pizzeria"`)
+- `voto` (intero da 1 a 10, obbligatorio)
+- `commento` (stringa, opzionale)
+
+Pagina iniziale che elenca tutti i risultati inseriti, con i link alle seguenti pagine:
+- Pagina che permette di filtrare per tipo (URL /tipo/<tipo>)
+- Pagina che permette di aggiungere una recensione.
+- Pagina che permette di visualizzare solo la recensione con il voto più alto
+- Pagina che permette di visualizzare solo la recensione con il voto più basso
+
+Funzionalità aggiuntive suggerite:
+- Mostra la media dei voti in cima alla pagina
 
 <br>
 <br>
 <br>
-
