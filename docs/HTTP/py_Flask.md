@@ -135,7 +135,7 @@ if __name__ == "__main__":
 
 
 <!-- ################################################################################# -->
-## render_template
+## I templates
 
 Finora le nostre funzioni restituivano semplici stringhe di testo. 
 In una vera applicazione web vogliamo restituire pagine HTML complete. 
@@ -261,9 +261,9 @@ def prodotto():
 Oppure accedendo direttamente ai campi:
 
 ```html
-<h2>{{ info.nome }}</h2>
-<p>Prezzo: {{ info.prezzo }} €</p>
-{% if info.disponibile %}
+<h2>{{ info['nome'] }}</h2>
+<p>Prezzo: {{ info['prezzo'] }} €</p>
+{% if info['disponibile'] %}
     <p>Disponibile</p>
 {% else %}
     <p>Non disponibile</p>
